@@ -5,7 +5,12 @@
  */
 package swt;
 
+<<<<<<< HEAD
 
+=======
+//Test
+//testEM
+>>>>>>> 49676010ab09e703c6e9e2568b46b2be9137afcf
 /**
  *
  * @author Kampf-Kuchen
