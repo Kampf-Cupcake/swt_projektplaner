@@ -56,4 +56,7 @@ public class ProjektVerwaltung {
         System.out.println(deadline);
 
     }
+    public List<Projekt> getProjekte(){
+        return projekte;
+    }
 }
