@@ -1,6 +1,7 @@
 package swt_projektplaner;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Klasse zum Erstellen einer Notiz im Projekt
@@ -9,19 +10,33 @@ import java.util.Date;
 public class Notiz {
     
     private String text;
-    private Date datum;
+    private GregorianCalendar datum;
     private int notizID;
     
     protected Mitarbeiter notiz;
     
-    public Notiz (String t, Date d, int id){
+    public Notiz (String t, GregorianCalendar d){
         this.text = t;
         this.datum = d;
-        this.notizID = id;
+        this.notizID = -1;
     }
     
     public String toString(){       //UML
         return datum+":\n"+text;
     }
+    
+    public String getText(){
+        return text;
+    }
+    
+    public GregorianCalendar getDatum() {
+        return datum;
+    }
+    
+    public Mitarbeiter getNotiz(){
+        return this.notiz;
+    }
+    
+    
     
 }

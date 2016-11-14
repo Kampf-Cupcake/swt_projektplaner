@@ -15,12 +15,24 @@ public class Statusbericht {
     private int prozent;        //In UML
     private int statusberichtID;
     
-    private List<Arbeitspaket> arbeitspaket = new LinkedList<Arbeitspaket>();
-    private Projekt projekt;
+    protected List<Arbeitspaket> arbeitspaket = new LinkedList<Arbeitspaket>();
+    protected Projekt projekt;
     
-    public Statusbericht(int p, int id){
+    public Statusbericht(int p){
         this.prozent = p;
-        this.statusberichtID = id;
+        this.statusberichtID = -1;
+    }
+    
+    public int getProzent(){
+        return prozent;
+    }
+    
+    public List<Arbeitspaket> getArbeitspaket(){
+        return this.arbeitspaket;
+    }
+    
+    public Projekt getProjekt(){
+        return this.projekt;
     }
     
     public double berechneStatus(List<Arbeitspaket> Liste){

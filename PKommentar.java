@@ -14,13 +14,29 @@ public class PKommentar {
     protected Projekt kommentar;
     protected Mitarbeiter verfasser;
     
-    public PKommentar (String t, GregorianCalendar d, int pknr){
+    public PKommentar (String t, GregorianCalendar d){
         this.text = t;
         this.datum = d;
-        this.pkommentarNr = pknr;
+        this.pkommentarNr = -1;
     }
     
     public String toString(){
         return "Verfasst am "+datum+" von "+verfasser+ "\n"+text;   //In UML
+    }
+    
+    public String getText(){
+        return text;
+    }
+    
+    public GregorianCalendar getDatum(){
+        return datum;
+    }
+    
+    public Projekt getKomemntar(){
+        return this.kommentar;
+    }
+    
+    public Mitarbeiter getVerfasser(){
+        return this.verfasser;
     }
 }

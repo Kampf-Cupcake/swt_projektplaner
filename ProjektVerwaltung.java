@@ -19,8 +19,8 @@ import java.util.logging.Logger;
  */
 public class ProjektVerwaltung {
 
-    private final List<Projekt> projekte;
-    private Datenbank datenbank;
+    protected List<Projekt> projekte;
+    protected Datenbank datenbank;
     
     public ProjektVerwaltung(){
          datenbank = new Datenbank();

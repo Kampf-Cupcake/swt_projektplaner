@@ -9,18 +9,38 @@ public class Vorwarnung {
     
     private GregorianCalendar datum;    //In UML
     private boolean gewarnt;
-    
-    private Projekt warnen;
-    private Arbeitspaket erinnern; 
-    private Mitarbeiter mitarbeiter;    // In UML    
     private int vorwarnungID;
     
-    public Vorwarnung (GregorianCalendar d, boolean g, int id){
+    protected Projekt warnen;
+    protected Arbeitspaket erinnern; 
+    protected Mitarbeiter mitarbeiter;    // In UML    
+
+    
+    public Vorwarnung (GregorianCalendar d, boolean g){
         this.datum = d;
         this.gewarnt = g;
-        this.vorwarnungID = id;
+        this.vorwarnungID = -1;
     }
     
+    public GregorianCalendar getDatum(){
+        return datum;
+    }
+    
+    public boolean getGewarnt(){
+        return gewarnt;
+    }
+    
+    public Projekt getWarnen(){
+        return this.warnen;
+    }
+    
+    public Arbeitspaket getErinnern(){
+        return this.erinnern;
+    }
+    
+    public Mitarbeiter getMitarbeiter(){
+        return this.mitarbeiter;
+    }
     //public boolean vergleiche(Projekt w){
     //    warnen = w;
      //

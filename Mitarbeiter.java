@@ -16,19 +16,19 @@ public class Mitarbeiter {
     
     //public BenutzerVerwaltung benverw;
     
-    public List<PKommentar> kommentar = new LinkedList<>();
-    public List<Notiz> notiz = new LinkedList<>();
+    protected List<PKommentar> kommentar = new LinkedList<>();
+    protected List<Notiz> notiz = new LinkedList<>();
     
-    public List<Arbeitspaket> geleiteteArbeitspakete = new LinkedList<>();
-    public List<Arbeitspaket> arbeitspaket = new LinkedList<>();
+    protected List<Arbeitspaket> geleiteteArbeitspakete = new LinkedList<>();
+    protected List<Arbeitspaket> arbeitspaket = new LinkedList<>();
     
-    public List<Projekt> geleiteteProjekte = new LinkedList<>();
-    public List<Projekt> projekt = new LinkedList<>();
+    protected List<Projekt> geleiteteProjekte = new LinkedList<>();
+    protected List<Projekt> projekt = new LinkedList<>();
     
-    public Mitarbeiter(String n, String vn, int pNr, String r, String bn, String p){
+    public Mitarbeiter(String n, String vn, String r, String bn, String p){
         this.name = n;
         this.vorname = vn;
-        this.personalNr = pNr;
+        this.personalNr = -1;
         this.rang = r;
         this.benutzername = bn;
         this.passwort = p;
@@ -46,4 +46,47 @@ public class Mitarbeiter {
         notiz.add(n);
     }
     
+    public String getName(){
+        return name;
+    }
+    
+    public String getVorname(){
+        return vorname;
+    }
+    
+    public String getRang(){
+        return rang;
+    }
+
+    public String getBenutzername(){
+        return benutzername;
+    }
+    
+    public String getPasswort(){
+        return passwort;
+    }
+
+    public List<PKommentar> getPKommentar(){
+        return this.kommentar;
+    }
+    
+    public List<Notiz> getNotiz(){
+        return this.notiz;
+    }
+    
+    public List<Arbeitspaket> getgeleiteteArbeitspakete(){
+        return this.geleiteteArbeitspakete;
+    }
+    
+    public List<Arbeitspaket> getArbeitspaket(){
+        return this.arbeitspaket;
+    }
+    
+    public List<Projekt> getgeleiteteProjekt(){
+        return this.geleiteteProjekte;
+    }
+    
+    public List<Projekt> getProjekt(){
+        return this.projekt;
+    }
 }

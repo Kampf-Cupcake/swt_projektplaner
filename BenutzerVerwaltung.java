@@ -13,7 +13,7 @@ import java.util.LinkedList;
  */
 public class BenutzerVerwaltung {
     
-    private List<Mitarbeiter> mitarbeiter = new LinkedList<>();
+    protected List<Mitarbeiter> mitarbeiter = new LinkedList<>();
     
     public void erstelleProfil(String name, String vorname, String passwort, String Rang){
        
@@ -38,4 +38,8 @@ public class BenutzerVerwaltung {
         
     }
     
+    public List<Mitarbeiter> getMitarbeiter(){
+        return this.mitarbeiter;
+    }
+
 }
