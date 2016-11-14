@@ -1,3 +1,5 @@
+package swt_projektplaner;
+
 import java.util.List;
 import java.util.LinkedList;
 /**

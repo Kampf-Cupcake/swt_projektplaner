@@ -1,3 +1,5 @@
+package swt_projektplaner;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -36,7 +38,9 @@ public class ProjektVerwaltung {
         System.out.println(name);
         System.out.println(beschreibung);
         GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
+        
         Projekt projekt = new Projekt(name, beschreibung, greg);
+        System.out.println(greg);
        // Date datum =  new Date(greg.getGregorianChange().getTime());
         try{
             datenbank.speicherProjekt(projekt);

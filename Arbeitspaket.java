@@ -1,3 +1,5 @@
+package swt_projektplaner;
+
 /**
  *
  * @author beust

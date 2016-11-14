@@ -1,3 +1,5 @@
+package swt_projektplaner;
+
 /**
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -33,14 +35,14 @@ public class ArbeitspaketVerwaltung {
         System.out.println(beschreibung);
         System.out.println("Status des Paketes "+ fertig);
         GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
-        Arbeitspaket arbeitspaket = new Arbeitspaket(name, fertig, beschreibung, greg);
+     //   Arbeitspaket arbeitspaket = new Arbeitspaket(name, fertig, beschreibung, greg);
         Date datum =  new Date(greg.getGregorianChange().getTime());
         try{
             datenbank.speicherArbeitspaket(name, fertig, beschreibung, datum);
         } catch (Exception e){
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());
         }
-        arbeitspakete.add(arbeitspaket);
+       // arbeitspakete.add(arbeitspaket);
     }
     
     public void verwaltenArbeitspaket(){

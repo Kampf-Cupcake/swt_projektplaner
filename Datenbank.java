@@ -1,3 +1,5 @@
+package swt_projektplaner;
+
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -9,6 +11,7 @@ import java.sql.SQLException;/*
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.util.Calendar;
 
 /**
  *
@@ -44,7 +47,11 @@ public class Datenbank {
     }
 
     public void speicherProjekt(Projekt projekt) throws Exception{
-        String sql = "INSERT INTO Projekt (name,beschreibung,deadline) (VALUES (" + projekt.getname() + "," + projekt.getbeschreibung() + "," + projekt.getdatum() + ")";
+        int year = projekt.getdatum().get(Calendar.YEAR);
+        int month = projekt.getdatum().get(Calendar.MONTH)+1;
+        int day = projekt.getdatum().get(Calendar.DAY_OF_MONTH);
+        String sql = "INSERT INTO Projekt (name,beschreibung,deadline) VALUES ('" + projekt.getname() + "','" + projekt.getbeschreibung() + "','" + year + "-" + month + "-" + day + "')";
+        System.out.println(sql);
         ResultSet r = executeSQL(sql);
         //hier wird die ID rein gespeichert
     }

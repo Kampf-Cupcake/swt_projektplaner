@@ -1,3 +1,4 @@
+package swt_projektplaner;
 import java.sql.Date;
 import java.util.List;
 import java.util.LinkedList;
@@ -53,8 +54,8 @@ public class Projekt {
         return beschreibung;
     }
 
-    public Date getdatum() {
-        return new Date(deadline.getGregorianChange().getTime());
+    public GregorianCalendar getdatum() {
+        return deadline;
     }
 
     
