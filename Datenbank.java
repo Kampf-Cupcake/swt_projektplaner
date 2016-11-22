@@ -50,14 +50,28 @@ public class Datenbank {
         int year = projekt.getdatum().get(Calendar.YEAR);
         int month = projekt.getdatum().get(Calendar.MONTH)+1;
         int day = projekt.getdatum().get(Calendar.DAY_OF_MONTH);
-        String sql = "INSERT INTO Projekt (name,beschreibung,deadline) VALUES ('" + projekt.getname() + "','" + projekt.getbeschreibung() + "','" + year + "-" + month + "-" + day + "')";
+        String sql = "INSERT INTO Projekt (name,beschreibung,deadline) "
+                + "VALUES ('" + projekt.getname() + "','" + projekt.getbeschreibung() + "','" + year + "-" + month + "-" + day + "')";
         System.out.println(sql);
         ResultSet r = executeSQL(sql);
         //hier wird die ID rein gespeichert
     }
+    
+    public void abrufeProjekt(String sql)throws Exception{
+        ResultSet r = executeSQL(sql);
+    }
 
-    public void speicherArbeitspaket(String name, boolean fertig, String beschreibung, Date datum) throws Exception {
-        String sql = "INSERT INTO Arbeitspaket (name,fertig,beschreibung,deadline) (VALUES (" + name + "," + fertig + "," + beschreibung + "," + datum + ")";
+    public void speicherArbeitspaket(Arbeitspaket arbeitspaket) throws Exception {
+        int year = arbeitspaket.getDeadline().get(Calendar.YEAR);
+        int month = arbeitspaket.getDeadline().get(Calendar.MONTH)+1;
+        int day = arbeitspaket.getDeadline().get(Calendar.DAY_OF_MONTH);
+        String sql = "INSERT INTO Arbeitspaket (name,fertig,beschreibung,deadline) "
+                + "(VALUES (" + arbeitspaket.getName() + "," + arbeitspaket.getFertig() + "," 
+                + arbeitspaket.getBeschreibung() + "," + year + "-" + month + "-" + day + "')";
+        ResultSet r = executeSQL(sql);
+    }
+    
+    public void abrufeArbeitspaket(String sql)throws Exception{
         ResultSet r = executeSQL(sql);
     }
     
