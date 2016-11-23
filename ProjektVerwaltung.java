@@ -6,6 +6,7 @@ package swt_projektplaner;
  * and open the template in the editor.
  */
 import java.sql.Date;
+import java.sql.Statement;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.LinkedList;
@@ -19,8 +20,8 @@ import java.util.logging.Logger;
  */
 public class ProjektVerwaltung {
 
-    protected List<Projekt> projekte;
-    protected Datenbank datenbank;
+    private List<Projekt> projekte;
+    public Datenbank datenbank;
     
     public ProjektVerwaltung(){
          datenbank = new Datenbank();
@@ -33,12 +34,13 @@ public class ProjektVerwaltung {
             System.exit(1);
         }
     }
-
+    // Daten von der GUI werden für die Laufzeit NetBeans übergeben und 
+    // per Methode speicherProjekt der Datenbank übergeben
     public void anlegenProjekt(String name, String beschreibung, int tag, int monat, int jahr) {        //'int name' zu 'String name' geändert, beschreibung in UML
         System.out.println(name);
         System.out.println(beschreibung);
         GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
-        
+       
         Projekt projekt = new Projekt(name, beschreibung, greg);
         System.out.println(greg);
        // Date datum =  new Date(greg.getGregorianChange().getTime());
@@ -60,6 +62,7 @@ public class ProjektVerwaltung {
         System.out.println(deadline);
 
     }
+    
     public List<Projekt> getProjekte(){
         return projekte;
         //hier muss eine Funktion rein, die die daten aus DB in das richtige format packt

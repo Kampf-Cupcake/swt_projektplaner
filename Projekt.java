@@ -46,17 +46,29 @@ public class Projekt {
     public GregorianCalendar getDeadline() {
         return this.deadline;
     }
-
+    public void setDeadline(GregorianCalendar dl){
+        this.deadline=dl;
+    }
+    
     public String getname() {
         return name;
     }
-
+    public void setName(String n){
+        this.name=n;
+    }
+    
     public String getbeschreibung() {
         return beschreibung;
     }
-
-    public GregorianCalendar getdatum() {
-        return deadline;
+   public void setBeschreibung(String beschreibung){
+        this.beschreibung=beschreibung;
     }
 
+   public int getProjektNr() {
+        return projektNr;
+    }
+   public void setProjektNr(int pnr){
+        this.projektNr=pnr;
+    }
+    
 }

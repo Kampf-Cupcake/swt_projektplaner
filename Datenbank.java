@@ -12,13 +12,18 @@ import java.sql.SQLException;/*
  * and open the template in the editor.
  */
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  *
  * @author Evelyne
  */
 public class Datenbank {
-
+    
+    private ProjektVerwaltung projektV;
+    private ArbeitspaketVerwaltung arbeitspaketV;
+    private BenutzerVerwaltung mitarbeiterV;
+    
     Connection con = null;
 
     public void init() throws Exception {
@@ -45,17 +50,56 @@ public class Datenbank {
         }
         return null;*/
     }
-
+    public GregorianCalendar dateZuGreg(Date date){
+        GregorianCalendar greg = new GregorianCalendar(); 
+        greg.setGregorianChange(date);
+        
+        return greg;
+    }
+    
     public void speicherProjekt(Projekt projekt) throws Exception{
-        int year = projekt.getdatum().get(Calendar.YEAR);
-        int month = projekt.getdatum().get(Calendar.MONTH)+1;
-        int day = projekt.getdatum().get(Calendar.DAY_OF_MONTH);
+        int year = projekt.getDeadline().get(Calendar.YEAR);
+        int month = projekt.getDeadline().get(Calendar.MONTH)+1;
+        int day = projekt.getDeadline().get(Calendar.DAY_OF_MONTH);
         String sql = "INSERT INTO Projekt (name,beschreibung,deadline) "
                 + "VALUES ('" + projekt.getname() + "','" + projekt.getbeschreibung() + "','" + year + "-" + month + "-" + day + "')";
         System.out.println(sql);
         ResultSet r = executeSQL(sql);
         //hier wird die ID rein gespeichert
     }
+    // Nur zum Testen:
+    public static void main (String[]args){
+        Datenbank m =new Datenbank();
+        m.selectAllProjects();
+    }
+    public void selectAllProjects(){
+        
+        try{
+            Statement stmt = con.createStatement();
+            String sql= "SELECT* FROM Projekt";
+        
+            ResultSet res = stmt.executeQuery(sql);
+            while(res.next()){
+         
+                String name = res.getString(1);
+                String beschreibung = res.getString(2);
+                Date deadline = res.getDate(3);
+                int id = res.getInt(4);
+                GregorianCalendar greg = dateZuGreg(deadline);
+                
+                Projekt neuesProjekt = new Projekt(name, beschreibung, greg);
+                neuesProjekt.setName(name);
+                neuesProjekt.setBeschreibung(beschreibung);
+                neuesProjekt.setDeadline(greg);
+                neuesProjekt.setProjektNr(id);
+               // System.out.println("Das Projekt heißt: "+name+"\nHier die Beschreibung: "+beschreibung);
+                projektV.getProjekte().add(neuesProjekt);
+            }
+            res.close();
+            stmt.close();
+        } catch (SQLException e){
+            e.printStackTrace();}
+        }
     
     public void abrufeProjekt(String sql)throws Exception{
         ResultSet r = executeSQL(sql);
@@ -85,8 +129,11 @@ public class Datenbank {
         }
 
     }
+    
+     
+    }
 
 
 
    
-}
+
