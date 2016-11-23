@@ -35,6 +35,7 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
     private void initComponents() {
 
         RadioButtonGroupRangAuswaehlen = new javax.swing.ButtonGroup();
+        jButton2 = new javax.swing.JButton();
         Menu = new javax.swing.JPanel();
         ButtonMenuProjektAnlegen = new javax.swing.JButton();
         ButtonMenuBenutzerAnlegen = new javax.swing.JButton();
@@ -67,6 +68,7 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
         RadioButtonStandardBenutzer = new javax.swing.JRadioButton();
         RadioButtonAdministrator = new javax.swing.JRadioButton();
         ButtonBenutzerAnlegen = new javax.swing.JButton();
+        ButtonBenutzerprofilAnlegenZurück = new javax.swing.JButton();
         ProfilVerwalten = new javax.swing.JPanel();
         ProjekteAnsehen = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -88,6 +90,8 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
         TextFieldKommentar = new javax.swing.JTextField();
         TextFieldNotiz = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+
+        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -135,7 +139,7 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
                     .addComponent(ButtonMenuBenutzerAnlegen))
                 .addGap(18, 18, 18)
                 .addComponent(ButtonMenuProjekteAnsehen)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         getContentPane().add(Menu, "card4");
@@ -204,9 +208,9 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
                             .addGroup(ProjektAnlegenLayout.createSequentialGroup()
                                 .addComponent(ComboBoxTag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ComboBoxMonat, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ComboBoxJahr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ComboBoxMonat, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ComboBoxJahr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(32, Short.MAX_VALUE))
                     .addGroup(ProjektAnlegenLayout.createSequentialGroup()
                         .addComponent(TitelProjektAnlegen)
@@ -241,7 +245,7 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
                     .addComponent(LabelMitarbeiter))
                 .addGap(18, 18, 18)
                 .addComponent(ButtonMitarbeiterHinzufügen)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ButtonProjektAnlegen)
                 .addGap(22, 22, 22))
         );
@@ -272,6 +276,13 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
             }
         });
 
+        ButtonBenutzerprofilAnlegenZurück.setText("Zurück");
+        ButtonBenutzerprofilAnlegenZurück.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonBenutzerprofilAnlegenZurückActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout BenutzerAnlegenLayout = new javax.swing.GroupLayout(BenutzerAnlegen);
         BenutzerAnlegen.setLayout(BenutzerAnlegenLayout);
         BenutzerAnlegenLayout.setHorizontalGroup(
@@ -279,7 +290,6 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
             .addGroup(BenutzerAnlegenLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(BenutzerAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TitelBenutzerAnlegen)
                     .addGroup(BenutzerAnlegenLayout.createSequentialGroup()
                         .addGroup(BenutzerAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelVorname)
@@ -294,8 +304,13 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
                                 .addComponent(TextFieldNachname)
                                 .addComponent(TextFieldPasswort)
                                 .addComponent(RadioButtonStandardBenutzer))
-                            .addComponent(ButtonBenutzerAnlegen, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(94, Short.MAX_VALUE))
+                            .addComponent(ButtonBenutzerAnlegen, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(94, Short.MAX_VALUE))
+                    .addGroup(BenutzerAnlegenLayout.createSequentialGroup()
+                        .addComponent(TitelBenutzerAnlegen)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ButtonBenutzerprofilAnlegenZurück)
+                        .addGap(25, 25, 25))))
         );
         BenutzerAnlegenLayout.setVerticalGroup(
             BenutzerAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,8 +318,10 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
                 .addContainerGap()
                 .addGroup(BenutzerAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(BenutzerAnlegenLayout.createSequentialGroup()
-                        .addComponent(TitelBenutzerAnlegen)
-                        .addGap(43, 43, 43)
+                        .addGroup(BenutzerAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TitelBenutzerAnlegen)
+                            .addComponent(ButtonBenutzerprofilAnlegenZurück))
+                        .addGap(38, 38, 38)
                         .addComponent(LabelVorname))
                     .addComponent(TextFieldVorname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -323,7 +340,7 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
                 .addComponent(RadioButtonAdministrator)
                 .addGap(40, 40, 40)
                 .addComponent(ButtonBenutzerAnlegen)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
 
         getContentPane().add(BenutzerAnlegen, "card3");
@@ -336,7 +353,7 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
         );
         ProfilVerwaltenLayout.setVerticalGroup(
             ProfilVerwaltenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 531, Short.MAX_VALUE)
+            .addGap(0, 524, Short.MAX_VALUE)
         );
 
         getContentPane().add(ProfilVerwalten, "card5");
@@ -411,7 +428,7 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
                 .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
                     .addComponent(jScrollPane3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(42, 42, 42))
         );
@@ -444,7 +461,7 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
                     .addComponent(LabelProjektBeschreibung)
                     .addComponent(LabelKommentar)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(ProjekteAnsehenSubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(TextFieldNotiz, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
                     .addComponent(TextFieldProjektBeschreibung, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -480,7 +497,7 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
                 .addGroup(ProjekteAnsehenSubLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(TextFieldNotiz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         getContentPane().add(ProjekteAnsehenSub, "card7");
@@ -493,6 +510,12 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
      int monat = ComboBoxMonat.getSelectedIndex()+1;
      int jahr = Integer.parseInt((String)ComboBoxJahr.getSelectedItem());
         pv.anlegenProjekt(TextFieldName.getText(), TextFieldBeschreibung.getText(), tag, monat, jahr );  
+       
+     TextFieldName.setText("");
+     TextFieldBeschreibung.setText("");
+     ComboBoxTag.setSelectedIndex(0);
+     ComboBoxMonat.setSelectedIndex(0);
+     ComboBoxJahr.setSelectedIndex(0);
     }//GEN-LAST:event_ButtonProjektAnlegenActionPerformed
 
     
@@ -554,10 +577,11 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
         DefaultListModel ListModel = new DefaultListModel();
         ListProjektinformationen.setModel(ListModel);
         
-        if (!evt.getValueIsAdjusting()) {
-            
-                  ListModel.addElement(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getbeschreibung());
-        
+        if (!evt.getValueIsAdjusting() ) {
+            int selectedindex = ListProjekteAnsehen.getSelectedIndex();
+            if(selectedindex >= 0){
+                  ListModel.addElement(projekte.get(selectedindex).getbeschreibung());
+            }
         }
     }//GEN-LAST:event_ListProjekteAnsehenValueChanged
 
@@ -584,6 +608,11 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
       
       TextFieldProjektDeadline.setText(dateFormatted);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void ButtonBenutzerprofilAnlegenZurückActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBenutzerprofilAnlegenZurückActionPerformed
+        BenutzerAnlegen.setVisible(false);
+        Menu.setVisible(true);
+    }//GEN-LAST:event_ButtonBenutzerprofilAnlegenZurückActionPerformed
  
     /**
      * @param args the command line arguments
@@ -628,6 +657,7 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
     private javax.swing.JButton ButtonBackProjektAnlegen;
     private javax.swing.JButton ButtonBackProjekteAnsehen;
     private javax.swing.JButton ButtonBenutzerAnlegen;
+    private javax.swing.JButton ButtonBenutzerprofilAnlegenZurück;
     private javax.swing.JButton ButtonMenuBenutzerAnlegen;
     private javax.swing.JButton ButtonMenuProjektAnlegen;
     private javax.swing.JButton ButtonMenuProjekteAnsehen;
@@ -673,6 +703,7 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
     private javax.swing.JLabel TitelBenutzerAnlegen;
     private javax.swing.JLabel TitelProjektAnlegen;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

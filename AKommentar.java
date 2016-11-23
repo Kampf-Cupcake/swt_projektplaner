@@ -17,8 +17,8 @@ public class AKommentar {               //In UML
     private GregorianCalendar datum;        //In UML
     private int akommentarNr;
 
-    protected Arbeitspaket kommentar;
-    protected Mitarbeiter verfasser;
+    private Arbeitspaket kommentar;
+    private Mitarbeiter verfasser;
 
     public AKommentar(String t, GregorianCalendar d) {
         this.text = t;
