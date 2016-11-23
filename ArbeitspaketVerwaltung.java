@@ -35,10 +35,12 @@ public class ArbeitspaketVerwaltung {
         System.out.println(beschreibung);
         System.out.println("Status des Paketes "+ fertig);
         GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
-     //   Arbeitspaket arbeitspaket = new Arbeitspaket(name, fertig, beschreibung, greg);
-        Date datum =  new Date(greg.getGregorianChange().getTime());
+        
+        //Date datum =  new Date(greg.getGregorianChange().getTime());
+        Arbeitspaket arbeitspaket = new Arbeitspaket(name, fertig, beschreibung, greg);
+        
         try{
-            datenbank.speicherArbeitspaket(name, fertig, beschreibung, datum);
+            datenbank.speicherArbeitspaket(arbeitspaket);
         } catch (Exception e){
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());
         }
