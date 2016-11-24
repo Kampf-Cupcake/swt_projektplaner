@@ -55,6 +55,9 @@ public class ArbeitspaketVerwaltung {
         
     }
     
+  
+    
+    
     public List<Arbeitspaket> getArbeitspaket(){
         return this.arbeitspakete;
     }

@@ -25,6 +25,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 ProjektVerwaltung pv = new ProjektVerwaltung();
 BenutzerVerwaltung bv = new BenutzerVerwaltung();
+ArbeitspaketVerwaltung av = new ArbeitspaketVerwaltung();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -549,6 +550,11 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
         jLabel4.setText("Arbeitspaket Anlegen");
 
         ButtonArbeitspaketAnlegenZurück.setText("Zurück");
+        ButtonArbeitspaketAnlegenZurück.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonArbeitspaketAnlegenZurückActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Name");
@@ -669,6 +675,9 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
      ComboBoxTag.setSelectedIndex(0);
      ComboBoxMonat.setSelectedIndex(0);
      ComboBoxJahr.setSelectedIndex(0);
+     
+     ProjektAnlegen.setVisible(false);
+     Menu.setVisible(true);
     }//GEN-LAST:event_ButtonProjektAnlegenActionPerformed
 
     
@@ -697,11 +706,15 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
     private void ProjekteAnsehenComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_ProjekteAnsehenComponentShown
        ListProjekteAnsehen.removeAll();
         List<Projekt> liste = pv.getProjekte();
+        List<Arbeitspaket> a_liste = av.getArbeitspaket();
      
         DefaultListModel ListModel = new DefaultListModel();
        ListProjekteAnsehen.setModel(ListModel);
         for(int i = 0; i < liste.size(); i++){ 
-            ListModel.addElement(liste.get(i).getname());         
+            ListModel.addElement(liste.get(i).getname() ); 
+            // for(int j = 0; j < a_liste.size(); j++){
+              //   ListModel.addElement("   " + a_liste.get(j).getName()); 
+             //}
         } 
        System.out.println("OK");
         
@@ -771,6 +784,11 @@ BenutzerVerwaltung bv = new BenutzerVerwaltung();
         ProjektBearbeiten.setVisible(false);
         ArbeitspaketAnlegen.setVisible(true);
     }//GEN-LAST:event_ButtonArbeitspaketHinzufügenActionPerformed
+
+    private void ButtonArbeitspaketAnlegenZurückActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonArbeitspaketAnlegenZurückActionPerformed
+        ArbeitspaketAnlegen.setVisible(false);
+        ProjektBearbeiten.setVisible(true);
+    }//GEN-LAST:event_ButtonArbeitspaketAnlegenZurückActionPerformed
  
     /**
      * @param args the command line arguments
