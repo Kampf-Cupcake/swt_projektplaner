@@ -13,6 +13,8 @@ import java.sql.SQLException;/*
  */
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -24,21 +26,20 @@ public class Datenbank {
     private ArbeitspaketVerwaltung arbeitspaketV;
     private BenutzerVerwaltung mitarbeiterV;
     
+
     Connection con = null;
 
-    public void init() throws Exception {
-    //    try {
+    public Datenbank(){
+        try {
             Class.forName("org.hsqldb.jdbc.JDBCDriver");
-// Verbindungsaufbau mit einer HSQLDB-Datei:
-            con = DriverManager.getConnection("jdbc:hsqldb:file:data/swt", "SA", "");
-/*
         } catch (Exception e) {
-            throw new Exception();
-            System.err.println("Fehler beim Datenbankzugriff: " + e.getMessage());
+            System.err.println("Treiber nicht gefunden: " + e.getMessage());
             e.printStackTrace();
             return;
         }
-*/
+    }
+    private void connect() throws SQLException{
+     con = DriverManager.getConnection("jdbc:hsqldb:file:data/swt", "SA", "");
     }
 
     private ResultSet executeSQL(String sql) throws Exception{
@@ -58,6 +59,7 @@ public class Datenbank {
     }
     
     public void speicherProjekt(Projekt projekt) throws Exception{
+        connect();
         int year = projekt.getDeadline().get(Calendar.YEAR);
         int month = projekt.getDeadline().get(Calendar.MONTH)+1;
         int day = projekt.getDeadline().get(Calendar.DAY_OF_MONTH);
@@ -65,6 +67,7 @@ public class Datenbank {
                 + "VALUES ('" + projekt.getname() + "','" + projekt.getbeschreibung() + "','" + year + "-" + month + "-" + day + "')";
         System.out.println(sql);
         ResultSet r = executeSQL(sql);
+        con.close();
         //hier wird die ID rein gespeichert
     }
     // Nur zum Testen:
@@ -72,9 +75,10 @@ public class Datenbank {
         Datenbank m =new Datenbank();
         m.selectAllProjects();
     }
-    public void selectAllProjects(){
-        
+    public List<Projekt> selectAllProjects(){     
+        List<Projekt> projekte = new LinkedList<Projekt>();
         try{
+            connect();
             Statement stmt = con.createStatement();
             String sql= "SELECT* FROM Projekt";
         
@@ -93,13 +97,17 @@ public class Datenbank {
                 neuesProjekt.setDeadline(greg);
                 neuesProjekt.setProjektNr(id);
                // System.out.println("Das Projekt heißt: "+name+"\nHier die Beschreibung: "+beschreibung);
-                projektV.getProjekte().add(neuesProjekt);
+                
+               projekte.add(neuesProjekt);
             }
             res.close();
             stmt.close();
+            con.close();
         } catch (SQLException e){
-            e.printStackTrace();}
+            e.printStackTrace();
         }
+        return projekte;
+    }
     
     public void abrufeProjekt(String sql)throws Exception{
         ResultSet r = executeSQL(sql);

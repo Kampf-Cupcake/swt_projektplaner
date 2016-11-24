@@ -15,19 +15,11 @@ import java.util.LinkedList;
  */
 public class ArbeitspaketVerwaltung {
     
-    private List<Arbeitspaket> arbeitspakete;
-    public Datenbank datenbank;
+    private Datenbank datenbank;
     
      public ArbeitspaketVerwaltung(){
-         datenbank = new Datenbank();
-         arbeitspakete = new LinkedList<>();
-        try {
-            datenbank.init();
-        } catch (Exception e) {
-            System.err.println("Fehler beim Datenbankzugriff: " + e.getMessage());
-            e.printStackTrace();
-            System.exit(1);
-        }
+         datenbank = MainFrame.db;
+        
     }
     
     public void anlegeArbeitspaket(String name, boolean fertig, String beschreibung, int tag, int monat, int jahr){    //'int name' zu 'String name' geändert
@@ -59,6 +51,6 @@ public class ArbeitspaketVerwaltung {
     
     
     public List<Arbeitspaket> getArbeitspaket(){
-        return this.arbeitspakete;
+        return null;
     }
 }

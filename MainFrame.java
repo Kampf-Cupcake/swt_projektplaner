@@ -23,9 +23,11 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         
     }
-ProjektVerwaltung pv = new ProjektVerwaltung();
-BenutzerVerwaltung bv = new BenutzerVerwaltung();
-ArbeitspaketVerwaltung av = new ArbeitspaketVerwaltung();
+    public static Datenbank db = new Datenbank();
+    public static ProjektVerwaltung pv = new ProjektVerwaltung();
+    public static BenutzerVerwaltung bv = new BenutzerVerwaltung();
+    public static ArbeitspaketVerwaltung av = new ArbeitspaketVerwaltung();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -794,6 +796,7 @@ ArbeitspaketVerwaltung av = new ArbeitspaketVerwaltung();
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

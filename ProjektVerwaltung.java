@@ -20,19 +20,12 @@ import java.util.logging.Logger;
  */
 public class ProjektVerwaltung {
 
-    private List<Projekt> projekte;
-    public Datenbank datenbank;
+    
+    private Datenbank datenbank;
     
     public ProjektVerwaltung(){
-         datenbank = new Datenbank();
-         projekte = new LinkedList<>();
-        try {
-            datenbank.init();
-        } catch (Exception e) {
-            System.err.println("Fehler beim Datenbankzugriff: " + e.getMessage());
-            e.printStackTrace();
-            System.exit(1);
-        }
+         datenbank = MainFrame.db;
+
     }
     // Daten von der GUI werden für die Laufzeit NetBeans übergeben und 
     // per Methode speicherProjekt der Datenbank übergeben
@@ -49,7 +42,7 @@ public class ProjektVerwaltung {
         } catch (Exception e){
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());
         }
-        projekte.add(projekt);
+        
         
                 
     }
@@ -64,8 +57,8 @@ public class ProjektVerwaltung {
     }
     
     public List<Projekt> getProjekte(){
-      datenbank.selectAllProjects();
-      return projekte;
+      return datenbank.selectAllProjects();
+      
        
         //hier muss eine Funktion rein, die die daten aus DB in das richtige format packt
     }
