@@ -51,6 +51,6 @@ public class ArbeitspaketVerwaltung {
     
     
     public List<Arbeitspaket> getArbeitspaket(){
-        return null;
+        return datenbank.selectAllArbeitspakete();
     }
 }

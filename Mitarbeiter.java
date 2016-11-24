@@ -9,28 +9,27 @@ import java.util.LinkedList;
 public class Mitarbeiter {
     private String name;
     private String vorname;
-    private int personalNr;
     private String rang;
-    private String benutzername;      //Benutzername = vorname + name
+    //private String benutzername;      //Benutzername = vorname + name
     private String passwort;
-    
+    private int personalNr;
     //public BenutzerVerwaltung benverw;
     
-    protected List<PKommentar> kommentar = new LinkedList<>();
-    protected List<Notiz> notiz = new LinkedList<>();
+    private List<PKommentar> kommentar = new LinkedList<>();
+    private List<Notiz> notiz = new LinkedList<>();
     
-    protected List<Arbeitspaket> geleiteteArbeitspakete = new LinkedList<>();
-    protected List<Arbeitspaket> arbeitspaket = new LinkedList<>();
+    private List<Arbeitspaket> geleiteteArbeitspakete = new LinkedList<>();
+    private List<Arbeitspaket> arbeitspaket = new LinkedList<>();
     
-    protected List<Projekt> geleiteteProjekte = new LinkedList<>();
-    protected List<Projekt> projekt = new LinkedList<>();
+    private List<Projekt> geleiteteProjekte = new LinkedList<>();
+    private List<Projekt> projekt = new LinkedList<>();
     
-    public Mitarbeiter(String n, String vn, String r, String bn, String p){
+    public Mitarbeiter(String n, String vn, String r, String p){
         this.name = n;
         this.vorname = vn;
         this.personalNr = -1;
         this.rang = r;
-        this.benutzername = bn;
+        //this.benutzername = bn;
         this.passwort = p;
     } 
     
@@ -49,23 +48,45 @@ public class Mitarbeiter {
     public String getName(){
         return name;
     }
+    public void setName(String n){
+        this.name = n;
+    }
     
     public String getVorname(){
         return vorname;
+    }
+    public void setVorname(String vn){
+        this.vorname = vn;
     }
     
     public String getRang(){
         return rang;
     }
+    public void setRang(String r){
+        this.rang = r;
+    }
 
-    public String getBenutzername(){
+   /* public String getBenutzername(){
         return benutzername;
     }
+    public void setBenutzername(String bn){
+        this.benutzername = bn;
+    }*/
     
     public String getPasswort(){
         return passwort;
     }
+    public void setPasswort(String pw){
+        this.passwort = pw;
+    }
 
+    public int getPersonalNr(){
+        return personalNr;
+    }
+    public void setPersonalNr(int pnr){
+        this.personalNr = pnr;
+    }
+    
     public List<PKommentar> getPKommentar(){
         return this.kommentar;
     }

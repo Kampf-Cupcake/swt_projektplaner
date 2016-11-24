@@ -11,9 +11,9 @@ public class Vorwarnung {
     private boolean gewarnt;
     private int vorwarnungID;
     
-    protected Projekt warnen;
-    protected Arbeitspaket erinnern; 
-    protected Mitarbeiter mitarbeiter;    // In UML    
+    private Projekt warnen;
+    private Arbeitspaket erinnern; 
+    private Mitarbeiter mitarbeiter;    // In UML    
 
     
     public Vorwarnung (GregorianCalendar d, boolean g){
@@ -25,9 +25,22 @@ public class Vorwarnung {
     public GregorianCalendar getDatum(){
         return datum;
     }
+    public void setDatum(GregorianCalendar d){
+        this.datum = d;
+    }
     
     public boolean getGewarnt(){
         return gewarnt;
+    }
+    public void setGewarnt(boolean gw){
+        this.gewarnt = gw;
+    }
+    
+    public int getVorwarnungID(){
+        return vorwarnungID;
+    }
+    public void setVorwarnungID(int id){
+        this.vorwarnungID = id;
     }
     
     public Projekt getWarnen(){

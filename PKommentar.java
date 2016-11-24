@@ -27,9 +27,22 @@ public class PKommentar {
     public String getText(){
         return text;
     }
+    public void setText(String t){
+        this.text = t;
+    }
     
     public GregorianCalendar getDatum(){
         return datum;
+    }
+    public void setDatum(GregorianCalendar date){
+        this.datum = date;
+    }
+    
+    public int getID(){
+        return pkommentarNr;
+    }
+    public void setID(int id){
+        this.pkommentarNr = id;
     }
     
     public Projekt getKomemntar(){

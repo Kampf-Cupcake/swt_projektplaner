@@ -70,11 +70,7 @@ public class Datenbank {
         con.close();
         //hier wird die ID rein gespeichert
     }
-    // Nur zum Testen:
-    public static void main (String[]args){
-        Datenbank m =new Datenbank();
-        m.selectAllProjects();
-    }
+
     public List<Projekt> selectAllProjects(){     
         List<Projekt> projekte = new LinkedList<Projekt>();
         try{
@@ -91,14 +87,14 @@ public class Datenbank {
                 int id = res.getInt(4);
                 GregorianCalendar greg = dateZuGreg(deadline);
                 
-                Projekt neuesProjekt = new Projekt(name, beschreibung, greg);
-                neuesProjekt.setName(name);
-                neuesProjekt.setBeschreibung(beschreibung);
-                neuesProjekt.setDeadline(greg);
-                neuesProjekt.setProjektNr(id);
+                Projekt diesProjekt = new Projekt(name, beschreibung, greg);
+                diesProjekt.setName(name);
+                diesProjekt.setBeschreibung(beschreibung);
+                diesProjekt.setDeadline(greg);
+                diesProjekt.setProjektNr(id);
                // System.out.println("Das Projekt heißt: "+name+"\nHier die Beschreibung: "+beschreibung);
                 
-               projekte.add(neuesProjekt);
+               projekte.add(diesProjekt);
             }
             res.close();
             stmt.close();
@@ -123,7 +119,92 @@ public class Datenbank {
         ResultSet r = executeSQL(sql);
     }
     
+        public List<Arbeitspaket> selectAllArbeitspakete(){     
+        List<Arbeitspaket> arbeitspakete = new LinkedList<Arbeitspaket>();
+        try{
+            connect();
+            Statement stmt = con.createStatement();
+            String sql= "SELECT* FROM Arbeitspaket";
+        
+            ResultSet res = stmt.executeQuery(sql);
+            while(res.next()){
+         
+                String name = res.getString(1);
+                boolean fertig = res.getBoolean(2);
+                String beschreibung = res.getString(3);
+                Date deadline = res.getDate(4);
+                int id = res.getInt(5);
+                GregorianCalendar greg = dateZuGreg(deadline);
+                
+                Arbeitspaket diesArbeitspaket = new Arbeitspaket(name, fertig, beschreibung, greg);
+                diesArbeitspaket.setName(name);
+                diesArbeitspaket.setFertig(fertig);
+                diesArbeitspaket.setBeschreibung(beschreibung);
+                diesArbeitspaket.setDeadline(greg);
+                diesArbeitspaket.setArbeitspaketNr(id);
+                
+               arbeitspakete.add(diesArbeitspaket);
+            }
+            res.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return arbeitspakete;
+    }
+        
     public void abrufeArbeitspaket(String sql)throws Exception{
+        ResultSet r = executeSQL(sql);
+    }
+    
+    public void speicherMitarbeiter(Mitarbeiter mitarbeiter) throws Exception{
+        connect();
+        
+        String sql = "INSERT INTO Mitarbeiter (name, vorname, rang, passwort) "
+                + "VALUES ('" + mitarbeiter.getName() + "','" + mitarbeiter.getVorname() + "','" + mitarbeiter.getRang() + "','" +mitarbeiter.getPasswort()+"','" + "')";
+        System.out.println(sql);
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+        public List<Mitarbeiter> selectAllMitarbeiters(){     
+        List<Mitarbeiter> mitarbeiters = new LinkedList<Mitarbeiter>();
+        try{
+            connect();
+            Statement stmt = con.createStatement();
+            String sql= "SELECT* FROM Mitarbeiter";
+        
+            ResultSet res = stmt.executeQuery(sql);
+            while(res.next()){
+         
+                String name = res.getString(1);
+                String vorname = res.getString(2);
+                String rang = res.getString(3);
+                //String benutzername = res.getString(4);
+                String passwort = res.getString(5);
+                int id = res.getInt(6);
+                
+                Mitarbeiter dieserMA = new Mitarbeiter(name, vorname, rang, passwort);
+                dieserMA.setName(name);
+                dieserMA.setVorname(vorname);
+                dieserMA.setRang(rang);
+               // dieserMA.setBenutzername(benutzername);
+                dieserMA.setPasswort(passwort);
+                dieserMA.setPersonalNr(id);
+                
+               mitarbeiters.add(dieserMA);
+            }
+            res.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return mitarbeiters;
+    }
+    
+    public void abrufeMitarbeiter(String sql)throws Exception{
         ResultSet r = executeSQL(sql);
     }
     
@@ -137,6 +218,8 @@ public class Datenbank {
         }
 
     }
+    
+
     
      
     }

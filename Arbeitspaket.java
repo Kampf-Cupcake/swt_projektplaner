@@ -65,6 +65,13 @@ public class Arbeitspaket {
         this.deadline = dl;
     }
     
+    public int getArbeitspaketNr(){
+        return arbeitspaketNr;
+    }
+    public void setArbeitspaketNr(int apnr){
+        this.arbeitspaketNr = apnr;
+    }
+    
     public List<Mitarbeiter> getMitarbeiter() {
         return this.team;
     }

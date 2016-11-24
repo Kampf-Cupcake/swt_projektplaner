@@ -25,7 +25,6 @@ public class ProjektVerwaltung {
     
     public ProjektVerwaltung(){
          datenbank = MainFrame.db;
-
     }
     // Daten von der GUI werden für die Laufzeit NetBeans übergeben und 
     // per Methode speicherProjekt der Datenbank übergeben
@@ -42,9 +41,7 @@ public class ProjektVerwaltung {
         } catch (Exception e){
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());
         }
-        
-        
-                
+             
     }
 
     public void verwaltenArbeitspaket() {
@@ -58,8 +55,5 @@ public class ProjektVerwaltung {
     
     public List<Projekt> getProjekte(){
       return datenbank.selectAllProjects();
-      
-       
-        //hier muss eine Funktion rein, die die daten aus DB in das richtige format packt
     }
 }

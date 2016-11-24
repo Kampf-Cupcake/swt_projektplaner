@@ -5,6 +5,7 @@ package swt_projektplaner;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 import java.util.List;
 import java.util.LinkedList;
 /**
@@ -13,17 +14,24 @@ import java.util.LinkedList;
  */
 public class BenutzerVerwaltung {
     
-    protected List<Mitarbeiter> mitarbeiter = new LinkedList<>();
+    private Datenbank datenbank;
     
-    public void erstelleProfil(String name, String vorname, String passwort, String Rang){
+    public BenutzerVerwaltung(){
+         datenbank = MainFrame.db;
+    }
+    
+    public void erstelleProfil(String name, String vorname, String Rang, String passwort){
+       System.out.println(vorname);
+        System.out.println(name);
        
-
-      //  mitarbeiter.add( new Mitarbeiter(name, vorname, 3, Rang, vorname + name, passwort));
-
-        //mitarbeiter.add( new Mitarbeiter(name, vorname, 3, Rang, vorname + name, passwort));
-
-        System.out.println(mitarbeiter);    //Test
-        
+        Mitarbeiter mitarbeiter = new Mitarbeiter(name, vorname, Rang, passwort);
+        System.out.println(Rang);
+       // Date datum =  new Date(greg.getGregorianChange().getTime());
+        try{
+            datenbank.speicherMitarbeiter(mitarbeiter);
+        } catch (Exception e){
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
     }
     
     public void aendereRang(){
@@ -43,7 +51,7 @@ public class BenutzerVerwaltung {
     }
     
     public List<Mitarbeiter> getMitarbeiter(){
-        return this.mitarbeiter;
+        return datenbank.selectAllMitarbeiters();
     }
 
 }
