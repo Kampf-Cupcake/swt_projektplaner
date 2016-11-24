@@ -16,17 +16,17 @@ public class Arbeitspaket {
     private GregorianCalendar deadline;
     private int arbeitspaketNr;
 
-    protected Mitarbeiter leiter;
-    protected List<Mitarbeiter> team = new LinkedList<Mitarbeiter>();
-    protected ArbeitspaketVerwaltung verwaltung;
-    protected Projekt projekt;
-    protected List<AKommentar> kommentare = new LinkedList<>();    //In UML
+    private Mitarbeiter leiter;
+    private List<Mitarbeiter> team = new LinkedList<Mitarbeiter>();
+    private ArbeitspaketVerwaltung verwaltung;
+    private Projekt projekt;
+    private List<AKommentar> kommentare = new LinkedList<>();    //In UML
 
-    protected List<Vorwarnung> vorwarnung = new LinkedList<Vorwarnung>();
-    protected Statusbericht statusbericht;
+    private List<Vorwarnung> vorwarnung = new LinkedList<Vorwarnung>();
+    private Statusbericht statusbericht;
 
-    protected List<Arbeitspaket> nachfolgendeArbeitspakete = new LinkedList<Arbeitspaket>();
-    protected List<Arbeitspaket> benoetigteArbeitspakete = new LinkedList<Arbeitspaket>();
+    private List<Arbeitspaket> nachfolgendeArbeitspakete = new LinkedList<Arbeitspaket>();
+    private List<Arbeitspaket> benoetigteArbeitspakete = new LinkedList<Arbeitspaket>();
 
     public Arbeitspaket(String n, boolean f, String b, GregorianCalendar d) {
         this.name = n;
@@ -39,18 +39,30 @@ public class Arbeitspaket {
     public String getName() {
         return name;
     }
-
+    public void setName(String name){
+        this.name = name;
+    }
+    
     public boolean getFertig() {
         /* Hinzufügen ins UML Diagramm */
         return fertig;
     }
-
+    public void setFertig(boolean fertig){
+        this.fertig = fertig;
+    }
+    
     public String getBeschreibung(){
         return beschreibung;
+    }
+    public void setBeschreibung(String b){
+        this.beschreibung = b;
     }
     
     public GregorianCalendar getDeadline(){
         return deadline;
+    }
+    public void setDeadline(GregorianCalendar dl){
+        this.deadline = dl;
     }
     
     public List<Mitarbeiter> getMitarbeiter() {

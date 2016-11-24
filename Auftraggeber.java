@@ -13,14 +13,14 @@ public class Auftraggeber {
     private String ansprechpartner;
     private int tel;
     private String strasse;
-    private int hausNr;
+    private String hausNr;
     private int plz;
     private String ort;
     private int kundenNr;
 
-    protected List<Projekt> projekt = new LinkedList<>();
+    private List<Projekt> projekt = new LinkedList<>();
 
-    public Auftraggeber(String n, String a, int t, String s, int h, int p, String o) {
+    public Auftraggeber(String n, String a, int t, String s, String h, int p, String o) {
         this.name = n;
         this.ansprechpartner = a;
         this.tel = t;
@@ -40,31 +40,59 @@ public class Auftraggeber {
     public String getName() {
         return name;
     }
+    public void setName(String name){
+        this.name = name;
+    }
 
     public String getAnsprechpartner() {
         return ansprechpartner;
+    }
+    public void setAnsprechpartner(String ap){
+        this.ansprechpartner = ap;
     }
 
     public int getTel() {
         return tel;
     }
+    public void setTel(int tel){
+        this.tel = tel;
+    }
 
     public String getStrasse() {
         return strasse;
     }
-
-    public int getHausNr() {
+    public void setStrasse(String str){
+        this.strasse = str;
+    }
+    
+    public String getHausNr() {
         return hausNr;
     }
+    public void getHausNr(String hnr){
+        this.hausNr = hnr;
+    }
 
-    public int getplz() {
+    public int getPlz() {
         return plz;
+    }
+    public void setPlz(int plz){
+        this.plz = plz;
     }
 
     public String getOrt() {
         return ort;
     }
+    public void setOrt(String o){
+        this.ort = o;
+    }
 
+    public int getKundenNr(){
+        return kundenNr;
+    }
+    public void setKundenNr(int knr){
+        this.kundenNr = knr;
+    }
+    
     public List<Projekt> getProjekt() {
         return this.projekt;
     }

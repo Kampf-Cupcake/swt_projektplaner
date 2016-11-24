@@ -33,15 +33,28 @@ public class AKommentar {               //In UML
     public String getText() {
         return text;
     }
-
+    public void setText(String text){
+        this.text = text;
+    }
+    
     public GregorianCalendar getDatum() {
         return datum;
     }
-
+    public void setDatum(GregorianCalendar date){
+        this.datum = date;
+    }
+      
+    public int getAKommentarNr (){
+        return akommentarNr;
+    }    
+    public void setAKommentarNr(int id){
+        this.akommentarNr = id;
+    }
+    
     public Arbeitspaket getKommentar() {
         return this.kommentar;
-    }
-
+    }  
+    
     public Mitarbeiter getVerfasser() {
         return this.verfasser;
     }

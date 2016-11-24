@@ -64,7 +64,9 @@ public class ProjektVerwaltung {
     }
     
     public List<Projekt> getProjekte(){
-        return projekte;
+      datenbank.selectAllProjects();
+      return projekte;
+       
         //hier muss eine Funktion rein, die die daten aus DB in das richtige format packt
     }
 }

@@ -15,8 +15,8 @@ import java.util.LinkedList;
  */
 public class ArbeitspaketVerwaltung {
     
-    protected List<Arbeitspaket> arbeitspakete;
-    protected Datenbank datenbank;
+    private List<Arbeitspaket> arbeitspakete;
+    public Datenbank datenbank;
     
      public ArbeitspaketVerwaltung(){
          datenbank = new Datenbank();
