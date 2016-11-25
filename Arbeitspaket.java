@@ -28,12 +28,13 @@ public class Arbeitspaket {
     private List<Arbeitspaket> nachfolgendeArbeitspakete = new LinkedList<Arbeitspaket>();
     private List<Arbeitspaket> benoetigteArbeitspakete = new LinkedList<Arbeitspaket>();
 
-    public Arbeitspaket(String n, boolean f, String b, GregorianCalendar d) {
+    public Arbeitspaket(String n, boolean f, String b, GregorianCalendar d, Projekt p) {
         this.name = n;
         this.fertig = f;
         this.beschreibung = b;
         this.deadline = d;
         this.arbeitspaketNr = -1;
+        this.projekt = p;
     }
 
     public String getName() {
@@ -86,6 +87,9 @@ public class Arbeitspaket {
     
     public Projekt getProjekt(){
         return this.projekt;
+    }
+    public void setProjekt(Projekt p){
+        this.projekt=p;
     }
     
     public List<AKommentar> getAKommentar(){

@@ -22,14 +22,14 @@ public class ArbeitspaketVerwaltung {
         
     }
     
-    public void anlegeArbeitspaket(String name, boolean fertig, String beschreibung, int tag, int monat, int jahr){    //'int name' zu 'String name' geändert
+    public void anlegeArbeitspaket(String name, boolean fertig, String beschreibung, int tag, int monat, int jahr, Projekt projekt){    
         System.out.println(name);
         System.out.println(beschreibung);
         System.out.println("Status des Paketes "+ fertig);
         GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
         
         //Date datum =  new Date(greg.getGregorianChange().getTime());
-        Arbeitspaket arbeitspaket = new Arbeitspaket(name, fertig, beschreibung, greg);
+        Arbeitspaket arbeitspaket = new Arbeitspaket(name, fertig, beschreibung, greg, projekt);
         
         try{
             datenbank.speicherArbeitspaket(arbeitspaket);
