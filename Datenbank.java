@@ -99,6 +99,7 @@ public class Datenbank {
             res.close();
             stmt.close();
             con.close();
+          
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -106,10 +107,13 @@ public class Datenbank {
     }
     
     public void abrufeProjekt(String sql)throws Exception{
+        connect();
         ResultSet r = executeSQL(sql);
+        con.close();
     }
 
     public void speicherArbeitspaket(Arbeitspaket arbeitspaket) throws Exception {
+        connect();
         int year = arbeitspaket.getDeadline().get(Calendar.YEAR);
         int month = arbeitspaket.getDeadline().get(Calendar.MONTH)+1;
         int day = arbeitspaket.getDeadline().get(Calendar.DAY_OF_MONTH);
@@ -117,6 +121,7 @@ public class Datenbank {
                 + "(VALUES (" + arbeitspaket.getName() + "," + arbeitspaket.getFertig() + "," 
                 + arbeitspaket.getBeschreibung() + "," + year + "-" + month + "-" + day + arbeitspaket.getProjekt()+"')";
         ResultSet r = executeSQL(sql);
+        con.close();
     }
     
         public List<Arbeitspaket> selectAllArbeitspakete(){     
@@ -166,7 +171,9 @@ public class Datenbank {
     }
         
     public void abrufeArbeitspaket(String sql)throws Exception{
+        connect();
         ResultSet r = executeSQL(sql);
+        con.close();
     }
     
     public void speicherMitarbeiter(Mitarbeiter mitarbeiter) throws Exception{
@@ -216,7 +223,9 @@ public class Datenbank {
     }
     
     public void abrufeMitarbeiter(String sql)throws Exception{
+        connect();
         ResultSet r = executeSQL(sql);
+        con.close();
     }
     
     public void close() {
