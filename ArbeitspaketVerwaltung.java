@@ -35,6 +35,7 @@ public class ArbeitspaketVerwaltung {
             datenbank.speicherArbeitspaket(arbeitspaket);
         } catch (Exception e){
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+            e.printStackTrace();
         }
        // arbeitspakete.add(arbeitspaket);
     }
@@ -50,7 +51,7 @@ public class ArbeitspaketVerwaltung {
   
     
     
-    public List<Arbeitspaket> getArbeitspaket(){
-        return datenbank.selectAllArbeitspakete();
+    public List<Arbeitspaket> getArbeitspaket(Projekt projekt){
+        return datenbank.selectAllArbeitspakete(projekt);
     }
 }

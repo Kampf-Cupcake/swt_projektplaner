@@ -114,7 +114,7 @@ public class MainFrame extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
-        ButtonArbeitspaketAnlegenHinzufügen = new javax.swing.JButton();
+        ButtonArbeitspaketAnlegen = new javax.swing.JButton();
         ComboBoxATag = new javax.swing.JComboBox<>();
         ComboBoxAMonat = new javax.swing.JComboBox<>();
         ComboBoxAJahr = new javax.swing.JComboBox<>();
@@ -595,10 +595,10 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setText("Notiz");
 
-        ButtonArbeitspaketAnlegenHinzufügen.setText("Anlegen");
-        ButtonArbeitspaketAnlegenHinzufügen.addActionListener(new java.awt.event.ActionListener() {
+        ButtonArbeitspaketAnlegen.setText("Anlegen");
+        ButtonArbeitspaketAnlegen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonArbeitspaketAnlegenHinzufügenActionPerformed(evt);
+                ButtonArbeitspaketAnlegenActionPerformed(evt);
             }
         });
 
@@ -652,7 +652,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGroup(ArbeitspaketAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ButtonArbeitspaketAnlegenHinzufügen))
+                            .addComponent(ButtonArbeitspaketAnlegen))
                         .addGap(95, 95, 95))))
         );
         ArbeitspaketAnlegenLayout.setVerticalGroup(
@@ -689,7 +689,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addComponent(ButtonArbeitspaketAnlegenHinzufügen)
+                .addComponent(ButtonArbeitspaketAnlegen)
                 .addGap(28, 28, 28))
         );
 
@@ -740,7 +740,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void ProjekteAnsehenComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_ProjekteAnsehenComponentShown
        ListProjekteAnsehen.removeAll();
         List<Projekt> liste = pv.getProjekte();
-        List<Arbeitspaket> a_liste = av.getArbeitspaket();
+        //List<Arbeitspaket> a_liste = av.getArbeitspaket();
      
         DefaultListModel ListModel = new DefaultListModel();
        ListProjekteAnsehen.setModel(ListModel);
@@ -829,29 +829,36 @@ public class MainFrame extends javax.swing.JFrame {
        ProjekteAnsehen.setVisible(true);
     }//GEN-LAST:event_ButtonProjektBearbeitenZurückActionPerformed
 
-    private void ButtonArbeitspaketAnlegenHinzufügenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonArbeitspaketAnlegenHinzufügenActionPerformed
+    private void ButtonArbeitspaketAnlegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonArbeitspaketAnlegenActionPerformed
         int tag = Integer.parseInt((String)ComboBoxATag.getSelectedItem());
         int monat = ComboBoxAMonat.getSelectedIndex()+1;
         int jahr = Integer.parseInt((String)ComboBoxAJahr.getSelectedItem());
+        
         List<Projekt> p = pv.getProjekte();
+        //List<Arbeitspaket> a = av.getArbeitspaket();
+        
         Projekt projekt = p.get(ListProjekteAnsehen.getSelectedIndex());
             av.anlegeArbeitspaket(TextFieldAName.getText(),false, TextFieldABeschreibung.getText(), tag, monat, jahr, projekt);  
        
         DefaultListModel dm = new DefaultListModel();
-        dm.addElement(TextFieldAName.getText());
+       
         ListArbeitspakete.setModel(dm);
+        
+        
+        for(int i = 0; i < projekt.getArbeitspaket().size(); i++){ 
             
-            
-            
-        TextFieldName.setText("");
-        TextFieldBeschreibung.setText("");
-        ComboBoxTag.setSelectedIndex(0);
-        ComboBoxMonat.setSelectedIndex(0);
-        ComboBoxJahr.setSelectedIndex(0);
+            dm.addElement(projekt.getArbeitspaket().get(i).getName() );
+        }
+        
+        TextFieldAName.setText("");
+        TextFieldABeschreibung.setText("");
+        ComboBoxATag.setSelectedIndex(0);
+        ComboBoxAMonat.setSelectedIndex(0);
+        ComboBoxAJahr.setSelectedIndex(0);
         
         ArbeitspaketAnlegen.setVisible(false);
         ProjektBearbeiten.setVisible(true);
-    }//GEN-LAST:event_ButtonArbeitspaketAnlegenHinzufügenActionPerformed
+    }//GEN-LAST:event_ButtonArbeitspaketAnlegenActionPerformed
  
     /**
      * @param args the command line arguments
@@ -895,7 +902,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ArbeitspaketAnlegen;
     private javax.swing.JPanel BenutzerAnlegen;
-    private javax.swing.JButton ButtonArbeitspaketAnlegenHinzufügen;
+    private javax.swing.JButton ButtonArbeitspaketAnlegen;
     private javax.swing.JButton ButtonArbeitspaketAnlegenZurück;
     private javax.swing.JButton ButtonArbeitspaketHinzufügen;
     private javax.swing.JButton ButtonBackProjektAnlegen;

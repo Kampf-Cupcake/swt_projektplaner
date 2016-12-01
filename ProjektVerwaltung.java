@@ -54,6 +54,10 @@ public class ProjektVerwaltung {
     }
     
     public List<Projekt> getProjekte(){
-      return datenbank.selectAllProjects();
+      List<Projekt> projekte = datenbank.selectAllProjects();
+      for (Projekt p : projekte){
+          p.setArbeitspakete(datenbank.selectAllArbeitspakete(p));
+      }
+      return projekte;
     }
 }

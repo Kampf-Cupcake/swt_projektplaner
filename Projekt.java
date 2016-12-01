@@ -70,5 +70,13 @@ public class Projekt {
    public void setProjektNr(int pnr){
         this.projektNr=pnr;
     }
+   
+   public void addArbeitspaket(Arbeitspaket arbeitspaket){
+       arbeitspakete.add(arbeitspaket);
+   }
+   
+   public void setArbeitspakete(List<Arbeitspaket> ap){
+       arbeitspakete = ap;
+   }
     
 }

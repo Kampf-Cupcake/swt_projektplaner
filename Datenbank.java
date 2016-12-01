@@ -118,23 +118,24 @@ public class Datenbank {
         int month = arbeitspaket.getDeadline().get(Calendar.MONTH)+1;
         int day = arbeitspaket.getDeadline().get(Calendar.DAY_OF_MONTH);
         String sql = "INSERT INTO Arbeitspaket (name,fertig,beschreibung,deadline, gehört_zu) "
-                + "(VALUES (" + arbeitspaket.getName() + "," + arbeitspaket.getFertig() + "," 
-                + arbeitspaket.getBeschreibung() + "," + year + "-" + month + "-" + day + arbeitspaket.getProjekt()+"')";
+                + "VALUES ('" + arbeitspaket.getName() + "'," + arbeitspaket.getFertig() + ",'" 
+                + arbeitspaket.getBeschreibung() + "','" + year + "-" + month + "-" + day + "'," + arbeitspaket.getProjekt().getProjektNr()+")";
+        System.out.println(sql);
         ResultSet r = executeSQL(sql);
         con.close();
     }
     
-        public List<Arbeitspaket> selectAllArbeitspakete(){     
+        public List<Arbeitspaket> selectAllArbeitspakete(Projekt projekt){     
         List<Arbeitspaket> arbeitspakete = new LinkedList<Arbeitspaket>();
         try{
             connect();
             Statement stmt = con.createStatement();
-            String sql= "SELECT* FROM Arbeitspaket";
+            String sql= "SELECT* FROM Arbeitspaket WHERE Arbeitspaket.gehört_zu=" + projekt.getProjektNr();
         
             ResultSet res = stmt.executeQuery(sql);
             
-            String sqlProjekt = "SELECT * FROM Projekt, Arbeitspaket WHERE Arbeitspaket.gehört_zu=Projekt.projektNr";
-            ResultSet resProjekt = stmt.executeQuery(sqlProjekt);
+            //String sqlProjekt = "SELECT * FROM Projekt, Arbeitspaket WHERE Arbeitspaket.gehört_zu=Projekt.projektNr";
+            //ResultSet resProjekt = stmt.executeQuery(sqlProjekt);
             int i=1;
             while(res.next()){
          
@@ -145,8 +146,8 @@ public class Datenbank {
                 int id = res.getInt(5);
                 //int gehört_zu = res.getInt(6); das funktioniert leider nicht, da Arbeitspaket ein Projekt braucht und keinen int
                 //Hier entnehmen wir HOFFENTLICH das zugehörige Projekt aus der DB und machen daraus ein NetBeansObjekt 
-                Object projektJustObject = resProjekt.getObject(i); 
-                Projekt projekt = (Projekt)projektJustObject;
+                int projektJustObject = res.getInt(6); 
+                //Projekt projekt = (Projekt)projektJustObject;
                 i++;
                 
                 GregorianCalendar greg = dateZuGreg(deadline);

@@ -894,7 +894,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jTextField3" min="-2" pref="90" max="-2" attributes="0"/>
                               <Component id="jTextField6" min="-2" pref="98" max="-2" attributes="0"/>
-                              <Component id="ButtonArbeitspaketAnlegenHinzufügen" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="ButtonArbeitspaketAnlegen" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                       </Group>
@@ -943,7 +943,7 @@
                       <Component id="jTextField6" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="ButtonArbeitspaketAnlegenHinzufügen" min="-2" max="-2" attributes="0"/>
+                  <Component id="ButtonArbeitspaketAnlegen" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -1047,12 +1047,12 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextField6">
         </Component>
-        <Component class="javax.swing.JButton" name="ButtonArbeitspaketAnlegenHinzuf&#xfc;gen">
+        <Component class="javax.swing.JButton" name="ButtonArbeitspaketAnlegen">
           <Properties>
             <Property name="text" type="java.lang.String" value="Anlegen"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonArbeitspaketAnlegenHinzuf&#xfc;genActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonArbeitspaketAnlegenActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="ComboBoxATag">
