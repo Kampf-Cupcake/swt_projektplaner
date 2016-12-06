@@ -72,6 +72,5 @@ public class ProjektVerwaltung {
         } catch (Exception e){
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());
         }
-        
      }
 }

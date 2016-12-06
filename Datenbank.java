@@ -128,13 +128,8 @@ public class Datenbank {
 
     /*weist einem Projekt einen Mitarbeiter zu*/
     public void weiseProjektMitarbeiterZu(Projekt p, Mitarbeiter m)throws Exception{
-        /*INSERT INTO Store_Information (Store_Name, Sales, Txn_Date)
-    SELECT Store_Name, Sales, Txn_Date
-    FROM Sales_Information
-    WHERE Year (Txn_Date) = 1998;*/
         connect();
-        String sql = "INSERT INTO Projekt (wird_bearbeitet_von) VALUES ('"+m.getPersonalNr()+"')"
-                + "WHERE Projekt.ProjektNr='" + p.getProjektNr()+"'";
+        String sql = "INSERT INTO P_MA (arbeitet_an, wird_bearbeitet_von) VALUES ("+p.getProjektNr()+","+m.getPersonalNr()+")";
         ResultSet r = executeSQL(sql);
         con.close();
     };
@@ -249,6 +244,14 @@ public class Datenbank {
         ResultSet r = executeSQL(sql);
         con.close();
     }
+    
+    /*weist einem Projekt einen Mitarbeiter zu*/
+    public void weiseArbeitspaketMitarbeiterZu(Arbeitspaket a, Mitarbeiter m)throws Exception{
+        connect();
+        String sql = "INSERT INTO AP_MA (arbeitet_an, wird_bearbeitet_von) VALUES ("+a.getArbeitspaketNr()+","+m.getPersonalNr()+")";
+        ResultSet r = executeSQL(sql);
+        con.close();
+    };
     
     /*liefert eine Liste von allen Mitarbeiter*/
     public List<Mitarbeiter> selectAllMitarbeiters() {

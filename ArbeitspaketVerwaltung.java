@@ -54,4 +54,14 @@ public class ArbeitspaketVerwaltung {
     public List<Arbeitspaket> getArbeitspaket(Projekt projekt){
         return datenbank.selectAllArbeitspakete(projekt);
     }
+    
+    public void weiseMitarbeiterZu(Arbeitspaket a, Mitarbeiter m){
+        
+         try{
+             a.setMitarbeiter(m);
+            datenbank.weiseArbeitspaketMitarbeiterZu(a, m);
+        } catch (Exception e){
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
+     }
 }
