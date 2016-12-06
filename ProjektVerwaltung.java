@@ -53,11 +53,24 @@ public class ProjektVerwaltung {
 
     }
     
-    public List<Projekt> getProjekte(){
+   
+    
+     public List<Projekt> getProjekte(){
       List<Projekt> projekte = datenbank.selectAllProjects();
       for (Projekt p : projekte){
           p.setArbeitspakete(datenbank.selectAllArbeitspakete(p));
       }
       return projekte;
     }
+     //Evelyne neu
+     public void weiseMitarbeiterZu(Projekt p, Mitarbeiter m){
+        
+         try{
+             p.setMitarbeiter(m);
+            datenbank.weiseProjektMitarbeiterZu(p, m);
+        } catch (Exception e){
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
+        
+     }
 }

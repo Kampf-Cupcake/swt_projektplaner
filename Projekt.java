@@ -11,12 +11,12 @@ import java.util.GregorianCalendar;
  */
 public class Projekt {
 
-    protected List<Mitarbeiter> mitarbeiter = new LinkedList<>();
-    protected List<Arbeitspaket> arbeitspakete = new LinkedList<>();
-    protected List<Auftraggeber> auftraggeber = new LinkedList<>();
-    protected List<Vorwarnung> vorwarnungen = new LinkedList<>();
-    protected List<Statusbericht> statusberichte = new LinkedList<>();
-    protected List<PKommentar> kommentare = new LinkedList<>();
+    private List<Mitarbeiter> mitarbeiter = new LinkedList<>();
+    private List<Arbeitspaket> arbeitspakete = new LinkedList<>();
+    private List<Auftraggeber> auftraggeber = new LinkedList<>();
+    private List<Vorwarnung> vorwarnungen = new LinkedList<>();
+    private List<Statusbericht> statusberichte = new LinkedList<>();
+    private List<PKommentar> kommentare = new LinkedList<>();
 
     //private Projektverwaltung pv;
     private String name;
@@ -34,7 +34,10 @@ public class Projekt {
     public List<Mitarbeiter> getMitarbeiter() {
         return this.mitarbeiter;
     }
-
+    public void setMitarbeiter(Mitarbeiter ma) {
+        this.mitarbeiter.add(ma);
+    }
+    
     public List<Arbeitspaket> getArbeitspaket() {
         return this.arbeitspakete;
     }
@@ -79,4 +82,5 @@ public class Projekt {
        arbeitspakete = ap;
    }
     
+ 
 }

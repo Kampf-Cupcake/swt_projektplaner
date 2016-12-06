@@ -53,5 +53,5 @@ public class BenutzerVerwaltung {
     public List<Mitarbeiter> getMitarbeiter(){
         return datenbank.selectAllMitarbeiters();
     }
-
+    
 }
