@@ -10,7 +10,7 @@ public class Mitarbeiter {
     private String name;
     private String vorname;
     private String rang;
-    //private String benutzername;      //Benutzername = vorname + name
+    private String benutzername;      //Benutzername = vorname + name
     private String passwort;
     private int personalNr;
     //public BenutzerVerwaltung benverw;
@@ -24,17 +24,17 @@ public class Mitarbeiter {
     private List<Projekt> geleiteteProjekte = new LinkedList<>();
     private List<Projekt> projekt = new LinkedList<>();
     
-    public Mitarbeiter(String n, String vn, String r, String p){
+    public Mitarbeiter(String n, String vn, String r, String bn, String p){
         this.name = n;
         this.vorname = vn;
         this.personalNr = -1;
         this.rang = r;
-        //this.benutzername = bn;
+        this.benutzername = bn;
         this.passwort = p;
     } 
     
     public String toString(){       //UML
-        return "Name: "+name+" "+vorname+" ("+personalNr+")";
+        return "Name: "+name+" "+vorname+" "+benutzername+"("+personalNr+")";
     }
     
     public void setzKommentar(PKommentar k){    //String oder void?? Wenn void, dann UML ändern
@@ -66,12 +66,12 @@ public class Mitarbeiter {
         this.rang = r;
     }
 
-   /* public String getBenutzername(){
+   public String getBenutzername(){
         return benutzername;
     }
     public void setBenutzername(String bn){
         this.benutzername = bn;
-    }*/
+    }
     
     public String getPasswort(){
         return passwort;

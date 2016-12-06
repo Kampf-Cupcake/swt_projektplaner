@@ -20,11 +20,11 @@ public class BenutzerVerwaltung {
          datenbank = MainFrame.db;
     }
     
-    public void erstelleProfil(String name, String vorname, String Rang, String passwort){
+    public void erstelleProfil(String name, String vorname, String Rang, String benutzername, String passwort){
        System.out.println(vorname);
         System.out.println(name);
        
-        Mitarbeiter mitarbeiter = new Mitarbeiter(name, vorname, Rang, passwort);
+        Mitarbeiter mitarbeiter = new Mitarbeiter(name, vorname, Rang, benutzername, passwort);
         System.out.println(Rang);
        // Date datum =  new Date(greg.getGregorianChange().getTime());
         try{
