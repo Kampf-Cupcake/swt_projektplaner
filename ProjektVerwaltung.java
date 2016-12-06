@@ -51,7 +51,11 @@ public class ProjektVerwaltung {
     public void bearbeiteDeadline(Projekt p, int tag, int monat, int jahr) {
         GregorianCalendar greg = new GregorianCalendar(jahr, monat - 1, tag);
         p.setDeadline(greg);
-       // datenbank.bearbeiteProjektDeadline(p, greg);
+        try {
+            datenbank.bearbeiteProjektDeadline(p, greg);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
     }
     
    

@@ -137,7 +137,7 @@ public class Datenbank {
     /*bearbeitet die Zelle, hier der Name, von dem ausgewählten Projekt*/
     public void bearbeiteProjektName(Projekt projekt, String neuName) throws Exception {
         connect();
-        String sql = "UPDATE Projekt SET name ='" + neuName + "' WHERE ProjektNr ='" + projekt.getProjektNr() + "'";
+        String sql = "UPDATE Projekt SET name ='" + neuName + "' WHERE ProjektNr =" + projekt.getProjektNr();
         ResultSet r = executeSQL(sql);
         con.close();
     }
@@ -145,7 +145,7 @@ public class Datenbank {
     /*bearbeitet die Zelle, hier die Beschreibung, von dem ausgewählten Projekt*/
     public void bearbeiteProjektBeschreibung(Projekt projekt, String neuBeschreibung) throws Exception {
         connect();
-        String sql = "UPDATE Projekt SET beschreibung ='" + neuBeschreibung + "' WHERE ProjektNr ='" + projekt.getProjektNr() + "'";
+        String sql = "UPDATE Projekt SET beschreibung ='" + neuBeschreibung + "' WHERE ProjektNr =" + projekt.getProjektNr();
         ResultSet r = executeSQL(sql);
         con.close();
     }
@@ -156,11 +156,19 @@ public class Datenbank {
         int year = neugreg.get(Calendar.YEAR);
         int month = neugreg.get(Calendar.MONTH) + 1;
         int day = neugreg.get(Calendar.DAY_OF_MONTH);
-        String sql = "UPDATE Projekt SET deadline ='" + year + "-" + month + "-" + day + "' WHERE ProjektNr ='" + projekt.getProjektNr() + "'";
+        String sql = "UPDATE Projekt SET deadline ='" + year + "-" + month + "-" + day + "' WHERE ProjektNr =" + projekt.getProjektNr();
         ResultSet r = executeSQL(sql);
         con.close();
     }
 
+    /*löscht ein Projekt*/
+    public void loeschenProjekt(Projekt projekt)throws Exception{
+        connect();
+        String sql = "DELETE FROM Projekt WHERE ProjektNr ="+ projekt.getProjektNr();
+        con.close();
+    }
+    
+    
 /*Block für die Arbeitspakete*/
     
     /*um das Arbeitspaket in DB zu speichern*/
