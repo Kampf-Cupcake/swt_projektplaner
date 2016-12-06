@@ -387,30 +387,30 @@
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+                          <Component id="TitelBenutzerAnlegen" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="ButtonBenutzerprofilAnlegenZurück" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="LabelVorname" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="LabelNachname" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="LabelPasswort" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="LabelRang" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="RadioButtonAdministrator" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="TextFieldVorname" max="32767" attributes="0"/>
-                                  <Component id="TextFieldNachname" max="32767" attributes="0"/>
-                                  <Component id="TextFieldPasswort" max="32767" attributes="0"/>
-                                  <Component id="RadioButtonStandardBenutzer" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="ButtonBenutzerAnlegen" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="TextFieldVorname" max="32767" attributes="0"/>
+                              <Component id="TextFieldNachname" max="32767" attributes="0"/>
+                              <Component id="TextFieldPasswort" max="32767" attributes="0"/>
+                              <Component id="RadioButtonStandardBenutzer" alignment="0" max="32767" attributes="0"/>
+                              <Component id="ButtonBenutzerAnlegen" alignment="1" min="-2" pref="98" max="-2" attributes="0"/>
+                              <Component id="TextFieldBenutzername" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace pref="94" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="TitelBenutzerAnlegen" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="ButtonBenutzerprofilAnlegenZurück" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -436,7 +436,12 @@
                       <Component id="LabelNachname" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="TextFieldNachname" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                      <Component id="TextFieldBenutzername" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="LabelPasswort" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="TextFieldPasswort" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -450,7 +455,7 @@
                   <Component id="RadioButtonAdministrator" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="ButtonBenutzerAnlegen" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="232" max="32767" attributes="0"/>
+                  <EmptySpace pref="181" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -522,6 +527,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonBenutzerprofilAnlegenZur&#xfc;ckActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JLabel" name="jLabel11">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Benutzername"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="TextFieldBenutzername">
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="ProjekteAnsehen">
@@ -539,21 +551,21 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <Component id="ButtonProjektBearbeiten" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="jScrollPane2" min="-2" pref="153" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane3" pref="185" max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="152" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="ButtonBackProjekteAnsehen" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -571,12 +583,12 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonBackProjekteAnsehen" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jScrollPane2" pref="234" max="32767" attributes="0"/>
-                      <Component id="jScrollPane3" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jScrollPane2" min="-2" pref="234" max="-2" attributes="0"/>
+                      <Component id="jScrollPane3" min="-2" pref="234" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="128" max="32767" attributes="0"/>
+                  <EmptySpace pref="276" max="32767" attributes="0"/>
                   <Component id="ButtonProjektBearbeiten" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               </Group>
@@ -618,25 +630,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonBackProjekteAnsehenActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane3">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JList" name="ListProjektinformationen">
-              <Properties>
-                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                  <StringArray count="0"/>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
-          </SubComponents>
-        </Container>
         <Component class="javax.swing.JButton" name="ButtonProjektBearbeiten">
           <Properties>
             <Property name="text" type="java.lang.String" value="Bearbeiten"/>
@@ -645,6 +638,24 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonProjektBearbeitenActionPerformed"/>
           </Events>
         </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="TextAreaProjektBeschreibung">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="lineWrap" type="boolean" value="true"/>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="wrapStyleWord" type="boolean" value="true"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="ProjektBearbeiten">
@@ -668,28 +679,39 @@
                       <Component id="LabelKommentar" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="75" max="32767" attributes="0"/>
+                  <EmptySpace pref="18" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="ButtonArbeitspaketHinzufügen" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="TextFieldNotiz" pref="91" max="32767" attributes="0"/>
-                                  <Component id="TextFieldProjektBeschreibung" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="TextFieldProjektDeadline" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="TextFieldProjektName" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="TextFieldKommentar" alignment="1" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="TextFieldNotiz" pref="91" max="32767" attributes="0"/>
+                              <Component id="TextFieldProjektBeschreibung" alignment="1" max="32767" attributes="0"/>
+                              <Component id="TextFieldProjektName" alignment="1" max="32767" attributes="0"/>
+                              <Component id="TextFieldKommentar" alignment="1" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="ButtonProjektBearbeitenZurück" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="ButtonProjektAendern" min="-2" max="-2" attributes="0"/>
+                              <Component id="ButtonArbeitspaketHinzufügen" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="ComboBoxProjektBearbeitenTag" min="-2" pref="49" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="ComboBoxProjektBearbeitenMonat" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="jScrollPane4" min="-2" pref="139" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="ComboBoxProjektBearbeitenJahr" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="ButtonProjektBearbeitenZurück" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jScrollPane4" min="-2" pref="139" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -709,18 +731,22 @@
                           <Component id="LabelProjektName" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="LabelProjektBeschreibung" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="LabelProjektDeadline" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="LabelProjektDeadline" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ComboBoxProjektBearbeitenTag" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ComboBoxProjektBearbeitenMonat" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ComboBoxProjektBearbeitenJahr" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="TextFieldProjektName" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Component id="TextFieldProjektBeschreibung" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="TextFieldProjektDeadline" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="LabelKommentar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="TextFieldKommentar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -730,20 +756,16 @@
                       <Component id="TextFieldNotiz" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="31" max="32767" attributes="0"/>
-                          <Component id="jScrollPane4" min="-2" pref="130" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ButtonArbeitspaketHinzufügen" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jScrollPane4" min="-2" pref="130" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="ButtonArbeitspaketHinzufügen" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="ButtonProjektAendern" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -775,8 +797,6 @@
         <Component class="javax.swing.JTextField" name="TextFieldProjektName">
         </Component>
         <Component class="javax.swing.JTextField" name="TextFieldProjektBeschreibung">
-        </Component>
-        <Component class="javax.swing.JTextField" name="TextFieldProjektDeadline">
         </Component>
         <Component class="javax.swing.JLabel" name="LabelKommentar">
           <Properties>
@@ -831,6 +851,105 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonProjektBearbeitenZur&#xfc;ckActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="ButtonProjektAendern">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#xc4;ndern"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonProjektAendernActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="ComboBoxProjektBearbeitenTag">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="31">
+                <StringItem index="0" value="1"/>
+                <StringItem index="1" value="2"/>
+                <StringItem index="2" value="3"/>
+                <StringItem index="3" value="4"/>
+                <StringItem index="4" value="5"/>
+                <StringItem index="5" value="6"/>
+                <StringItem index="6" value="7"/>
+                <StringItem index="7" value="8"/>
+                <StringItem index="8" value="9"/>
+                <StringItem index="9" value="10"/>
+                <StringItem index="10" value="11"/>
+                <StringItem index="11" value="12"/>
+                <StringItem index="12" value="13"/>
+                <StringItem index="13" value="14"/>
+                <StringItem index="14" value="15"/>
+                <StringItem index="15" value="16"/>
+                <StringItem index="16" value="17"/>
+                <StringItem index="17" value="18"/>
+                <StringItem index="18" value="19"/>
+                <StringItem index="19" value="20"/>
+                <StringItem index="20" value="21"/>
+                <StringItem index="21" value="22"/>
+                <StringItem index="22" value="23"/>
+                <StringItem index="23" value="24"/>
+                <StringItem index="24" value="25"/>
+                <StringItem index="25" value="26"/>
+                <StringItem index="26" value="27"/>
+                <StringItem index="27" value="28"/>
+                <StringItem index="28" value="29"/>
+                <StringItem index="29" value="30"/>
+                <StringItem index="30" value="31"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="ComboBoxProjektBearbeitenMonat">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="12">
+                <StringItem index="0" value="Januar"/>
+                <StringItem index="1" value="Februar"/>
+                <StringItem index="2" value="M&#xe4;rz"/>
+                <StringItem index="3" value="April"/>
+                <StringItem index="4" value="Mai"/>
+                <StringItem index="5" value="Juni"/>
+                <StringItem index="6" value="Juli"/>
+                <StringItem index="7" value="August"/>
+                <StringItem index="8" value="September"/>
+                <StringItem index="9" value="Oktober"/>
+                <StringItem index="10" value="November"/>
+                <StringItem index="11" value="Dezember"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="ComboBoxProjektBearbeitenJahr">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="15">
+                <StringItem index="0" value="2016"/>
+                <StringItem index="1" value="2017"/>
+                <StringItem index="2" value="2018"/>
+                <StringItem index="3" value="2019"/>
+                <StringItem index="4" value="2020"/>
+                <StringItem index="5" value="2021"/>
+                <StringItem index="6" value="2022"/>
+                <StringItem index="7" value="2023"/>
+                <StringItem index="8" value="2024"/>
+                <StringItem index="9" value="2025"/>
+                <StringItem index="10" value="2026"/>
+                <StringItem index="11" value="2027"/>
+                <StringItem index="12" value="2028"/>
+                <StringItem index="13" value="2029"/>
+                <StringItem index="14" value="2030"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

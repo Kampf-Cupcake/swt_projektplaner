@@ -48,9 +48,10 @@ public class ProjektVerwaltung {
 
     }
 
-    public void eintragenDeadline(String deadline) {
-        System.out.println(deadline);
-
+    public void bearbeiteDeadline(Projekt p, int tag, int monat, int jahr) {
+        GregorianCalendar greg = new GregorianCalendar(jahr, monat - 1, tag);
+        p.setDeadline(greg);
+       // datenbank.bearbeiteProjektDeadline(p, greg);
     }
     
    

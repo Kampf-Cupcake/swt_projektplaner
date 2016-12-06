@@ -74,14 +74,16 @@ public class MainFrame extends javax.swing.JFrame {
         RadioButtonAdministrator = new javax.swing.JRadioButton();
         ButtonBenutzerAnlegen = new javax.swing.JButton();
         ButtonBenutzerprofilAnlegenZurück = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        TextFieldBenutzername = new javax.swing.JTextField();
         ProjekteAnsehen = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ListProjekteAnsehen = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         ButtonBackProjekteAnsehen = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        ListProjektinformationen = new javax.swing.JList<>();
         ButtonProjektBearbeiten = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TextAreaProjektBeschreibung = new javax.swing.JTextArea();
         ProjektBearbeiten = new javax.swing.JPanel();
         LabelProjekteAnsehenSub = new javax.swing.JLabel();
         LabelProjektName = new javax.swing.JLabel();
@@ -89,7 +91,6 @@ public class MainFrame extends javax.swing.JFrame {
         LabelProjektDeadline = new javax.swing.JLabel();
         TextFieldProjektName = new javax.swing.JTextField();
         TextFieldProjektBeschreibung = new javax.swing.JTextField();
-        TextFieldProjektDeadline = new javax.swing.JTextField();
         LabelKommentar = new javax.swing.JLabel();
         TextFieldKommentar = new javax.swing.JTextField();
         TextFieldNotiz = new javax.swing.JTextField();
@@ -99,6 +100,10 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         ListArbeitspakete = new javax.swing.JList<>();
         ButtonProjektBearbeitenZurück = new javax.swing.JButton();
+        ButtonProjektAendern = new javax.swing.JButton();
+        ComboBoxProjektBearbeitenTag = new javax.swing.JComboBox<>();
+        ComboBoxProjektBearbeitenMonat = new javax.swing.JComboBox<>();
+        ComboBoxProjektBearbeitenJahr = new javax.swing.JComboBox<>();
         ArbeitspaketAnlegen = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         ButtonArbeitspaketAnlegenZurück = new javax.swing.JButton();
@@ -313,6 +318,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setText("Benutzername");
+
         javax.swing.GroupLayout BenutzerAnlegenLayout = new javax.swing.GroupLayout(BenutzerAnlegen);
         BenutzerAnlegen.setLayout(BenutzerAnlegenLayout);
         BenutzerAnlegenLayout.setHorizontalGroup(
@@ -321,26 +328,27 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(BenutzerAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BenutzerAnlegenLayout.createSequentialGroup()
+                        .addComponent(TitelBenutzerAnlegen)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ButtonBenutzerprofilAnlegenZurück)
+                        .addGap(25, 25, 25))
+                    .addGroup(BenutzerAnlegenLayout.createSequentialGroup()
                         .addGroup(BenutzerAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelVorname)
                             .addComponent(LabelNachname)
                             .addComponent(LabelPasswort)
-                            .addComponent(LabelRang))
-                        .addGap(79, 79, 79)
-                        .addGroup(BenutzerAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LabelRang)
+                            .addComponent(jLabel11))
+                        .addGap(53, 53, 53)
+                        .addGroup(BenutzerAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(RadioButtonAdministrator)
-                            .addGroup(BenutzerAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TextFieldVorname)
-                                .addComponent(TextFieldNachname)
-                                .addComponent(TextFieldPasswort)
-                                .addComponent(RadioButtonStandardBenutzer))
-                            .addComponent(ButtonBenutzerAnlegen, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(94, Short.MAX_VALUE))
-                    .addGroup(BenutzerAnlegenLayout.createSequentialGroup()
-                        .addComponent(TitelBenutzerAnlegen)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ButtonBenutzerprofilAnlegenZurück)
-                        .addGap(25, 25, 25))))
+                            .addComponent(TextFieldVorname)
+                            .addComponent(TextFieldNachname)
+                            .addComponent(TextFieldPasswort)
+                            .addComponent(RadioButtonStandardBenutzer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ButtonBenutzerAnlegen, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TextFieldBenutzername))
+                        .addContainerGap(94, Short.MAX_VALUE))))
         );
         BenutzerAnlegenLayout.setVerticalGroup(
             BenutzerAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,7 +366,11 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(BenutzerAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelNachname)
                     .addComponent(TextFieldNachname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGap(27, 27, 27)
+                .addGroup(BenutzerAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel11)
+                    .addComponent(TextFieldBenutzername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(BenutzerAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelPasswort)
                     .addComponent(TextFieldPasswort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -370,7 +382,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(RadioButtonAdministrator)
                 .addGap(40, 40, 40)
                 .addComponent(ButtonBenutzerAnlegen)
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
         getContentPane().add(BenutzerAnlegen, "card3");
@@ -403,8 +415,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane3.setViewportView(ListProjektinformationen);
-
         ButtonProjektBearbeiten.setText("Bearbeiten");
         ButtonProjektBearbeiten.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -412,25 +422,32 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        TextAreaProjektBeschreibung.setEditable(false);
+        TextAreaProjektBeschreibung.setColumns(20);
+        TextAreaProjektBeschreibung.setLineWrap(true);
+        TextAreaProjektBeschreibung.setRows(5);
+        TextAreaProjektBeschreibung.setWrapStyleWord(true);
+        jScrollPane3.setViewportView(TextAreaProjektBeschreibung);
+
         javax.swing.GroupLayout ProjekteAnsehenLayout = new javax.swing.GroupLayout(ProjekteAnsehen);
         ProjekteAnsehen.setLayout(ProjekteAnsehenLayout);
         ProjekteAnsehenLayout.setHorizontalGroup(
             ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ProjekteAnsehenLayout.createSequentialGroup()
                 .addGap(62, 62, 62)
-                .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ProjekteAnsehenLayout.createSequentialGroup()
                         .addComponent(ButtonProjektBearbeiten)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(ProjekteAnsehenLayout.createSequentialGroup()
-                        .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(ProjekteAnsehenLayout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
+                                .addGap(51, 51, 51)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ProjekteAnsehenLayout.createSequentialGroup()
                                 .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(ButtonBackProjekteAnsehen)))
                         .addGap(21, 21, 21))))
         );
@@ -441,11 +458,11 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(ButtonBackProjekteAnsehen))
-                .addGap(59, 59, 59)
-                .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                .addGap(84, 84, 84)
+                .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
                 .addComponent(ButtonProjektBearbeiten)
                 .addGap(42, 42, 42))
         );
@@ -483,6 +500,19 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        ButtonProjektAendern.setText("Ändern");
+        ButtonProjektAendern.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonProjektAendernActionPerformed(evt);
+            }
+        });
+
+        ComboBoxProjektBearbeitenTag.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        ComboBoxProjektBearbeitenMonat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember" }));
+
+        ComboBoxProjektBearbeitenJahr.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030" }));
+
         javax.swing.GroupLayout ProjektBearbeitenLayout = new javax.swing.GroupLayout(ProjektBearbeiten);
         ProjektBearbeiten.setLayout(ProjektBearbeitenLayout);
         ProjektBearbeitenLayout.setHorizontalGroup(
@@ -497,24 +527,32 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(LabelProjektBeschreibung)
                     .addComponent(LabelKommentar)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ButtonArbeitspaketHinzufügen)
-                    .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjektBearbeitenLayout.createSequentialGroup()
-                            .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(TextFieldNotiz, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                                .addComponent(TextFieldProjektBeschreibung, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(TextFieldProjektDeadline, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(TextFieldProjektName, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(TextFieldKommentar, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addGap(114, 114, 114))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjektBearbeitenLayout.createSequentialGroup()
-                            .addComponent(ButtonProjektBearbeitenZurück)
-                            .addGap(24, 24, 24))
-                        .addGroup(ProjektBearbeitenLayout.createSequentialGroup()
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap()))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjektBearbeitenLayout.createSequentialGroup()
+                        .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(TextFieldNotiz, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                            .addComponent(TextFieldProjektBeschreibung, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(TextFieldProjektName, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(TextFieldKommentar, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(114, 114, 114))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjektBearbeitenLayout.createSequentialGroup()
+                        .addComponent(ButtonProjektBearbeitenZurück)
+                        .addGap(24, 24, 24))
+                    .addGroup(ProjektBearbeitenLayout.createSequentialGroup()
+                        .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ButtonProjektAendern)
+                            .addComponent(ButtonArbeitspaketHinzufügen)
+                            .addGroup(ProjektBearbeitenLayout.createSequentialGroup()
+                                .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(ProjektBearbeitenLayout.createSequentialGroup()
+                                        .addComponent(ComboBoxProjektBearbeitenTag, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ComboBoxProjektBearbeitenMonat, 0, 1, Short.MAX_VALUE))
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ComboBoxProjektBearbeitenJahr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         ProjektBearbeitenLayout.setVerticalGroup(
             ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -529,15 +567,18 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(LabelProjektName)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LabelProjektBeschreibung)
-                        .addGap(31, 31, 31)
-                        .addComponent(LabelProjektDeadline))
+                        .addGap(28, 28, 28)
+                        .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LabelProjektDeadline)
+                            .addComponent(ComboBoxProjektBearbeitenTag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ComboBoxProjektBearbeitenMonat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ComboBoxProjektBearbeitenJahr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(ProjektBearbeitenLayout.createSequentialGroup()
                         .addComponent(TextFieldProjektName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
                         .addComponent(TextFieldProjektBeschreibung, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
-                        .addComponent(TextFieldProjektDeadline, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(61, 61, 61)
+                        .addGap(51, 51, 51)))
+                .addGap(58, 58, 58)
                 .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelKommentar)
                     .addComponent(TextFieldKommentar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -545,17 +586,15 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(TextFieldNotiz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
+                .addGap(26, 26, 26)
                 .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ProjektBearbeitenLayout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jLabel3)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjektBearbeitenLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ButtonArbeitspaketHinzufügen)
-                        .addGap(26, 26, 26))))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addComponent(ButtonArbeitspaketHinzufügen)
+                .addGap(38, 38, 38)
+                .addComponent(ButtonProjektAendern)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(ProjektBearbeiten, "card7");
@@ -702,7 +741,8 @@ public class MainFrame extends javax.swing.JFrame {
      int tag = Integer.parseInt((String)ComboBoxTag.getSelectedItem());
      int monat = ComboBoxMonat.getSelectedIndex()+1;
      int jahr = Integer.parseInt((String)ComboBoxJahr.getSelectedItem());
-        pv.anlegenProjekt(TextFieldName.getText(), TextFieldBeschreibung.getText(), tag, monat, jahr );  
+       
+     pv.anlegenProjekt(TextFieldName.getText(), TextFieldBeschreibung.getText(), tag, monat, jahr );  
        
      TextFieldName.setText("");
      TextFieldBeschreibung.setText("");
@@ -733,8 +773,9 @@ public class MainFrame extends javax.swing.JFrame {
        
        if(RadioButtonGroupRangAuswaehlen.getSelection().equals(RadioButtonStandardBenutzer.getModel()) )rang = "Standard Benutzer";
        if(RadioButtonGroupRangAuswaehlen.getSelection().equals(RadioButtonAdministrator.getModel()) )rang = "Administrator";
+       
              
-       bv.erstelleProfil(TextFieldNachname.getText(), TextFieldVorname.getText(), TextFieldPasswort.getText(), rang);
+       bv.erstelleProfil(TextFieldNachname.getText(), TextFieldVorname.getText(), TextFieldPasswort.getText(), rang, TextFieldBenutzername.getText());
     }//GEN-LAST:event_ButtonBenutzerAnlegenActionPerformed
 
     private void ProjekteAnsehenComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_ProjekteAnsehenComponentShown
@@ -774,13 +815,12 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void ListProjekteAnsehenValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListProjekteAnsehenValueChanged
         List<Projekt> projekte = pv.getProjekte();
-        DefaultListModel ListModel = new DefaultListModel();
-        ListProjektinformationen.setModel(ListModel);
+       
         
         if (!evt.getValueIsAdjusting() ) {
             int selectedindex = ListProjekteAnsehen.getSelectedIndex();
             if(selectedindex >= 0){
-                  ListModel.addElement(projekte.get(selectedindex).getbeschreibung());
+                  TextAreaProjektBeschreibung.setText(projekte.get(selectedindex).getbeschreibung());
             }
         }
     }//GEN-LAST:event_ListProjekteAnsehenValueChanged
@@ -799,14 +839,12 @@ public class MainFrame extends javax.swing.JFrame {
       TextFieldProjektBeschreibung.setText(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getbeschreibung());
     
       GregorianCalendar calendar = projekte.get(ListProjekteAnsehen.getSelectedIndex()).getDeadline();
-    SimpleDateFormat fmt = new SimpleDateFormat("dd-MMM-yyyy");                                                 //Gibt noch einen Monat weniger an. Fängt hier bei 0 an zu zählen!
-    fmt.setCalendar(calendar);
-    String dateFormatted = fmt.format(calendar.getTime());          
+            
     
 
       
       
-      TextFieldProjektDeadline.setText(dateFormatted);
+     
     }//GEN-LAST:event_ButtonProjektBearbeitenActionPerformed
 
     private void ButtonBenutzerprofilAnlegenZurückActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBenutzerprofilAnlegenZurückActionPerformed
@@ -859,6 +897,21 @@ public class MainFrame extends javax.swing.JFrame {
         ArbeitspaketAnlegen.setVisible(false);
         ProjektBearbeiten.setVisible(true);
     }//GEN-LAST:event_ButtonArbeitspaketAnlegenActionPerformed
+
+    private void ButtonProjektAendernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProjektAendernActionPerformed
+        List<Projekt> p = pv.getProjekte();        
+        Projekt projekt = p.get(ListProjekteAnsehen.getSelectedIndex());
+        
+        projekt.setName(TextFieldProjektName.getText());
+        projekt.setBeschreibung(TextFieldProjektBeschreibung.getText());
+        TextAreaProjektBeschreibung.setText(projekt.getbeschreibung());
+        
+        int tag = Integer.parseInt((String)ComboBoxProjektBearbeitenTag.getSelectedItem());
+        int monat = ComboBoxProjektBearbeitenMonat.getSelectedIndex()+1;
+        int jahr = Integer.parseInt((String)ComboBoxProjektBearbeitenJahr.getSelectedItem());
+        
+        pv.bearbeiteDeadline(projekt, tag, monat, jahr);
+    }//GEN-LAST:event_ButtonProjektAendernActionPerformed
  
     /**
      * @param args the command line arguments
@@ -913,6 +966,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton ButtonMenuProjektAnlegen;
     private javax.swing.JButton ButtonMenuProjekteAnsehen;
     private javax.swing.JButton ButtonMitarbeiterHinzufügen;
+    private javax.swing.JButton ButtonProjektAendern;
     private javax.swing.JButton ButtonProjektAnlegen;
     private javax.swing.JButton ButtonProjektBearbeiten;
     private javax.swing.JButton ButtonProjektBearbeitenZurück;
@@ -921,6 +975,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ComboBoxATag;
     private javax.swing.JComboBox<String> ComboBoxJahr;
     private javax.swing.JComboBox<String> ComboBoxMonat;
+    private javax.swing.JComboBox<String> ComboBoxProjektBearbeitenJahr;
+    private javax.swing.JComboBox<String> ComboBoxProjektBearbeitenMonat;
+    private javax.swing.JComboBox<String> ComboBoxProjektBearbeitenTag;
     private javax.swing.JComboBox<String> ComboBoxTag;
     private javax.swing.JLabel LabelBeschreibung;
     private javax.swing.JLabel LabelDeadline;
@@ -937,7 +994,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel LabelVorname;
     private javax.swing.JList<String> ListArbeitspakete;
     private javax.swing.JList<String> ListProjekteAnsehen;
-    private javax.swing.JList<String> ListProjektinformationen;
     private javax.swing.JList<String> ListeMitarbeiterHinzufügen;
     private javax.swing.JPanel Menu;
     private javax.swing.JPanel ProjektAnlegen;
@@ -946,8 +1002,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton RadioButtonAdministrator;
     private javax.swing.ButtonGroup RadioButtonGroupRangAuswaehlen;
     private javax.swing.JRadioButton RadioButtonStandardBenutzer;
+    private javax.swing.JTextArea TextAreaProjektBeschreibung;
     private javax.swing.JTextField TextFieldABeschreibung;
     private javax.swing.JTextField TextFieldAName;
+    private javax.swing.JTextField TextFieldBenutzername;
     private javax.swing.JTextField TextFieldBeschreibung;
     private javax.swing.JTextField TextFieldKommentar;
     private javax.swing.JTextField TextFieldNachname;
@@ -955,7 +1013,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField TextFieldNotiz;
     private javax.swing.JTextField TextFieldPasswort;
     private javax.swing.JTextField TextFieldProjektBeschreibung;
-    private javax.swing.JTextField TextFieldProjektDeadline;
     private javax.swing.JTextField TextFieldProjektName;
     private javax.swing.JTextField TextFieldVorname;
     private javax.swing.JLabel TitelBenutzerAnlegen;
@@ -964,6 +1021,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
