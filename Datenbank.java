@@ -358,6 +358,33 @@ public class Datenbank {
         con.close();
     }
 
+    /**
+     * Speichert ein Kommentar zu einem Arbeitspaket in der DB
+     * @param ak Kommentar zum Arbeitspaket
+     * @throws Exception 
+     */
+    public void erstelleAKommentar(AKommentar ak)throws Exception{
+        connect();
+        int year = ak.getDatum().get(Calendar.YEAR);
+        int month = ak.getDatum().get(Calendar.MONTH) + 1;
+        int day = ak.getDatum().get(Calendar.DAY_OF_MONTH);
+        String sql = "INSERT INTO AKommentar (text,datum) "
+                + "VALUES ('" + ak.getText() + "','" + year + "-" + month + "-" + day + "')";
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+    public void erstellePKommentar(PKommentar pk)throws Exception{
+        connect();
+        int year = pk.getDatum().get(Calendar.YEAR);
+        int month = pk.getDatum().get(Calendar.MONTH) + 1;
+        int day = pk.getDatum().get(Calendar.DAY_OF_MONTH);
+        String sql = "INSERT INTO PKommentar (text,datum) "
+                + "VALUES ('" + pk.getText() + "','" + year + "-" + month + "-" + day + "')";
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
    
 
 }
