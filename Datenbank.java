@@ -50,7 +50,9 @@ public class Datenbank {
         }
         return null;*/
     }
-    
+    /**
+     * Schließt die Verbindung zu hsqldb
+     */
      public void close() {
         try {
             con.close();
@@ -61,6 +63,11 @@ public class Datenbank {
         }
     }
 
+     /**
+      * wandelt ein Datum vom Datentyp Date in GregorianCalender für hsql um
+      * @param date
+      * @return ein Datum vom Datentyp GregorianCalender
+      */
     public GregorianCalendar dateZuGreg(Date date) {
         GregorianCalendar greg = new GregorianCalendar();
         greg.setGregorianChange(date);
@@ -70,7 +77,11 @@ public class Datenbank {
 
 /*Block für Projekt*/
     
-    /*um das Projekt in DB zu speichern*/
+   /**
+    * Speichert ein Projekt in der Datenbank
+    * @param projekt
+    * @throws Exception 
+    */
     public void speicherProjekt(Projekt projekt) throws Exception {
         connect();
         int year = projekt.getDeadline().get(Calendar.YEAR);
@@ -83,7 +94,10 @@ public class Datenbank {
         con.close();
     }
 
-    /*gibt eine Liste von allen Projekten raus und wird in NetBeans gespeichert*/
+    /**
+     * Liest alle vorhandenen Projekte der Datenbank aus und "speichert" sie zur Laufzeit in die Projektliste von NetBeans
+     * @return eine Liste mit allen vorhandenen Projekten
+     */
     public List<Projekt> selectAllProjects() {
         List<Projekt> projekte = new LinkedList<Projekt>();
         try {
@@ -126,7 +140,12 @@ public class Datenbank {
         con.close();
     }
 
-    /*weist einem Projekt einen Mitarbeiter zu*/
+    /**
+     * weist einem Projekt einen Mitarbeiter zu
+     * @param p Projekt dem ein MA zugewiesen werden soll
+     * @param m Mitarbeiter der einem Projekt zugewiesen soll
+     * @throws Exception 
+     */
     public void weiseProjektMitarbeiterZu(Projekt p, Mitarbeiter m)throws Exception{
         connect();
         String sql = "INSERT INTO P_MA (arbeitet_an, wird_bearbeitet_von) VALUES ("+p.getProjektNr()+","+m.getPersonalNr()+")";
@@ -134,7 +153,12 @@ public class Datenbank {
         con.close();
     };
     
-    /*bearbeitet die Zelle, hier der Name, von dem ausgewählten Projekt*/
+    /**
+     * bearbeitet die Zelle, hier der Name, von dem ausgewählten, bestehenden Projekt
+     * @param projekt in dem der Name geändert werden soll 
+     * @param neuName den das Projekt bekommen soll
+     * @throws Exception 
+     */
     public void bearbeiteProjektName(Projekt projekt, String neuName) throws Exception {
         connect();
         String sql = "UPDATE Projekt SET name ='" + neuName + "' WHERE ProjektNr =" + projekt.getProjektNr();
@@ -142,7 +166,12 @@ public class Datenbank {
         con.close();
     }
 
-    /*bearbeitet die Zelle, hier die Beschreibung, von dem ausgewählten Projekt*/
+    /**
+     * bearbeitet die Zelle, hier die Beschreibung, von dem ausgewählten, bestehenden Projekt
+     * @param projekt in dem die Beschreibung geändert werden soll 
+     * @param neuBeschreibung die das Projekt bekommen soll
+     * @throws Exception 
+     */
     public void bearbeiteProjektBeschreibung(Projekt projekt, String neuBeschreibung) throws Exception {
         connect();
         String sql = "UPDATE Projekt SET beschreibung ='" + neuBeschreibung + "' WHERE ProjektNr =" + projekt.getProjektNr();
@@ -150,7 +179,12 @@ public class Datenbank {
         con.close();
     }
 
-    /*bearbeitet die Zelle, hier die Deadline, von dem ausgewählten Projekt*/
+    /**
+     * bearbeitet die Zelle, hier die Deadline, von dem ausgewählten, bestehenden Projekt
+     * @param projekt in dem die Deadline geändert werden soll 
+     * @param neugreg neue Deadline die das Projekt bekommen soll
+     * @throws Exception 
+     */
     public void bearbeiteProjektDeadline(Projekt projekt, GregorianCalendar neugreg) throws Exception {
         connect();
         int year = neugreg.get(Calendar.YEAR);
@@ -161,7 +195,11 @@ public class Datenbank {
         con.close();
     }
 
-    /*löscht ein Projekt*/
+    /**
+     * löscht ein bestehendes Projekt aus der Datenbank
+     * @param projekt das gelöscht werden soll
+     * @throws Exception 
+     */
     public void loeschenProjekt(Projekt projekt)throws Exception{
         connect();
         String sql = "DELETE FROM Projekt WHERE ProjektNr ="+ projekt.getProjektNr();
@@ -171,7 +209,11 @@ public class Datenbank {
     
 /*Block für die Arbeitspakete*/
     
-    /*um das Arbeitspaket in DB zu speichern*/
+    /**
+     * speichert ein Arbeitspaket in der Datenbank
+     * @param arbeitspaket das in hsql gespeichert werden soll
+     * @throws Exception 
+     */
     public void speicherArbeitspaket(Arbeitspaket arbeitspaket) throws Exception {
         connect();
         int year = arbeitspaket.getDeadline().get(Calendar.YEAR);
@@ -185,7 +227,11 @@ public class Datenbank {
         con.close();
     }
 
-    /*gibt eine Liste von Arbeitspakten zu einem bestimmten Projekt aus*/
+    /**
+     * Liest alle Arbeitspakete eines Projektes aus der Datenbank
+     * @param projekt dessen Arbeitspakete ausgelesen werden sollen
+     * @return eine Liste der zum Projekt zugehörigen Arbeitspakete
+     */
     public List<Arbeitspaket> selectAllArbeitspakete(Projekt projekt) {
         List<Arbeitspaket> arbeitspakete = new LinkedList<Arbeitspaket>();
         try {
@@ -197,7 +243,7 @@ public class Datenbank {
 
             //String sqlProjekt = "SELECT * FROM Projekt, Arbeitspaket WHERE Arbeitspaket.gehört_zu=Projekt.projektNr";
             //ResultSet resProjekt = stmt.executeQuery(sqlProjekt);
-            int i = 1;
+            
             while (res.next()) {
 
                 String name = res.getString(1);
@@ -205,11 +251,6 @@ public class Datenbank {
                 String beschreibung = res.getString(3);
                 Date deadline = res.getDate(4);
                 int id = res.getInt(5);
-                //int gehört_zu = res.getInt(6); das funktioniert leider nicht, da Arbeitspaket ein Projekt braucht und keinen int
-                //Hier entnehmen wir HOFFENTLICH das zugehörige Projekt aus der DB und machen daraus ein NetBeansObjekt 
-                int projektJustObject = res.getInt(6);
-                //Projekt projekt = (Projekt)projektJustObject;
-                i++;
 
                 GregorianCalendar greg = dateZuGreg(deadline);
 
@@ -242,7 +283,11 @@ public class Datenbank {
     
 /*Block für die Mitarbeiter-Methoden*/
     
-    /*speichert einen Mitarbeiter in DB*/
+    /**
+     * speichert einen Mitarbeiter in der Datenbank
+     * @param mitarbeiter 
+     * @throws Exception 
+     */
     public void speicherMitarbeiter(Mitarbeiter mitarbeiter) throws Exception {
         connect();
 
@@ -253,15 +298,23 @@ public class Datenbank {
         con.close();
     }
     
-    /*weist einem Projekt einen Mitarbeiter zu*/
+    /**
+     * weist einem Arbeitspaket einen Mitarbeiter zu
+     * @param a Arbeitspaket, das einen Mitarbeiter zugewiesen werden soll
+     * @param m Mitarbeiter der dem Arbeitspaket zugewiesen werden soll
+     * @throws Exception 
+     */
     public void weiseArbeitspaketMitarbeiterZu(Arbeitspaket a, Mitarbeiter m)throws Exception{
         connect();
         String sql = "INSERT INTO AP_MA (arbeitet_an, wird_bearbeitet_von) VALUES ("+a.getArbeitspaketNr()+","+m.getPersonalNr()+")";
         ResultSet r = executeSQL(sql);
         con.close();
     };
-    
-    /*liefert eine Liste von allen Mitarbeiter*/
+   
+    /**
+     * liest alle Mitarbeiter aus der Datenbank aus
+     * @return eine Liste aller bestehenden Mitarbeiter
+     */
     public List<Mitarbeiter> selectAllMitarbeiters() {
         List<Mitarbeiter> mitarbeiters = new LinkedList<Mitarbeiter>();
         try {
