@@ -279,6 +279,62 @@ public class Datenbank {
         con.close();
     }
 
+    /**
+     * Name wird geändert
+     * @param Arbeitspaket in dem der Name geändert werden soll 
+     * @param neuName den das Projekt bekommen soll
+     * @throws Exception 
+     */
+    public void bearbeiteArbeitspaketName(Arbeitspaket ap, String neuName) throws Exception {
+        connect();
+        String sql = "UPDATE Abeitspaket SET name ='" + neuName + "' WHERE AbeitspaketNr =" + ap.getArbeitspaketNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+
+    public void bearbeiteAbeitspaketStatus(Arbeitspaket ap){
+        
+    }
+    
+    /**
+     * Beschreibung wird geändert
+     * @param ap in dem die Beschreibung geändert werden soll 
+     * @param neuBeschreibung die das Projekt bekommen soll
+     * @throws Exception 
+     */
+    public void bearbeiteArbeitspaketBeschreibung(Arbeitspaket ap, String neuBeschreibung) throws Exception {
+        connect();
+        String sql = "UPDATE Abeitspaket SET beschreibung ='" + neuBeschreibung + "' WHERE AbeitspaketNr =" + ap.getArbeitspaketNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+    /**
+     * Deadline von Arbeitspaket wird geändert
+     * @param ap Arbeitspaket dessen Deadline geändert werden soll
+     * @param neugreg das neue Datum
+     * @throws Exception 
+     */
+    public void bearbeiteArbeitspaketDeadline(Arbeitspaket ap, GregorianCalendar neugreg) throws Exception {
+        connect();
+        int year = neugreg.get(Calendar.YEAR);
+        int month = neugreg.get(Calendar.MONTH) + 1;
+        int day = neugreg.get(Calendar.DAY_OF_MONTH);
+        String sql = "UPDATE Abeitspaket SET deadline ='" + year + "-" + month + "-" + day + "' WHERE ArbeitspaketNr =" + ap.getArbeitspaketNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+    /**
+     * löscht ein bestehendes Projekt aus der Datenbank
+     * @param projekt das gelöscht werden soll
+     * @throws Exception 
+     */
+    public void loeschenArbeitspaket(Arbeitspaket ap)throws Exception{
+        connect();
+        String sql = "DELETE FROM Arbeitspakte WHERE ArbeitspaketNr ="+ ap.getArbeitspaketNr();
+        con.close();
+    }
     
 /*Block für die Mitarbeiter-Methoden*/
     
@@ -358,6 +414,191 @@ public class Datenbank {
     }
 
     /**
+     * Name wird geändert
+     * @param ma der Mitarbeiter wessen Name geändert werden soll
+     * @param n der neue Name
+     * @throws Exception 
+     */
+    public void bearbeiteMitarbeiterName(Mitarbeiter ma, String n) throws Exception {
+        connect();
+        String sql = "UPDATE Mitarbeiter SET name ='" + n + "' WHERE MitarbeiterNr =" + ma.getPersonalNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+    /**
+     * Vorname wird geändert
+     * @param ma der Mitarbeiter wessen Vorname geändert werden soll
+     * @param vn der neue Vorname
+     * @throws Exception 
+     */
+    public void bearbeiteMitarbeiterVorname(Mitarbeiter ma, String vn) throws Exception {
+        connect();
+        String sql = "UPDATE Mitarbeiter SET vorname ='" + vn + "' WHERE MitarbeiterNr =" + ma.getPersonalNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+    /**
+     * Rang wird geändert
+     * @param ma der Mitarbeiter wessen Rang geändert werden soll
+     * @param ra der neue Rang
+     * @throws Exception 
+     */
+    public void bearbeiteMitarbeiterRang(Mitarbeiter ma, int ra) throws Exception {
+        connect();
+        String sql = "UPDATE Mitarbeiter SET rang ='" + ra + "' WHERE MitarbeiterNr =" + ma.getPersonalNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+    /**
+     * Benutzername wird geändert
+     * @param ma der Mitarbeiter wessen Benutzername geändert werden soll
+     * @param bn der neue Benuttzname
+     * @throws Exception 
+     */
+    public void bearbeiteMitarbeiterBenutzername(Mitarbeiter ma, String bn) throws Exception {
+        connect();
+        String sql = "UPDATE Mitarbeiter SET benutzername ='" + bn + "' WHERE MitarbeiterNr =" + ma.getPersonalNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+    /**
+     * löscht diesen Mitarbeiter
+     * @param ma der Mitarbeiter
+     * @throws Exception 
+     */
+    public void loeschenMitarbeiter(Mitarbeiter ma)throws Exception{
+        connect();
+        String sql = "DELETE FROM Mitarbeiter WHERE personalNr ="+ ma.getPersonalNr();
+        con.close();
+    }
+    
+   
+/*Block für den Auftraggeber*/
+    
+    /**
+     * Speichert einen Auftraggeberin der DB
+     * @param a der Auftraggeber
+     * @throws Exception 
+     */
+    public void erstelltAuftraggeber(Auftraggeber a)throws Exception{
+        connect();
+        String sql = "INSERT INTO Auftraggeber (name,ansprechpartner,tel,strasse,hausnr,plz,ort) "
+               + "VALUES ('" + a.getName() + "','" + a.getAnsprechpartner() + "','" + a.getTel() + "','" + a.getStrasse()
+               + "','" + a.getHausNr() + "','" + a.getPlz() + "','" + a.getOrt() + "')";
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+
+    /**
+     * Name wird geändert
+     * @param a der Auftraggeber wessen Name geändert werden soll
+     * @param n der neue Name
+     * @throws Exception 
+     */
+    public void bearbeiteAuftraggeberName(Auftraggeber a, String n)throws Exception{
+        connect();
+        String sql = "UPDATE Auftraggeber SET name ='" + n + "' WHERE KundenNr =" + a.getKundenNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+    /**
+     * Ansprechpartner wird geändert
+     * @param a der Auftraggeber wessen Ansprechpartner geändert werden soll
+     * @param asp der neue Ansprechpartner
+     * @throws Exception 
+     */
+    public void bearbeiteAuftraggeberAnsprechpartner(Auftraggeber a, String asp)throws Exception{
+        connect();
+        String sql = "UPDATE Auftraggeber SET ansprechpartner ='" + asp + "' WHERE KundenNr =" + a.getKundenNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+    /**
+     * tel wird geändert
+     * @param a der Auftraggeber wessen tel geändert werden soll
+     * @param t die neue tel
+     * @throws Exception 
+     */
+    public void bearbeiteAuftraggeberTel(Auftraggeber a, int t)throws Exception{
+        connect();
+        String sql = "UPDATE Auftraggeber SET tel ='" + t + "' WHERE KundenNr =" + a.getKundenNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+    /**
+     * strasse wird geändert
+     * @param a der Auftraggeber wessen strasse geändert werden soll
+     * @param s die neue Strasse
+     * @throws Exception 
+     */
+    public void bearbeiteAuftraggeberStrasse(Auftraggeber a, String s)throws Exception{
+        connect();
+        String sql = "UPDATE Auftraggeber SET strasse ='" + s + "' WHERE KundenNr =" + a.getKundenNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+    /**
+     * HausNr wird geändert
+     * @param a der Auftraggeber wessen HausNr geändert werden soll
+     * @param hnr die neue HausNr
+     * @throws Exception 
+     */
+    public void bearbeiteAuftraggeberHausNr(Auftraggeber a, int hnr)throws Exception{
+        connect();
+        String sql = "UPDATE Auftraggeber SET hausnr ='" + hnr + "' WHERE KundenNr =" + a.getKundenNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+    /**
+     * PLZ wird geändert
+     * @param a der Auftraggeber wessen PLZ geändert werden soll
+     * @param p die neue PLZ
+     * @throws Exception 
+     */
+    public void bearbeiteAuftraggeberPLZ(Auftraggeber a, int p)throws Exception{
+        connect();
+        String sql = "UPDATE Auftraggeber SET plz ='" + p + "' WHERE KundenNr =" + a.getKundenNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+    /**
+     * Ort wird geändert
+     * @param a der Auftraggeber wessen Ort geändert werden soll
+     * @param o die neue Ort
+     * @throws Exception 
+     */
+    public void bearbeiteAuftraggeberOrt(Auftraggeber a, String o)throws Exception{
+        connect();
+        String sql = "UPDATE Auftraggeber SET ort ='" + o + "' WHERE KundenNr =" + a.getKundenNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+    /**
+     * löscht diesen Auftraggeber
+     * @param a der Auftraggeber
+     * @throws Exception 
+     */
+    public void loeschenAuftraggeber(Auftraggeber a)throws Exception{
+        connect();
+        String sql = "DELETE FROM Auftraggeber WHERE kundenNr ="+ a.getKundenNr();
+        con.close();
+    }
+    
+    
+/*Block für die Kommentare und Notiz*/    
+    
+    /**
      * Speichert ein Kommentar zu einem Arbeitspaket in der DB
      * @param ak Kommentar zum Arbeitspaket
      * @throws Exception 
@@ -373,6 +614,11 @@ public class Datenbank {
         con.close();
     }
     
+    /**
+     * Speichert ein Kommentar zu einem Projekt in der DB
+     * @param pk Kommentar zum projekt
+     * @throws Exception 
+     */
     public void erstellePKommentar(PKommentar pk)throws Exception{
         connect();
         int year = pk.getDatum().get(Calendar.YEAR);
@@ -384,6 +630,19 @@ public class Datenbank {
         con.close();
     }
     
-   
-
+    /**
+     * speichert die Notiz in der DB
+     * @param n die zu speichernde Notiz
+     * @throws Exception 
+     */
+    public void erstelleNotiz(Notiz n)throws Exception{
+        connect();
+        int year = n.getDatum().get(Calendar.YEAR);
+        int month = n.getDatum().get(Calendar.MONTH) + 1;
+        int day = n.getDatum().get(Calendar.DAY_OF_MONTH);
+        String sql = "INSERT INTO notiz (text,datum) "
+                + "VALUES ('" + n.getText() + "','" + year + "-" + month + "-" + day +"')";
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
 }
