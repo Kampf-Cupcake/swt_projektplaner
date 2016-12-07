@@ -56,10 +56,6 @@ public class ProjektVerwaltung {
 
     }
 
-<<<<<<< HEAD
-    public void bearbeiteDeadline(Projekt p, int tag, int monat, int jahr){
-        GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
-=======
     /**
      * Deadline wird geändert 
      * und per "bearbeiteProjektDeadline" dauerhaft in der DB geändert
@@ -70,16 +66,41 @@ public class ProjektVerwaltung {
      */
     public void bearbeiteDeadline(Projekt p, int tag, int monat, int jahr) {
         GregorianCalendar greg = new GregorianCalendar(jahr, monat - 1, tag);
->>>>>>> origin/master
         p.setDeadline(greg);
         try {
             datenbank.bearbeiteProjektDeadline(p, greg);
         } catch (Exception e) {
-<<<<<<< HEAD
-           System.err.print("Fehler beim Einspeichern: " + e.getMessage());
-=======
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());
->>>>>>> origin/master
+        }
+    }
+    
+    /**
+     * Name wird geändert
+     * und per "bearbeiteProjekteName" dauerhaft in der DB geändert
+     * @param p Projekt dessen Name geändert werden soll
+     * @param name der Neue
+     */
+    public void bearbeiteName(Projekt p, String name){
+        p.setName(name);
+        try {
+            datenbank.bearbeiteProjektName(p, name);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
+    }
+    
+    /**
+     * Beschreibung wird geändert
+     * und per "bearbeiteProjekteBeschreibung" dauerhaft in der DB geändert
+     * @param p Projekt dessen Beschreibung geändert werden soll
+     * @param be die neue Beschreibung
+     */
+    public void bearbeiteBeschreibung(Projekt p, String be){
+        p.setName(be);
+        try {
+            datenbank.bearbeiteProjektBeschreibung(p, be);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
         }
     }
     
