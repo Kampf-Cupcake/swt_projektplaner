@@ -243,7 +243,6 @@ public class Datenbank {
 
             //String sqlProjekt = "SELECT * FROM Projekt, Arbeitspaket WHERE Arbeitspaket.gehört_zu=Projekt.projektNr";
             //ResultSet resProjekt = stmt.executeQuery(sqlProjekt);
-            
             while (res.next()) {
 
                 String name = res.getString(1);
