@@ -76,7 +76,9 @@ public class Arbeitspaket {
     public List<Mitarbeiter> getMitarbeiter() {
         return this.team;
     }
-    
+    public void setMitarbeiter(Mitarbeiter m){
+        this.team.add(m);
+    }
     public Mitarbeiter getLeiter(){
         return this.leiter;
     }

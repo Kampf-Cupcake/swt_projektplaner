@@ -26,8 +26,16 @@ public class ProjektVerwaltung {
     public ProjektVerwaltung(){
          datenbank = MainFrame.db;
     }
-    // Daten von der GUI werden für die Laufzeit NetBeans übergeben und 
-    // per Methode speicherProjekt der Datenbank übergeben
+
+    /**
+     * Daten eines neues Projektes von der GUI werden für die Laufzeit NetBeans übergeben
+     * und per Methode "speicherProjekt" der Datenbank dauerhaft übergeben
+     * @param name
+     * @param beschreibung
+     * @param tag der Deadline
+     * @param monat der Deadline
+     * @param jahr der Deadline
+     */
     public void anlegenProjekt(String name, String beschreibung, int tag, int monat, int jahr) {        //'int name' zu 'String name' geändert, beschreibung in UML
         System.out.println(name);
         System.out.println(beschreibung);
@@ -48,18 +56,38 @@ public class ProjektVerwaltung {
 
     }
 
+<<<<<<< HEAD
     public void bearbeiteDeadline(Projekt p, int tag, int monat, int jahr){
         GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
+=======
+    /**
+     * Deadline wird geändert 
+     * und per "bearbeiteProjektDeadline" dauerhaft in der DB geändert
+     * @param p Projekt dessen Deadline geändert werden soll
+     * @param tag der neuen Deadline
+     * @param monat der neuen Deadline
+     * @param jahr der neuen Deadline
+     */
+    public void bearbeiteDeadline(Projekt p, int tag, int monat, int jahr) {
+        GregorianCalendar greg = new GregorianCalendar(jahr, monat - 1, tag);
+>>>>>>> origin/master
         p.setDeadline(greg);
         try {
             datenbank.bearbeiteProjektDeadline(p, greg);
         } catch (Exception e) {
+<<<<<<< HEAD
            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+=======
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+>>>>>>> origin/master
         }
     }
     
-   
-    
+   /**
+    * Füllt für die Laufzeit eine Liste in NetBeans mit allen Projekten der DB
+    * und weist ihnen ihre zugehörigen Arbeitspakete zu
+    * @return die Liste aller in der DB vorhandenen Projekte
+    */
      public List<Projekt> getProjekte(){
       List<Projekt> projekte = datenbank.selectAllProjects();
       for (Projekt p : projekte){
@@ -67,7 +95,14 @@ public class ProjektVerwaltung {
       }
       return projekte;
     }
-     //Evelyne neu
+     
+     /**
+      * Verbindung zwischen einem Projekt und einem Mitarbeiter (Daten der GUI) werden zur Laufzeit in 
+      * die Liste der Mitarbeiter von einem Projekt in NetBeans angefügt
+      * und per "weiseProjektMitarbeiterZu" dauerhaft in der Datenbank gespeichert
+      * @param p
+      * @param m 
+      */
      public void weiseMitarbeiterZu(Projekt p, Mitarbeiter m){
         
          try{
@@ -76,6 +111,5 @@ public class ProjektVerwaltung {
         } catch (Exception e){
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());
         }
-        
      }
 }

@@ -20,6 +20,15 @@ public class BenutzerVerwaltung {
          datenbank = MainFrame.db;
     }
     
+    /**
+     * Daten eines neues Profils eines Mitarbeiters von der GUI werden für die Laufzeit NetBeans übergeben
+     * und per Methode "speicherMitarbeiter" der Datenbank dauerhaft übergeben
+     * @param name
+     * @param vorname
+     * @param Rang
+     * @param benutzername
+     * @param passwort 
+     */
     public void erstelleProfil(String name, String vorname, String Rang, String benutzername, String passwort){
        System.out.println(vorname);
         System.out.println(name);
@@ -50,6 +59,10 @@ public class BenutzerVerwaltung {
         
     }
     
+    /**
+     * ruft die Methode zum Auslesen aller Mitarbeiter aus der DB auf
+     * @return eine Liste aller bestehenden Mitarbeiterprofile 
+     */
     public List<Mitarbeiter> getMitarbeiter(){
         return datenbank.selectAllMitarbeiters();
     }
