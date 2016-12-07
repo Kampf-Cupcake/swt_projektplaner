@@ -24,6 +24,7 @@ public class Datenbank {
     private ProjektVerwaltung projektV;
     private ArbeitspaketVerwaltung arbeitspaketV;
     private BenutzerVerwaltung mitarbeiterV;
+    private KleineVerwaltung kleineV;
 
     Connection con = null;
 
@@ -281,7 +282,7 @@ public class Datenbank {
 
     /**
      * Name wird geändert
-     * @param Arbeitspaket in dem der Name geändert werden soll 
+     * @param ap in dem der Name geändert werden soll 
      * @param neuName den das Projekt bekommen soll
      * @throws Exception 
      */
@@ -326,8 +327,8 @@ public class Datenbank {
     }
     
     /**
-     * löscht ein bestehendes Projekt aus der Datenbank
-     * @param projekt das gelöscht werden soll
+     * löscht ein bestehendes Arbeitspaket aus der Datenbank
+     * @param Arbeitspaket das gelöscht werden soll
      * @throws Exception 
      */
     public void loeschenArbeitspaket(Arbeitspaket ap)throws Exception{
@@ -608,10 +609,53 @@ public class Datenbank {
         int year = ak.getDatum().get(Calendar.YEAR);
         int month = ak.getDatum().get(Calendar.MONTH) + 1;
         int day = ak.getDatum().get(Calendar.DAY_OF_MONTH);
-        String sql = "INSERT INTO AKommentar (text,datum) "
-                + "VALUES ('" + ak.getText() + "','" + year + "-" + month + "-" + day + "')";
+        String sql = "INSERT INTO AKommentar (text,datum, verfasst_von, gehört_zu) "
+                + "VALUES ('" + ak.getText() + "','" + year + "-" + month + "-" + day + "',"+ak.getVerfasser().getPersonalNr()+","+ak.getArbeitspaket().getArbeitspaketNr()+")";
         ResultSet r = executeSQL(sql);
         con.close();
+    }
+    
+    
+    /**
+     * Liest alle Kommentare eines Projektes aus der Datenbank
+     * @param ap dessen Kommentare ausgelesen werden sollen
+     * @param verfasser eine Liste der zum Projekt gehörenden Kommentare
+     * @return 
+     */
+    public List<AKommentar> selectAllAKommentare(Arbeitspaket ap, Mitarbeiter verfasser) {
+        List<AKommentar> akommentare = new LinkedList<AKommentar>();
+        try {
+            connect();
+            Statement stmt = con.createStatement();
+            String sql = "SELECT* FROM AKommentar WHERE AKommentar.gehört_zu=" + ap.getArbeitspaketNr();
+
+            ResultSet res = stmt.executeQuery(sql);
+
+            while (res.next()) {
+
+                String text = res.getString(1);
+                Date datum = res.getDate(2);
+                int id = res.getInt(3);
+                int mNr = res.getInt (4);
+
+                GregorianCalendar greg = dateZuGreg(datum);
+
+                AKommentar diesAKommentar = new AKommentar(text, greg, verfasser, ap);
+                diesAKommentar.setText(text);
+                diesAKommentar.setDatum(greg);
+                diesAKommentar.setAKommentarNr(id);
+                diesAKommentar.setVerfasser(verfasser);
+                diesAKommentar.setArbeitspaket(ap);
+
+                akommentare.add(diesAKommentar);
+            }
+            res.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return akommentare;
     }
     
     /**
@@ -625,9 +669,51 @@ public class Datenbank {
         int month = pk.getDatum().get(Calendar.MONTH) + 1;
         int day = pk.getDatum().get(Calendar.DAY_OF_MONTH);
         String sql = "INSERT INTO PKommentar (text,datum) "
-                + "VALUES ('" + pk.getText() + "','" + year + "-" + month + "-" + day + "')";
+                + "VALUES ('" + pk.getText() + "','" + year + "-" + month + "-" + day + "'" + pk.getVerfasser().getPersonalNr() + pk.getProjekt().getProjektNr()+")";
         ResultSet r = executeSQL(sql);
         con.close();
+    }
+    
+    /**
+     * Liest alle Kommentare eines Projektes aus der Datenbank
+     * @param projekt dessen Kommentare ausgelesen werden sollen
+     * @param verfasser eine Liste der zum Projekt gehörenden Kommentare
+     * @return 
+     */
+    public List<PKommentar> selectAllPKommentare(Projekt projekt, Mitarbeiter verfasser) {
+        List<PKommentar> pkommentare = new LinkedList<PKommentar>();
+        try {
+            connect();
+            Statement stmt = con.createStatement();
+            String sql = "SELECT* FROM PKommentar WHERE PKommentar.gehört_zu=" + projekt.getProjektNr();
+
+            ResultSet res = stmt.executeQuery(sql);
+
+            while (res.next()) {
+
+                String text = res.getString(1);
+                Date datum = res.getDate(2);
+                int id = res.getInt(3);
+                int mNr = res.getInt (4);
+
+                GregorianCalendar greg = dateZuGreg(datum);
+
+                PKommentar diesPKommentar = new PKommentar(text, greg, verfasser, projekt);
+                diesPKommentar.setText(text);
+                diesPKommentar.setDatum(greg);
+                diesPKommentar.setID(id);
+                diesPKommentar.setVerfasser(verfasser);
+                diesPKommentar.setProjekt(projekt);
+
+                pkommentare.add(diesPKommentar);
+            }
+            res.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return pkommentare;
     }
     
     /**

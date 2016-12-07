@@ -17,12 +17,14 @@ public class AKommentar {               //In UML
     private GregorianCalendar datum;        //In UML
     private int akommentarNr;
 
-    private Arbeitspaket kommentar;
+    private Arbeitspaket arbeitspaket;
     private Mitarbeiter verfasser;
 
-    public AKommentar(String t, GregorianCalendar d) {
+    public AKommentar (String t, GregorianCalendar d, Mitarbeiter m, Arbeitspaket ap){
         this.text = t;
         this.datum = d;
+        this.verfasser = m;
+        this.arbeitspaket = ap;
         this.akommentarNr = -1;
     }
 
@@ -51,11 +53,17 @@ public class AKommentar {               //In UML
         this.akommentarNr = id;
     }
     
-    public Arbeitspaket getKommentar() {
-        return this.kommentar;
+    public Arbeitspaket getArbeitspaket() {
+        return this.arbeitspaket;
     }  
+    public void setArbeitspaket(Arbeitspaket ap){
+        this.arbeitspaket = ap;
+    }
     
     public Mitarbeiter getVerfasser() {
         return this.verfasser;
+    }
+    public void setVerfasser(Mitarbeiter m){
+        this.verfasser = m;
     }
 }

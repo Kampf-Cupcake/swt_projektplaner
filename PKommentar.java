@@ -11,12 +11,14 @@ public class PKommentar {
     private GregorianCalendar datum;        //In UML
     private int pkommentarNr;
     
-    protected Projekt kommentar;
+    protected Projekt projekt;
     protected Mitarbeiter verfasser;
     
-    public PKommentar (String t, GregorianCalendar d){
+    public PKommentar (String t, GregorianCalendar d, Mitarbeiter m, Projekt p){
         this.text = t;
         this.datum = d;
+        this.verfasser = m;
+        this.projekt = p;
         this.pkommentarNr = -1;
     }
     
@@ -45,11 +47,17 @@ public class PKommentar {
         this.pkommentarNr = id;
     }
     
-    public Projekt getKomemntar(){
-        return this.kommentar;
+    public Projekt getProjekt(){
+        return this.projekt;
+    }
+    public void setProjekt(Projekt p){
+        this.projekt = p;
     }
     
     public Mitarbeiter getVerfasser(){
         return this.verfasser;
+    }
+    public void setVerfasser(Mitarbeiter m){
+        this.verfasser = m;
     }
 }
