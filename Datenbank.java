@@ -161,7 +161,7 @@ public class Datenbank {
         int year = neugreg.get(Calendar.YEAR);
         int month = neugreg.get(Calendar.MONTH) + 1;
         int day = neugreg.get(Calendar.DAY_OF_MONTH);
-        String sql = "UPDATE Projekt SET deadline ='" + year + "-" + month + "-" + day + "' WHERE ProjektNr ='" + projekt.getProjektNr() + "'";
+        String sql = "UPDATE Projekt SET deadline ='" + year + "-" + month + "-" + day + "' WHERE ProjektNr =" + projekt.getProjektNr();
         ResultSet r = executeSQL(sql);
         con.close();
     }

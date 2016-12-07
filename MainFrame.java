@@ -6,6 +6,7 @@ package swt_projektplaner;
  * and open the template in the editor.
  */
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -821,6 +822,11 @@ public class MainFrame extends javax.swing.JFrame {
             int selectedindex = ListProjekteAnsehen.getSelectedIndex();
             if(selectedindex >= 0){
                   TextAreaProjektBeschreibung.setText(projekte.get(selectedindex).getbeschreibung());
+                  int tag = projekte.get(selectedindex).getDeadline().get(Calendar.DAY_OF_MONTH);
+                  int monat = projekte.get(selectedindex).getDeadline().get(Calendar.MONTH)+1;
+                  int jahr = projekte.get(selectedindex).getDeadline().get(Calendar.YEAR)+1;
+                  String date = tag + " " + monat + " " + jahr;
+                  TextAreaProjektBeschreibung.setText(date);
             }
         }
     }//GEN-LAST:event_ListProjekteAnsehenValueChanged
@@ -837,8 +843,11 @@ public class MainFrame extends javax.swing.JFrame {
      
       TextFieldProjektName.setText(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getname());
       TextFieldProjektBeschreibung.setText(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getbeschreibung());
+      ComboBoxProjektBearbeitenTag.setSelectedItem(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getDeadline().get(Calendar.DAY_OF_MONTH));
+      ComboBoxProjektBearbeitenMonat.setSelectedItem(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getDeadline().get(Calendar.MONTH)+1);
+      ComboBoxProjektBearbeitenJahr.setSelectedItem(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getDeadline().get(Calendar.YEAR));
     
-      GregorianCalendar calendar = projekte.get(ListProjekteAnsehen.getSelectedIndex()).getDeadline();
+      
             
     
 
