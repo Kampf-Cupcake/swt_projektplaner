@@ -54,6 +54,7 @@ public class MainFrame extends javax.swing.JFrame {
         ButtonMenuProjektAnlegen = new javax.swing.JButton();
         ButtonMenuBenutzerAnlegen = new javax.swing.JButton();
         ButtonMenuProjekteAnsehen = new javax.swing.JButton();
+        ButtonMenuArbeitspaketeAnsehen = new javax.swing.JButton();
         ProjektAnlegen = new javax.swing.JPanel();
         LabelName = new javax.swing.JLabel();
         LabelBeschreibung = new javax.swing.JLabel();
@@ -70,6 +71,15 @@ public class MainFrame extends javax.swing.JFrame {
         ComboBoxMonat = new javax.swing.JComboBox<>();
         ComboBoxJahr = new javax.swing.JComboBox<>();
         ButtonBackProjektAnlegen = new javax.swing.JButton();
+        ArbeitspaketeAnsehen = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        ListArbeitspaketeAnsehen = new javax.swing.JList<>();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        RadioButtonArbeitspaketFertig = new javax.swing.JRadioButton();
+        ButtonArbeitspaketeAnsehenZurück = new javax.swing.JButton();
         BenutzerAnlegen = new javax.swing.JPanel();
         TitelBenutzerAnlegen = new javax.swing.JLabel();
         LabelVorname = new javax.swing.JLabel();
@@ -186,7 +196,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(EinloggenPasswort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(ButtonStartseiteEinloggen)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(361, Short.MAX_VALUE))
         );
 
         getContentPane().add(StartseiteEinloggen, "card8");
@@ -212,6 +222,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        ButtonMenuArbeitspaketeAnsehen.setText("Arbeitspakete ansehen");
+        ButtonMenuArbeitspaketeAnsehen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonMenuArbeitspaketeAnsehenActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
@@ -221,8 +238,10 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ButtonMenuProjekteAnsehen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ButtonMenuProjektAnlegen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ButtonMenuBenutzerAnlegen)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ButtonMenuBenutzerAnlegen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ButtonMenuArbeitspaketeAnsehen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(68, 68, 68))
         );
         MenuLayout.setVerticalGroup(
@@ -233,8 +252,10 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(ButtonMenuProjektAnlegen)
                     .addComponent(ButtonMenuBenutzerAnlegen))
                 .addGap(18, 18, 18)
-                .addComponent(ButtonMenuProjekteAnsehen)
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonMenuProjekteAnsehen)
+                    .addComponent(ButtonMenuArbeitspaketeAnsehen))
+                .addContainerGap(320, Short.MAX_VALUE))
         );
 
         getContentPane().add(Menu, "card4");
@@ -347,6 +368,74 @@ public class MainFrame extends javax.swing.JFrame {
 
         getContentPane().add(ProjektAnlegen, "card2");
 
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setText("Arbeitspakete ansehen");
+
+        ListArbeitspaketeAnsehen.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane6.setViewportView(ListArbeitspaketeAnsehen);
+
+        jLabel15.setText("Arbeitspakete:");
+
+        jLabel16.setText("Beschreibung:");
+
+        RadioButtonArbeitspaketFertig.setText("Fertig");
+
+        ButtonArbeitspaketeAnsehenZurück.setText("Zurück");
+        ButtonArbeitspaketeAnsehenZurück.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonArbeitspaketeAnsehenZurückActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ArbeitspaketeAnsehenLayout = new javax.swing.GroupLayout(ArbeitspaketeAnsehen);
+        ArbeitspaketeAnsehen.setLayout(ArbeitspaketeAnsehenLayout);
+        ArbeitspaketeAnsehenLayout.setHorizontalGroup(
+            ArbeitspaketeAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ArbeitspaketeAnsehenLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(ArbeitspaketeAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ArbeitspaketeAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane6)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel15))
+                .addGap(18, 18, 18)
+                .addGroup(ArbeitspaketeAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ArbeitspaketeAnsehenLayout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                        .addComponent(RadioButtonArbeitspaketFertig))
+                    .addComponent(jTextField1))
+                .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ArbeitspaketeAnsehenLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ButtonArbeitspaketeAnsehenZurück)
+                .addContainerGap())
+        );
+        ArbeitspaketeAnsehenLayout.setVerticalGroup(
+            ArbeitspaketeAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ArbeitspaketeAnsehenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ButtonArbeitspaketeAnsehenZurück)
+                .addGap(5, 5, 5)
+                .addComponent(jLabel14)
+                .addGap(37, 37, 37)
+                .addGroup(ArbeitspaketeAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16)
+                    .addComponent(RadioButtonArbeitspaketFertig))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ArbeitspaketeAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField1)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
+                .addContainerGap(276, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(ArbeitspaketeAnsehen, "card9");
+
         TitelBenutzerAnlegen.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         TitelBenutzerAnlegen.setText("Benutzerprofil anlegen");
 
@@ -442,7 +531,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(RadioButtonAdministrator)
                 .addGap(40, 40, 40)
                 .addComponent(ButtonBenutzerAnlegen)
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
 
         getContentPane().add(BenutzerAnlegen, "card3");
@@ -522,7 +611,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
                 .addComponent(ButtonProjektBearbeiten)
                 .addGap(42, 42, 42))
         );
@@ -982,6 +1071,16 @@ public class MainFrame extends javax.swing.JFrame {
        StartseiteEinloggen.setVisible(false);
        Menu.setVisible(true);
     }//GEN-LAST:event_ButtonStartseiteEinloggenActionPerformed
+
+    private void ButtonMenuArbeitspaketeAnsehenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuArbeitspaketeAnsehenActionPerformed
+       Menu.setVisible(false);
+       ArbeitspaketeAnsehen.setVisible(true);
+    }//GEN-LAST:event_ButtonMenuArbeitspaketeAnsehenActionPerformed
+
+    private void ButtonArbeitspaketeAnsehenZurückActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonArbeitspaketeAnsehenZurückActionPerformed
+        ArbeitspaketeAnsehen.setVisible(false);
+        Menu.setVisible(true);
+    }//GEN-LAST:event_ButtonArbeitspaketeAnsehenZurückActionPerformed
  
     /**
      * @param args the command line arguments
@@ -1024,14 +1123,17 @@ public class MainFrame extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ArbeitspaketAnlegen;
+    private javax.swing.JPanel ArbeitspaketeAnsehen;
     private javax.swing.JPanel BenutzerAnlegen;
     private javax.swing.JButton ButtonArbeitspaketAnlegen;
     private javax.swing.JButton ButtonArbeitspaketAnlegenZurück;
     private javax.swing.JButton ButtonArbeitspaketHinzufügen;
+    private javax.swing.JButton ButtonArbeitspaketeAnsehenZurück;
     private javax.swing.JButton ButtonBackProjektAnlegen;
     private javax.swing.JButton ButtonBackProjekteAnsehen;
     private javax.swing.JButton ButtonBenutzerAnlegen;
     private javax.swing.JButton ButtonBenutzerprofilAnlegenZurück;
+    private javax.swing.JButton ButtonMenuArbeitspaketeAnsehen;
     private javax.swing.JButton ButtonMenuBenutzerAnlegen;
     private javax.swing.JButton ButtonMenuProjektAnlegen;
     private javax.swing.JButton ButtonMenuProjekteAnsehen;
@@ -1066,6 +1168,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel LabelRang;
     private javax.swing.JLabel LabelVorname;
     private javax.swing.JList<String> ListArbeitspakete;
+    private javax.swing.JList<String> ListArbeitspaketeAnsehen;
     private javax.swing.JList<String> ListProjekteAnsehen;
     private javax.swing.JList<String> ListeMitarbeiterHinzufügen;
     private javax.swing.JPanel Menu;
@@ -1073,6 +1176,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel ProjektBearbeiten;
     private javax.swing.JPanel ProjekteAnsehen;
     private javax.swing.JRadioButton RadioButtonAdministrator;
+    private javax.swing.JRadioButton RadioButtonArbeitspaketFertig;
     private javax.swing.ButtonGroup RadioButtonGroupRangAuswaehlen;
     private javax.swing.JRadioButton RadioButtonStandardBenutzer;
     private javax.swing.JPanel StartseiteEinloggen;
@@ -1098,6 +1202,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1112,6 +1219,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
