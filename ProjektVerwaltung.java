@@ -128,6 +128,7 @@ public class ProjektVerwaltung {
         
          try{
              p.setMitarbeiter(m);
+             m.setProjekt(p);
             datenbank.weiseProjektMitarbeiterZu(p, m);
         } catch (Exception e){
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());

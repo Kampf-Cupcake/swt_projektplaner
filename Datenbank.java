@@ -418,6 +418,48 @@ public class Datenbank {
         }
         return mitarbeiters;
     }
+    
+    /**
+     * liest alle Projekte eines Mitarbeiters aus
+     * @param ma Mitarbeiter
+     * @return 
+     */
+    public List<Projekt> selectAllMyProjects(Mitarbeiter ma) {
+        List<Projekt> myProjects = new LinkedList<Projekt>();
+        try {
+            connect();
+            Statement stmt = con.createStatement();
+            String sql = "SELECT* FROM P_MA WHERE P_MA.wird_bearbeitet_von=" + ma.getPersonalNr();
+            ResultSet res = stmt.executeQuery(sql);
+            
+            String sql2 = "SELECT * FROM Projekte WHERE Projekte="+res.getInt(1);
+            ResultSet res2 = stmt.executeQuery(sql2);
+            
+            while (res2.next()) {
+                String name = res.getString(1);
+                String beschreibung = res.getString(2);
+                Date deadline = res.getDate(3);
+                int id = res.getInt(4);
+                GregorianCalendar greg = dateZuGreg(deadline);
+
+                Projekt meinProjekt = new Projekt(name, beschreibung, greg);
+                meinProjekt.setName(name);
+                meinProjekt.setBeschreibung(beschreibung);
+                meinProjekt.setDeadline(greg);
+                meinProjekt.setProjektNr(id);
+               
+                myProjects.add(meinProjekt);
+            }
+            res.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return myProjects;
+    }
+    
+    
 
     /*Brauchen wir diese Methode???*/
     public void abrufeMitarbeiter(String sql) throws Exception {

@@ -106,8 +106,14 @@ public class Mitarbeiter {
     public List<Projekt> getgeleiteteProjekt(){
         return this.geleiteteProjekte;
     }
+    public void setgeleiteteProjekte(Projekt p){
+        this.geleiteteProjekte.add(p);
+    }
     
     public List<Projekt> getProjekt(){
         return this.projekt;
+    }
+    public void setProjekt (Projekt p){
+        this.projekt.add(p);
     }
 }
