@@ -70,9 +70,13 @@ public class Datenbank {
       * @return ein Datum vom Datentyp GregorianCalender
       */
     public GregorianCalendar dateZuGreg(Date date) {
-        GregorianCalendar greg = new GregorianCalendar();
-        greg.setGregorianChange(date);
-
+        
+        int tag = date.getDate();
+        int monat = date.getMonth();
+        int jahr = date.getYear();
+        
+        GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
+        //System.out.println(greg);
         return greg;
     }
 
