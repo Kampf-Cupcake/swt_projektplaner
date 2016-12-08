@@ -13,7 +13,7 @@ public class Notiz {
     private GregorianCalendar datum;
     private int notizID;
     
-    private Mitarbeiter notiz;
+    private Mitarbeiter mitarbeiter;
     
     public Notiz (String t, GregorianCalendar d){
         this.text = t;
@@ -35,12 +35,20 @@ public class Notiz {
     public GregorianCalendar getDatum() {
         return datum;
     }
+    
     public void setDatum(GregorianCalendar d){
         this.datum = d;
     }
     
-    public Mitarbeiter getNotiz(){
-        return this.notiz;
+    public Mitarbeiter getMitarbeiter(){
+        return this.mitarbeiter;
+    }
+    public void setMitarbeiter(Mitarbeiter m){
+        this.mitarbeiter = m;
+    }
+    
+    public int getNotitzID(){
+        return this.notizID;
     }
     public void setNotizID(int id){
         this.notizID = id;

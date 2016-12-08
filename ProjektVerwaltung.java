@@ -133,4 +133,15 @@ public class ProjektVerwaltung {
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());
         }
      }
+     
+     public void weiseAuftraggeberZu(Projekt p, Auftraggeber ag){
+        
+         try{
+             p.setAuftraggeber(ag);
+             ag.setProjekt(p);
+            datenbank.weiseProjektAuftraggeberZu(p, ag);
+        } catch (Exception e){
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
+     }
 }

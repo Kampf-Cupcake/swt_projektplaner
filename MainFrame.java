@@ -29,6 +29,7 @@ public class MainFrame extends javax.swing.JFrame {
     public static BenutzerVerwaltung bv = new BenutzerVerwaltung();
     public static ArbeitspaketVerwaltung av = new ArbeitspaketVerwaltung();
     public static KleineVerwaltung kv = new KleineVerwaltung();
+    public static AuftraggeberVerwaltung agv = new AuftraggeberVerwaltung();
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -152,7 +152,19 @@ public class Datenbank {
         String sql = "INSERT INTO P_MA (arbeitet_an, wird_bearbeitet_von) VALUES ("+p.getProjektNr()+","+m.getPersonalNr()+")";
         ResultSet r = executeSQL(sql);
         con.close();
-    };
+    }
+    /**
+     * weist einem Projekt einen Auftraggeber zu
+     * @param p Projekt
+     * @param ag Auftraggeber
+     * @throws Exception 
+     */
+    public void weiseProjektAuftraggeberZu(Projekt p, Auftraggeber ag)throws Exception{
+        connect();
+        String sql = "INSERT INTO beauftragt (beauftragt_von, gibt_in_auftrag) VALUES ("+ ag.getKundenNr() + "," + p.getProjektNr()+")";
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
     
     /**
      * bearbeitet die Zelle, hier der Name, von dem ausgewählten, bestehenden Projekt
@@ -485,13 +497,58 @@ public class Datenbank {
      * @param a der Auftraggeber
      * @throws Exception 
      */
-    public void erstelltAuftraggeber(Auftraggeber a)throws Exception{
+    public void speicherAuftraggeber(Auftraggeber a)throws Exception{
         connect();
         String sql = "INSERT INTO Auftraggeber (name,ansprechpartner,tel,strasse,hausnr,plz,ort) "
                + "VALUES ('" + a.getName() + "','" + a.getAnsprechpartner() + "','" + a.getTel() + "','" + a.getStrasse()
                + "','" + a.getHausNr() + "','" + a.getPlz() + "','" + a.getOrt() + "')";
         ResultSet r = executeSQL(sql);
         con.close();
+    }
+    
+        /**
+         * liest alle Auftrageber aus der DB aus
+         * @return eine Liste aller bestehenden Auftraggeber
+         */
+        public List<Auftraggeber> selectAllAuftraggebers() {
+        List<Auftraggeber> auftraggebers = new LinkedList<Auftraggeber>();
+        try {
+            connect();
+            Statement stmt = con.createStatement();
+            String sql = "SELECT* FROM Auftraggeber";
+
+            ResultSet res = stmt.executeQuery(sql);
+            while (res.next()) {
+
+                String name = res.getString(1);
+                String ansprechpartner = res.getString(2);
+                String tel = res.getString(3);
+                String str = res.getString(4);
+                String hnr = res.getString(5);
+                int plz = res.getInt(6);
+                String ort = res.getString(7);
+                int id = res.getInt(8);
+                
+                Auftraggeber diesAuftr = new Auftraggeber (name, ansprechpartner, tel, str, hnr, plz, ort);
+                diesAuftr.setName(name);
+                diesAuftr.setAnsprechpartner(ort);
+                diesAuftr.setTel(tel);
+                diesAuftr.setStrasse(str);
+                diesAuftr.setHausNr(hnr);
+                diesAuftr.setPlz(plz);
+                diesAuftr.setOrt(ort);
+                diesAuftr.setKundenNr(id);
+                
+                auftraggebers.add(diesAuftr);
+            }
+            res.close();
+            stmt.close();
+            con.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return auftraggebers;
     }
 
     /**
@@ -526,7 +583,7 @@ public class Datenbank {
      * @param t die neue tel
      * @throws Exception 
      */
-    public void bearbeiteAuftraggeberTel(Auftraggeber a, int t)throws Exception{
+    public void bearbeiteAuftraggeberTel(Auftraggeber a, String t)throws Exception{
         connect();
         String sql = "UPDATE Auftraggeber SET tel ='" + t + "' WHERE KundenNr =" + a.getKundenNr();
         ResultSet r = executeSQL(sql);
@@ -726,8 +783,8 @@ public class Datenbank {
         int year = n.getDatum().get(Calendar.YEAR);
         int month = n.getDatum().get(Calendar.MONTH) + 1;
         int day = n.getDatum().get(Calendar.DAY_OF_MONTH);
-        String sql = "INSERT INTO notiz (text,datum) "
-                + "VALUES ('" + n.getText() + "','" + year + "-" + month + "-" + day +"')";
+        String sql = "INSERT INTO notiz (text,datum, verfasst_von) "
+                + "VALUES ('" + n.getText() + "','" + year + "-" + month + "-" + day + "'," + n.getMitarbeiter().getPersonalNr()+")";
         ResultSet r = executeSQL(sql);
         con.close();
     }

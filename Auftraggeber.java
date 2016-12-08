@@ -11,7 +11,7 @@ public class Auftraggeber {
 
     private String name;
     private String ansprechpartner;
-    private int tel;
+    private String tel;
     private String strasse;
     private String hausNr;
     private int plz;
@@ -20,7 +20,7 @@ public class Auftraggeber {
 
     private List<Projekt> projekt = new LinkedList<>();
 
-    public Auftraggeber(String n, String a, int t, String s, String h, int p, String o) {
+    public Auftraggeber(String n, String a, String t, String s, String h, int p, String o) {
         this.name = n;
         this.ansprechpartner = a;
         this.tel = t;
@@ -51,10 +51,10 @@ public class Auftraggeber {
         this.ansprechpartner = ap;
     }
 
-    public int getTel() {
+    public String getTel() {
         return tel;
     }
-    public void setTel(int tel){
+    public void setTel(String tel){
         this.tel = tel;
     }
 
@@ -68,7 +68,7 @@ public class Auftraggeber {
     public String getHausNr() {
         return hausNr;
     }
-    public void getHausNr(String hnr){
+    public void setHausNr(String hnr){
         this.hausNr = hnr;
     }
 
@@ -95,6 +95,9 @@ public class Auftraggeber {
     
     public List<Projekt> getProjekt() {
         return this.projekt;
+    }
+    public void setProjekt(Projekt p){
+        this.projekt.add(p);
     }
 
 }

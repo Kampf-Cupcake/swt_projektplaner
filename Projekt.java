@@ -82,5 +82,11 @@ public class Projekt {
        arbeitspakete = ap;
    }
     
+   public List<Auftraggeber> getAuftraggeber(){
+       return auftraggeber;
+   }
+   public void setAuftraggeber(Auftraggeber ag){
+       this.auftraggeber.add(ag);
+   }
  
 }
