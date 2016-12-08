@@ -44,6 +44,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jTextField4 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
+        StartseiteEinloggen = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        EinloggenBenutzername = new javax.swing.JTextField();
+        EinloggenPasswort = new javax.swing.JPasswordField();
+        ButtonStartseiteEinloggen = new javax.swing.JButton();
         Menu = new javax.swing.JPanel();
         ButtonMenuProjektAnlegen = new javax.swing.JButton();
         ButtonMenuBenutzerAnlegen = new javax.swing.JButton();
@@ -133,6 +139,57 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
+
+        jLabel12.setText("Benutzername");
+
+        jLabel13.setText("Passwort");
+
+        EinloggenPasswort.setText("jPasswordField1");
+
+        ButtonStartseiteEinloggen.setText("Einloggen");
+        ButtonStartseiteEinloggen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonStartseiteEinloggenActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout StartseiteEinloggenLayout = new javax.swing.GroupLayout(StartseiteEinloggen);
+        StartseiteEinloggen.setLayout(StartseiteEinloggenLayout);
+        StartseiteEinloggenLayout.setHorizontalGroup(
+            StartseiteEinloggenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(StartseiteEinloggenLayout.createSequentialGroup()
+                .addGroup(StartseiteEinloggenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(StartseiteEinloggenLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(StartseiteEinloggenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13))
+                        .addGap(49, 49, 49)
+                        .addGroup(StartseiteEinloggenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(EinloggenBenutzername, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                            .addComponent(EinloggenPasswort, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
+                    .addGroup(StartseiteEinloggenLayout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(ButtonStartseiteEinloggen)))
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+        StartseiteEinloggenLayout.setVerticalGroup(
+            StartseiteEinloggenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(StartseiteEinloggenLayout.createSequentialGroup()
+                .addGap(101, 101, 101)
+                .addGroup(StartseiteEinloggenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(EinloggenBenutzername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(StartseiteEinloggenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(EinloggenPasswort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addComponent(ButtonStartseiteEinloggen)
+                .addContainerGap(115, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(StartseiteEinloggen, "card8");
 
         ButtonMenuProjektAnlegen.setText("Projekt anlegen");
         ButtonMenuProjektAnlegen.addActionListener(new java.awt.event.ActionListener() {
@@ -923,6 +980,11 @@ public class MainFrame extends javax.swing.JFrame {
         
         pv.bearbeiteDeadline(projekt, tag, monat, jahr);
     }//GEN-LAST:event_ButtonProjektAendernActionPerformed
+
+    private void ButtonStartseiteEinloggenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonStartseiteEinloggenActionPerformed
+       StartseiteEinloggen.setVisible(false);
+       Menu.setVisible(true);
+    }//GEN-LAST:event_ButtonStartseiteEinloggenActionPerformed
  
     /**
      * @param args the command line arguments
@@ -981,6 +1043,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton ButtonProjektAnlegen;
     private javax.swing.JButton ButtonProjektBearbeiten;
     private javax.swing.JButton ButtonProjektBearbeitenZurück;
+    private javax.swing.JButton ButtonStartseiteEinloggen;
     private javax.swing.JComboBox<String> ComboBoxAJahr;
     private javax.swing.JComboBox<String> ComboBoxAMonat;
     private javax.swing.JComboBox<String> ComboBoxATag;
@@ -990,6 +1053,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> ComboBoxProjektBearbeitenMonat;
     private javax.swing.JComboBox<String> ComboBoxProjektBearbeitenTag;
     private javax.swing.JComboBox<String> ComboBoxTag;
+    private javax.swing.JTextField EinloggenBenutzername;
+    private javax.swing.JPasswordField EinloggenPasswort;
     private javax.swing.JLabel LabelBeschreibung;
     private javax.swing.JLabel LabelDeadline;
     private javax.swing.JLabel LabelKommentar;
@@ -1013,6 +1078,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton RadioButtonAdministrator;
     private javax.swing.ButtonGroup RadioButtonGroupRangAuswaehlen;
     private javax.swing.JRadioButton RadioButtonStandardBenutzer;
+    private javax.swing.JPanel StartseiteEinloggen;
     private javax.swing.JTextArea TextAreaProjektBeschreibung;
     private javax.swing.JTextField TextFieldABeschreibung;
     private javax.swing.JTextField TextFieldAName;
@@ -1033,6 +1099,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
