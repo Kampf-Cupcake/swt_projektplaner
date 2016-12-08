@@ -43,21 +43,70 @@ public class BenutzerVerwaltung {
         }
     }
     
-    public void aendereRang(){
+    /**
+     * Name wird geändert
+     * und per "bearbeiteMitarbeiterName" dauerhaft in der DB geändert
+     * @param ma der Mitarbeiter dessen Name geändert werden soll
+     * @param n der neue Name
+     */
+    public void bearbeiteName(Mitarbeiter ma, String n){
+        ma.setName(n);
+        try {
+            datenbank.bearbeiteMitarbeiterName(ma, n);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
+    }
+    
+    /**
+     * Name wird geändert
+     * und per "bearbeiteMitarbeiterName" dauerhaft in der DB geändert
+     * @param ma der Mitarbeiter dessen Name geändert werden soll
+     * @param vn der neue Vorname
+     */
+    public void bearbeiteVorname(Mitarbeiter ma, String vn){
+        ma.setName(vn);
+        try {
+            datenbank.bearbeiteMitarbeiterVorname(ma, vn);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
+    }
+    
+    /**
+     * Rang wird geändert
+     * und per "bearbeiteMitarbeiterRang" dauerhaft in der DB geändert
+     * @param ma der Mitarbeiter dessen Rang geändert werden soll
+     * @param r der neue Rang
+     */
+    public void bearbeiteRang(Mitarbeiter ma, String r){
+        ma.setRang(r);
+        try {
+            datenbank.bearbeiteMitarbeiterVorname(ma, r);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
+    }
+    
+    /**
+     * Name wird geändert
+     * und per "bearbeiteMitarbeiterBenutzername" dauerhaft in der DB geändert
+     * @param ma der Mitarbeiter dessen Benutzername geändert werden soll
+     * @param bn der neue Benutzername
+     */
+    public void bearbeiteBenutzername(Mitarbeiter ma, String bn){
+        ma.setName(bn);
+        try {
+            datenbank.bearbeiteMitarbeiterBenutzername(ma, bn);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
+    }
+    
+    public void bearbeitePasswort(Mitarbeiter ma, String pw){
         
     }
     
-   //public void aendereBenutzername(){     //Fällt möglicherweise weg
-        
-    //}
-    
-    public void aenderePasswort(String passwort){
-        
-    }
-    
-    public void aendereName(){
-        
-    }
     
     /**
      * ruft die Methode zum Auslesen aller Mitarbeiter aus der DB auf
