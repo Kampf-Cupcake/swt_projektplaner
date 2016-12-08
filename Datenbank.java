@@ -70,13 +70,11 @@ public class Datenbank {
       * @return ein Datum vom Datentyp GregorianCalender
       */
     public GregorianCalendar dateZuGreg(Date date) {
-        
         int tag = date.getDate();
         int monat = date.getMonth();
-        int jahr = date.getYear();
+        int jahr = date.getYear() + 1900;
         
-        GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
-        //System.out.println(greg);
+        GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
         return greg;
     }
 
@@ -90,7 +88,7 @@ public class Datenbank {
     public void speicherProjekt(Projekt projekt) throws Exception {
         connect();
         int year = projekt.getDeadline().get(Calendar.YEAR);
-        int month = projekt.getDeadline().get(Calendar.MONTH) + 1;
+        int month = projekt.getDeadline().get(Calendar.MONTH) ;
         int day = projekt.getDeadline().get(Calendar.DAY_OF_MONTH);
         String sql = "INSERT INTO Projekt (name,beschreibung,deadline) "
                 + "VALUES ('" + projekt.getname() + "','" + projekt.getbeschreibung() + "','" + year + "-" + month + "-" + day + "')";
@@ -124,7 +122,7 @@ public class Datenbank {
                 diesProjekt.setBeschreibung(beschreibung);
                 diesProjekt.setDeadline(greg);
                 diesProjekt.setProjektNr(id);
-                // System.out.println("Das Projekt heißt: "+name+"\nHier die Beschreibung: "+beschreibung);
+                //System.out.println(greg);
 
                 projekte.add(diesProjekt);
             }
@@ -205,7 +203,7 @@ public class Datenbank {
     public void bearbeiteProjektDeadline(Projekt projekt, GregorianCalendar neugreg) throws Exception {
         connect();
         int year = neugreg.get(Calendar.YEAR);
-        int month = neugreg.get(Calendar.MONTH) + 1;
+        int month = neugreg.get(Calendar.MONTH) ;
         int day = neugreg.get(Calendar.DAY_OF_MONTH);
         String sql = "UPDATE Projekt SET deadline ='" + year + "-" + month + "-" + day + "' WHERE ProjektNr =" + projekt.getProjektNr();
         ResultSet r = executeSQL(sql);

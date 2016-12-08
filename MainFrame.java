@@ -883,7 +883,7 @@ public class MainFrame extends javax.swing.JFrame {
                   TextAreaProjektBeschreibung.setText("Beschreibung: " + projekte.get(selectedindex).getbeschreibung() + "\n");
                   int tag = projekte.get(selectedindex).getDeadline().get(Calendar.DAY_OF_MONTH);
                   int monat = projekte.get(selectedindex).getDeadline().get(Calendar.MONTH)+1;
-                  int jahr = projekte.get(selectedindex).getDeadline().get(Calendar.YEAR)+1;
+                  int jahr = projekte.get(selectedindex).getDeadline().get(Calendar.YEAR);
                   String date = tag + "." + monat + "." + jahr;
                   
                   TextAreaProjektBeschreibung.append("\n" + "Deadline: " + date + "\n" );
@@ -903,17 +903,11 @@ public class MainFrame extends javax.swing.JFrame {
      
       TextFieldProjektName.setText(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getname());
       TextFieldProjektBeschreibung.setText(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getbeschreibung());
-      ComboBoxProjektBearbeitenTag.setSelectedIndex(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getDeadline().get(Calendar.DAY_OF_MONTH));
+      ComboBoxProjektBearbeitenTag.setSelectedIndex(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getDeadline().get(Calendar.DAY_OF_MONTH)-1);
       ComboBoxProjektBearbeitenMonat.setSelectedIndex(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getDeadline().get(Calendar.MONTH));
       ComboBoxProjektBearbeitenJahr.setSelectedItem(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getDeadline().get(Calendar.YEAR));
     
-      
-            
-    
-
-      
-      
-     
+   
     }//GEN-LAST:event_ButtonProjektBearbeitenActionPerformed
 
     private void ButtonBenutzerprofilAnlegenZurückActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBenutzerprofilAnlegenZurückActionPerformed
@@ -979,8 +973,9 @@ public class MainFrame extends javax.swing.JFrame {
         int monat = ComboBoxProjektBearbeitenMonat.getSelectedIndex()+1;
         int jahr = Integer.parseInt((String)ComboBoxProjektBearbeitenJahr.getSelectedItem());
         String date = tag+ "." + monat + "." + jahr;
+        System.out.println(date);
         pv.bearbeiteDeadline(projekt, tag, monat, jahr); 
-        TextAreaProjektBeschreibung.append(projekt.getbeschreibung() + date);
+        TextAreaProjektBeschreibung.setText("Beschreibung: " + projekt.getbeschreibung() + "\n" + "\n" + "Deadline: " + date + "\n" );
     }//GEN-LAST:event_ButtonProjektAendernActionPerformed
 
     private void ButtonStartseiteEinloggenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonStartseiteEinloggenActionPerformed

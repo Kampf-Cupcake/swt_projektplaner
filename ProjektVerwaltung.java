@@ -39,7 +39,7 @@ public class ProjektVerwaltung {
     public void anlegenProjekt(String name, String beschreibung, int tag, int monat, int jahr) {        //'int name' zu 'String name' geändert, beschreibung in UML
         System.out.println(name);
         System.out.println(beschreibung);
-        GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
+        GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
        
         Projekt projekt = new Projekt(name, beschreibung, greg);
         System.out.println(greg);
@@ -65,8 +65,9 @@ public class ProjektVerwaltung {
      * @param jahr der neuen Deadline
      */
     public void bearbeiteDeadline(Projekt p, int tag, int monat, int jahr) {
-        GregorianCalendar greg = new GregorianCalendar(jahr, monat - 1, tag);
+        GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
         p.setDeadline(greg);
+       
         try {
             datenbank.bearbeiteProjektDeadline(p, greg);
         } catch (Exception e) {
