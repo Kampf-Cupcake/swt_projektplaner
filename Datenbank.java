@@ -221,6 +221,49 @@ public class Datenbank {
         con.close();
     }
     
+    /**
+     * Liest alle Mitarbeiter aus der DB die bei einem Projekt beteiligt sind
+     * @param p Projekt
+     * @return eine Liste von Mitarbeiter
+     */
+    public List<Mitarbeiter> selectAllProjektMitarbeiter(Projekt p) {
+        List<Mitarbeiter> projektMitarbeiters = new LinkedList<Mitarbeiter>();
+        try {
+            connect();
+            Statement stmt = con.createStatement();
+            String sql = "SELECT* FROM P_MA WHERE P_MA.arbeitet_an=" + p.getProjektNr();
+            ResultSet res = stmt.executeQuery(sql);
+            
+            String sql2 = "SELECT * FROM Mitarbeiter WHERE Mitarbeiter.Personalnr="+res.getInt(2);
+            ResultSet res2 = stmt.executeQuery(sql2);
+            
+            while (res2.next()) {
+                
+                String name = res2.getString(1);
+                String vorname = res2.getString(2);
+                String rang = res2.getString(3);
+                String benutzername = res2.getString(4);
+                String passwort = res2.getString(5);
+                int id = res2.getInt(6);
+
+                Mitarbeiter dieserMA = new Mitarbeiter(name, vorname, rang, benutzername, passwort);
+                dieserMA.setName(name);
+                dieserMA.setVorname(vorname);
+                dieserMA.setRang(rang);
+                dieserMA.setBenutzername(benutzername);
+                dieserMA.setPasswort(passwort);
+                dieserMA.setPersonalNr(id);
+
+                projektMitarbeiters.add(dieserMA);
+            }
+            res.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return projektMitarbeiters;
+    }
     
 /*Block für die Arbeitspakete*/
     
@@ -434,7 +477,7 @@ public class Datenbank {
             String sql = "SELECT* FROM P_MA WHERE P_MA.wird_bearbeitet_von=" + ma.getPersonalNr();
             ResultSet res = stmt.executeQuery(sql);
             
-            String sql2 = "SELECT * FROM Projekte WHERE Projekte="+res.getInt(1);
+            String sql2 = "SELECT * FROM Projekte WHERE Projekt.Projektnr="+res.getInt(1);
             ResultSet res2 = stmt.executeQuery(sql2);
             
             while (res2.next()) {
@@ -831,5 +874,44 @@ public class Datenbank {
                 + "VALUES ('" + n.getText() + "','" + year + "-" + month + "-" + day + "'," + n.getMitarbeiter().getPersonalNr()+")";
         ResultSet r = executeSQL(sql);
         con.close();
+    }
+    
+    /**
+     * Liest alle Notizen eines Mitarbeiters aus der DB
+     * @param notiz
+     * @param verfasser
+     * @return eine Liste aller Notizen die von diesem Mitarbeiter verfasst wurden
+     */
+    public List<Notiz> selectAllMyNotizen(Mitarbeiter verfasser) {
+        List<Notiz> myNotizen = new LinkedList<Notiz>();
+        try {
+            connect();
+            Statement stmt = con.createStatement();
+            String sql = "SELECT* FROM Notiz WHERE Notiz.verfasst_von=" + verfasser.getPersonalNr();
+            ResultSet res = stmt.executeQuery(sql);
+
+            while (res.next()) {
+
+                String text = res.getString(1);
+                Date datum = res.getDate(2);
+                int id = res.getInt(3);
+
+                GregorianCalendar greg = dateZuGreg(datum);
+                   
+                Notiz dieseNotiz = new Notiz (text, greg);
+                dieseNotiz.setText(text);
+                dieseNotiz.setDatum(greg);
+                dieseNotiz.setNotizID(id);
+                dieseNotiz.setMitarbeiter(verfasser);
+                
+                myNotizen.add(dieseNotiz);
+            }
+            res.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return myNotizen;
     }
 }

@@ -116,4 +116,11 @@ public class BenutzerVerwaltung {
         return datenbank.selectAllMitarbeiters();
     }
     
+    public List<Projekt> getMyProjects(Mitarbeiter ma){
+        return datenbank.selectAllMyProjects(ma);
+    }
+    
+    public List<Notiz> getMyNotizen(Mitarbeiter ma){
+        return datenbank.selectAllMyNotizen(ma);
+    }
 }

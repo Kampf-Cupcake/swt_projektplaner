@@ -136,6 +136,11 @@ public class ProjektVerwaltung {
         }
      }
      
+     /**
+      * weist dem Projekt einen Auftraggeber zu
+      * @param p
+      * @param ag 
+      */
      public void weiseAuftraggeberZu(Projekt p, Auftraggeber ag){
         
          try{
@@ -145,5 +150,14 @@ public class ProjektVerwaltung {
         } catch (Exception e){
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());
         }
+     }
+     
+     /**
+      * Füllt für die Laufzeit eine Liste in NetBeans mit allen Mitarbeiter die an diesem Projekt beteiligt sind der DB
+      * @param p Projekt
+      * @return eine Liste aller Mitarbeiter die beim Projekt mitarbeiten
+      */
+     public List<Mitarbeiter> getProjektMitarbeiter(Projekt p){
+         return datenbank.selectAllProjektMitarbeiter(p);
      }
 }
