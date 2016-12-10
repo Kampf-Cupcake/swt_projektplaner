@@ -52,10 +52,6 @@ public class ProjektVerwaltung {
              
     }
 
-    public void verwaltenArbeitspaket() {
-
-    }
-
     /**
      * Deadline wird geändert 
      * und per "bearbeiteProjektDeadline" dauerhaft in der DB geändert

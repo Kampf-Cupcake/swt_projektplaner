@@ -747,7 +747,7 @@ public class Datenbank {
      * @param hnr die neue HausNr
      * @throws Exception 
      */
-    public void bearbeiteAuftraggeberHausNr(Auftraggeber a, int hnr)throws Exception{
+    public void bearbeiteAuftraggeberHausNr(Auftraggeber a, String hnr)throws Exception{
         connect();
         String sql = "UPDATE Auftraggeber SET hausnr ='" + hnr + "' WHERE KundenNr =" + a.getKundenNr();
         ResultSet r = executeSQL(sql);
