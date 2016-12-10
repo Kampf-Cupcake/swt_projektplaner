@@ -15,10 +15,11 @@ public class Notiz {
     
     private Mitarbeiter mitarbeiter;
     
-    public Notiz (String t, GregorianCalendar d){
+    public Notiz (String t, GregorianCalendar d, Mitarbeiter m){
         this.text = t;
         this.datum = d;
         this.notizID = -1;
+        this.mitarbeiter = m;
     }
     
     public String toString(){       //UML

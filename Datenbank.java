@@ -350,8 +350,17 @@ public class Datenbank {
         con.close();
     }
 
-    public void bearbeiteAbeitspaketStatus(Arbeitspaket ap){
-        
+    /**
+     * Status des Arbeitspaketes wird geändert
+     * @param ap Arbeitspaket in dem der Status geändert werden soll
+     * @param trueOrFalse Status auf true oder false setzen
+     * @throws Exception 
+     */
+    public void bearbeiteAbeitspaketStatus(Arbeitspaket ap, boolean trueOrFalse)throws Exception{
+        connect();
+        String sql = "UPDATE Abeitspaket SET fertig ='" + trueOrFalse + "' WHERE AbeitspaketNr =" + ap.getArbeitspaketNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
     }
     
     /**
@@ -504,6 +513,48 @@ public class Datenbank {
         return myProjects;
     }
     
+    /**
+     * liest alle Arbeitspaketes eines Projektes aus der DB, an denen 1 Mitarbeiter arbeitet
+     * @param p Projekt zu dem die Arbeitspakete gehören
+     * @param m Mitarbeiter dessen Arbeitspakete ausgelesen werden sollen
+     * @return  eine Liste mit allen Arbeitspaketen eines Projektes eines Mitarbeiters
+     */
+    public List<Arbeitspaket> selectMyArbeitspaketeVonProjekt(Projekt p, Mitarbeiter m) {
+        List<Arbeitspaket> myAPvonProjekt = new LinkedList<Arbeitspaket>();
+        try {
+            connect();
+            Statement stmt = con.createStatement();
+            String sql = "SELECT* FROM AP_MA, Arbeitspaket WHERE AP_MA.wird_bearbeitet_von=" + m.getPersonalNr()+"AND Arbeitspaket.gehört_zu="+p.getProjektNr();
+            ResultSet res = stmt.executeQuery(sql);
+            
+            while (res.next()) {
+                
+                String name = res.getString(3);
+                boolean fertig = res.getBoolean(4);
+                String beschreibung = res.getString(5);
+                Date deadline = res.getDate(6);
+                int id = res.getInt(7);
+
+                GregorianCalendar greg = dateZuGreg(deadline);
+
+                Arbeitspaket diesArbeitspaket = new Arbeitspaket(name, fertig, beschreibung, greg, p);
+                diesArbeitspaket.setName(name);
+                diesArbeitspaket.setFertig(fertig);
+                diesArbeitspaket.setBeschreibung(beschreibung);
+                diesArbeitspaket.setDeadline(greg);
+                diesArbeitspaket.setArbeitspaketNr(id);
+                diesArbeitspaket.setProjekt(p);
+
+                myAPvonProjekt.add(diesArbeitspaket);
+            }
+            res.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return myAPvonProjekt;
+    }
     
 
     /*Brauchen wir diese Methode???*/
@@ -898,7 +949,7 @@ public class Datenbank {
 
                 GregorianCalendar greg = dateZuGreg(datum);
                    
-                Notiz dieseNotiz = new Notiz (text, greg);
+                Notiz dieseNotiz = new Notiz (text, greg, verfasser);
                 dieseNotiz.setText(text);
                 dieseNotiz.setDatum(greg);
                 dieseNotiz.setNotizID(id);

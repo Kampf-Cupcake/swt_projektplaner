@@ -84,4 +84,82 @@ public class ArbeitspaketVerwaltung {
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());
         }
      }
+    
+    /**
+     * Name wird geändert
+     * und per "bearbeiteArbeitspaketName" dauerhaft in der DB geändert
+     * @param ap 
+     * @param neuName 
+     */
+    public void bearbeiteArbeitpaketName (Arbeitspaket ap, String neuName){
+        ap.setName(neuName);
+        try {
+            datenbank.bearbeiteArbeitspaketName(ap, neuName);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
+    }
+    /**
+     * Stutus des Arbeitspaketes wird geändert
+     * und per "bearbeiteArbeitspaketStatus" dauerhaft in der DB gespeichert
+     * @param ap in dem der Status geändert werden soll
+     * @param falseOrTrue Status auf false oder true setzen 
+     */
+    public void bearbeiteArbeitspaketStatus (Arbeitspaket ap, boolean falseOrTrue){
+        ap.setFertig(falseOrTrue);
+        try {
+            datenbank.bearbeiteAbeitspaketStatus(ap, falseOrTrue);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
+    }
+    
+    /**
+     * Beschreibung wird geändert
+     * und per "bearbeiteArbeitspaketBeschreibung" dauerhaft in der DB geändert
+     * @param ap Arbeitpaket in dem geändert wird
+     * @param neuB eschreibung
+     */
+    public void bearbeiteArbeitpaketBeschreibung (Arbeitspaket ap, String neuB){
+        ap.setName(neuB);
+        try {
+            datenbank.bearbeiteArbeitspaketBeschreibung(ap, neuB);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
+    }
+    
+    /**
+     * Deadline wird geändert 
+     * und per "bearbeiteArbeitspaketDeadline" dauerhaft in der DB geändert
+     * @param p Arbeitspaket dessen Deadline geändert werden soll
+     * @param tag der neuen Deadline
+     * @param monat der neuen Deadline
+     * @param jahr der neuen Deadline
+     */
+    public void bearbeiteDeadline(Arbeitspaket ap, int tag, int monat, int jahr) {
+        GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
+        ap.setDeadline(greg);
+       
+        try {
+            datenbank.bearbeiteArbeitspaketDeadline(ap, greg);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
+    }
+    
+    /**
+     * Arbeitspaket wird aus der Arbeitspaket-Liste eines Projektes gelöscht 
+     * und per "löscheArbeitspaket" dauerhaft in der DB gelöscht
+     * @param ap Arbeitpaket in dem geändert wird
+     * @param neuB eschreibung
+     */
+    public void löscheArbeitspaket (Arbeitspaket ap){
+        ap.getProjekt().removeArbeitspaket(ap);
+        try {
+            datenbank.loeschenArbeitspaket(ap);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
+    }
 }

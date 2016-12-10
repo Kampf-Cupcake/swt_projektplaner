@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * verwaltet die Klassen AKommentar, PKommentar, Notiz
  * @author Evelyne
  */
 public class KleineVerwaltung {
@@ -92,6 +92,36 @@ public class KleineVerwaltung {
         public List<AKommentar> getAKommentare(Arbeitspaket ap, Mitarbeiter vf){
             return datenbank.selectAllAKommentare(ap, vf);
         }
+        
+        /**
+         * Daten einer neuen Notiz von der GUI werden für die Laufzeit an NetBeans übergeben
+         * und per Methode "erstelleNotiz" der Datenbank dauerhaft übergeben
+         * @param text
+         * @param tag
+         * @param monat
+         * @param jahr
+         * @param verfasser 
+         */
+        public void erstelleNotiz(String text, int tag, int monat, int jahr, Mitarbeiter verfasser){
+        GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
+        Notiz n = new Notiz (text, greg, verfasser);
+       
+        try{
+            datenbank.erstelleNotiz(n);
+        } catch (Exception e){
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+            
+        /**
+        * ruft die Methode zum Auslesen aller Notizen eines Mitarbeiters aus der DB auf
+        * @param ma
+        * @return 
+        */
+        public List<Notiz> getMyNotizen(Mitarbeiter ma){
+            return datenbank.selectAllMyNotizen(ma);
+    }
  
     }
     

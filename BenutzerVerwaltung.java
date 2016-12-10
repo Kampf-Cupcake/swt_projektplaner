@@ -116,11 +116,24 @@ public class BenutzerVerwaltung {
         return datenbank.selectAllMitarbeiters();
     }
     
+    /**
+     * ruft die Methode zum Auslesen aller Projekte aus der DB, an denen 1 Mitarbeiter arbeitet auf
+     * @param ma Mitarbeiter
+     * @return 
+     */
     public List<Projekt> getMyProjects(Mitarbeiter ma){
         return datenbank.selectAllMyProjects(ma);
     }
+
     
-    public List<Notiz> getMyNotizen(Mitarbeiter ma){
-        return datenbank.selectAllMyNotizen(ma);
+    /**
+     * ruft die Methode zum Auslesen aller Arbeitspakete zu einem Projekt aus der DB 
+     * die zu einem Mitarbeiter gehören
+     * @param p Projekt zu dem die Arbeitspakete gehören
+     * @param m Mitarbeiter dessen Arbeitspakete ausgelesen werden sollen
+     * @return eine Liste aller Arbeitspakete eines Projektes die zu einem Mitarbeiter gehören
+     */
+    public List<Arbeitspaket> getMyAPvonProjekt (Projekt p, Mitarbeiter m){
+        return datenbank.selectMyArbeitspaketeVonProjekt(p, m);
     }
 }

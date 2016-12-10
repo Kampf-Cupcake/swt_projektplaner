@@ -81,6 +81,9 @@ public class Projekt {
    public void setArbeitspakete(List<Arbeitspaket> ap){
        arbeitspakete = ap;
    }
+   public void removeArbeitspaket(Arbeitspaket ap){
+       arbeitspakete.remove(ap);
+   }
     
    public List<Auftraggeber> getAuftraggeber(){
        return auftraggeber;
