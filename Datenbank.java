@@ -210,14 +210,32 @@ public class Datenbank {
         con.close();
     }
 
-    /**
-     * löscht ein bestehendes Projekt aus der Datenbank
-     * @param projekt das gelöscht werden soll
-     * @throws Exception 
-     */
+   /**
+    * löscht ein Projekt und alle bestehenden Datensätze die ohne das Projekt in der DB keinen Sinn machen
+    * @param projekt
+    * @throws Exception 
+    */
     public void loeschenProjekt(Projekt projekt)throws Exception{
         connect();
-        String sql = "DELETE FROM Projekt WHERE ProjektNr ="+ projekt.getProjektNr();
+        String sql1 = "DELETE FROM Statusbericht WHERE gehört_zu ="+ projekt.getProjektNr();
+        String sql2 = "DELETE FROM PKommentar WHERE gehört_zu ="+ projekt.getProjektNr();
+        
+        String sql4 = "DELETE FROM beauftragt WHERE gibt_in_auftrag ="+ projekt.getProjektNr();
+        String sql5 = "DELETE FROM P_MA WHERE arbeitet_an ="+ projekt.getProjektNr();
+        String sql6 = "DELETE FROM Projekt WHERE ProjektNr ="+ projekt.getProjektNr();
+        
+        ResultSet r1 = executeSQL(sql1);
+        ResultSet r2 = executeSQL(sql2);
+        
+        List<Arbeitspaket> löschList = this.selectAllArbeitspakete(projekt);
+            for(Arbeitspaket ap:löschList){
+            this.loeschenArbeitspaket(ap);
+        }
+            
+        ResultSet r4 = executeSQL(sql4);
+        ResultSet r5 = executeSQL(sql5);
+        ResultSet r6 = executeSQL(sql6);
+        
         con.close();
     }
     
@@ -345,7 +363,7 @@ public class Datenbank {
      */
     public void bearbeiteArbeitspaketName(Arbeitspaket ap, String neuName) throws Exception {
         connect();
-        String sql = "UPDATE Abeitspaket SET name ='" + neuName + "' WHERE AbeitspaketNr =" + ap.getArbeitspaketNr();
+        String sql = "UPDATE Arbeitspaket SET name ='" + neuName + "' WHERE ArbeitspaketNr =" + ap.getArbeitspaketNr();
         ResultSet r = executeSQL(sql);
         con.close();
     }
@@ -358,7 +376,7 @@ public class Datenbank {
      */
     public void bearbeiteAbeitspaketStatus(Arbeitspaket ap, boolean trueOrFalse)throws Exception{
         connect();
-        String sql = "UPDATE Abeitspaket SET fertig ='" + trueOrFalse + "' WHERE AbeitspaketNr =" + ap.getArbeitspaketNr();
+        String sql = "UPDATE Arbeitspaket SET fertig ='" + trueOrFalse + "' WHERE ArbeitspaketNr =" + ap.getArbeitspaketNr();
         ResultSet r = executeSQL(sql);
         con.close();
     }
@@ -371,7 +389,7 @@ public class Datenbank {
      */
     public void bearbeiteArbeitspaketBeschreibung(Arbeitspaket ap, String neuBeschreibung) throws Exception {
         connect();
-        String sql = "UPDATE Abeitspaket SET beschreibung ='" + neuBeschreibung + "' WHERE AbeitspaketNr =" + ap.getArbeitspaketNr();
+        String sql = "UPDATE Arbeitspaket SET beschreibung ='" + neuBeschreibung + "' WHERE ArbeitspaketNr =" + ap.getArbeitspaketNr();
         ResultSet r = executeSQL(sql);
         con.close();
     }
@@ -387,19 +405,24 @@ public class Datenbank {
         int year = neugreg.get(Calendar.YEAR);
         int month = neugreg.get(Calendar.MONTH) + 1;
         int day = neugreg.get(Calendar.DAY_OF_MONTH);
-        String sql = "UPDATE Abeitspaket SET deadline ='" + year + "-" + month + "-" + day + "' WHERE ArbeitspaketNr =" + ap.getArbeitspaketNr();
+        String sql = "UPDATE Arbeitspaket SET deadline ='" + year + "-" + month + "-" + day + "' WHERE ArbeitspaketNr =" + ap.getArbeitspaketNr();
         ResultSet r = executeSQL(sql);
         con.close();
     }
     
     /**
-     * löscht ein bestehendes Arbeitspaket aus der Datenbank
-     * @param Arbeitspaket das gelöscht werden soll
+     * löscht ein bestehendes Arbeitspaket und alle Verbindungen sowie Fremdschlüssel aus der Datenbank
+     * @param ap das gelöscht werden soll
      * @throws Exception 
      */
     public void loeschenArbeitspaket(Arbeitspaket ap)throws Exception{
         connect();
-        String sql = "DELETE FROM Arbeitspakte WHERE ArbeitspaketNr ="+ ap.getArbeitspaketNr();
+        String sql1 = "DELETE FROM AKommentar WHERE gehört_zu ="+ ap.getArbeitspaketNr();
+        String sql2 = "DELETE FROM AP_MA WHERE arbeitet_an="+ ap.getArbeitspaketNr();
+        String sql3 = "DELETE FROM Arbeitspaket WHERE ArbeitspaketNr ="+ ap.getArbeitspaketNr();
+        ResultSet r1 = executeSQL(sql1);
+        ResultSet r2 = executeSQL(sql2);
+        ResultSet r3 = executeSQL(sql3);
         con.close();
     }
     
@@ -617,17 +640,32 @@ public class Datenbank {
     }
     
     /**
-     * löscht diesen Mitarbeiter
+     * löscht diesen Mitarbeiter und alle Datensätze in anderen Tabellen, die ohne den MA in der DB keinen Sinn machen
      * @param ma der Mitarbeiter
      * @throws Exception 
      */
     public void loeschenMitarbeiter(Mitarbeiter ma)throws Exception{
         connect();
-        String sql = "DELETE FROM Mitarbeiter WHERE personalNr ="+ ma.getPersonalNr();
+        List<Notiz> löschList = this.selectAllMyNotizen(ma);
+            for(Notiz n:löschList){
+                this.loescheNotiz(n);
+            }
+        String sql1 = "DELETE FROM AKommentar WHERE verfasst_von ="+ ma.getPersonalNr();
+        String sql2 = "DELETE FROM PKommentar WHERE verfasst_von ="+ ma.getPersonalNr();
+        String sql3 = "DELETE FROM P_MA WHERE wird_bearbeitet_von ="+ ma.getPersonalNr();
+        String sql4 = "DELETE FROM AP_MA WHERE wird_bearbeitet_von ="+ ma.getPersonalNr();
+        String sql5 = "UPDATE Projekt SET wird_geleitet_von = null WHERE wird_geleitet_von =" + ma.getPersonalNr();
+        String sql6 = "DELETE FROM Mitarbeiter WHERE personalNr ="+ ma.getPersonalNr();
+        
+        ResultSet r1 = executeSQL(sql1);
+        ResultSet r2 = executeSQL(sql2);
+        ResultSet r3 = executeSQL(sql3);
+        ResultSet r4 = executeSQL(sql4);
+        ResultSet r6 = executeSQL(sql6);
         con.close();
     }
     
-   
+    
 /*Block für den Auftraggeber*/
     
     /**
@@ -787,11 +825,14 @@ public class Datenbank {
      */
     public void loeschenAuftraggeber(Auftraggeber a)throws Exception{
         connect();
-        String sql = "DELETE FROM Auftraggeber WHERE kundenNr ="+ a.getKundenNr();
+        String sql1 = "DELETE FROM beauftragt WHERE beauftragt_von ="+a.getKundenNr();
+        String sql2 = "DELETE FROM Auftraggeber WHERE kundenNr ="+ a.getKundenNr();
+        ResultSet r1 = executeSQL(sql1);
+        ResultSet r2 = executeSQL(sql2);
         con.close();
     }
     
-    
+
 /*Block für die Kommentare und Notiz*/    
     
     /**
@@ -964,5 +1005,28 @@ public class Datenbank {
             e.printStackTrace();
         }
         return myNotizen;
+    }
+    
+    /**
+     * löscht eine Notiz
+     * @param n Notiz
+     * @throws Exception 
+     */
+    public void loescheNotiz(Notiz n)throws Exception{
+        connect();
+        String sql = "DELETE FROM Notiz WHERE NotizID ="+ n.getNotitzID();
+        ResultSet res = executeSQL(sql);
+        con.close();
+    }
+    
+    public void speicherStatusbericht(Statusbericht sb)throws Exception{
+        connect();
+        int year = n.getDatum().get(Calendar.YEAR);
+        int month = n.getDatum().get(Calendar.MONTH) + 1;
+        int day = n.getDatum().get(Calendar.DAY_OF_MONTH);
+        String sql = "INSERT INTO notiz (text,datum, verfasst_von) "
+                + "VALUES ('" + n.getText() + "','" + year + "-" + month + "-" + day + "'," + n.getMitarbeiter().getPersonalNr()+")";
+        ResultSet r = executeSQL(sql);
+        con.close();
     }
 }

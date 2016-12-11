@@ -136,4 +136,17 @@ public class BenutzerVerwaltung {
     public List<Arbeitspaket> getMyAPvonProjekt (Projekt p, Mitarbeiter m){
         return datenbank.selectMyArbeitspaketeVonProjekt(p, m);
     }
+    
+      /**
+      * löscht ein Mitarbeiter und alle Datensätze die ohne dieses Mitarbeiter kein Sinn machen würde, aus der DB
+      * @param m Mitarbeiter
+      */
+     public void löscheMitarbeiter (Mitarbeiter m){
+        //aus NetBeans in Listen löschen?
+         try {
+            datenbank.loeschenMitarbeiter(m);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
+     }
 }

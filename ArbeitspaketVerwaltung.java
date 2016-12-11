@@ -155,6 +155,7 @@ public class ArbeitspaketVerwaltung {
      * @param neuB eschreibung
      */
     public void löscheArbeitspaket (Arbeitspaket ap){
+        //nötig? störend? fehlt was?
         ap.getProjekt().removeArbeitspaket(ap);
         try {
             datenbank.loeschenArbeitspaket(ap);

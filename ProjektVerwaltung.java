@@ -156,4 +156,17 @@ public class ProjektVerwaltung {
      public List<Mitarbeiter> getProjektMitarbeiter(Projekt p){
          return datenbank.selectAllProjektMitarbeiter(p);
      }
+     
+     /**
+      * löscht ein Projekt und alle Datensätze die ohne dieses Projekt kein Sinn machen würde, aus der DB
+      * @param p Projekt
+      */
+     public void löscheProjekt (Projekt p){
+        //aus NetBeans in Listen löschen?
+         try {
+            datenbank.loeschenProjekt(p);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
+     }
 }

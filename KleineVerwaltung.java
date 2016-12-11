@@ -122,6 +122,17 @@ public class KleineVerwaltung {
         public List<Notiz> getMyNotizen(Mitarbeiter ma){
             return datenbank.selectAllMyNotizen(ma);
     }
+        
+        public void loescheNotiz (Notiz n){
+            //nicht sicher ob es nötig ist, aus der Liste in NetBeans zu löschen:
+           n.getMitarbeiter().getNotiz().remove(n);
+            try{
+            datenbank.loescheNotiz(n);
+        } catch (Exception e){
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+            e.printStackTrace();
+        }
+        }
  
     }
     
