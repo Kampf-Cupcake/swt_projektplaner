@@ -347,6 +347,52 @@ public class Datenbank {
         }
         return arbeitspakete;
     }
+    
+    /**
+     * Liest alle fertige oder unfertigen Arbeitspake eines Projektes aus der DB
+     * @param projekt 
+     * @param fertigOderNicht für fertige AP TRUE übergeben für unfertige FALSE
+     * @return eine Liste aller un-/fertigen Arbeitspakete eines Projektes
+     */
+    public List<Arbeitspaket> selectAllUnfertige_oder_FertigeArbeitspakete(Projekt projekt, boolean fertigOderNicht) {
+        List<Arbeitspaket> arbeitspakete = new LinkedList<Arbeitspaket>();
+        try {
+            connect();
+            Statement stmt = con.createStatement();
+            String sql = "SELECT* FROM Arbeitspaket WHERE Arbeitspaket.gehört_zu=" + projekt.getProjektNr()+" AND fertig= "+fertigOderNicht;
+
+            ResultSet res = stmt.executeQuery(sql);
+
+            //String sqlProjekt = "SELECT * FROM Projekt, Arbeitspaket WHERE Arbeitspaket.gehört_zu=Projekt.projektNr";
+            //ResultSet resProjekt = stmt.executeQuery(sqlProjekt);
+            while (res.next()) {
+
+                String name = res.getString(1);
+                boolean fertig = res.getBoolean(2);
+                String beschreibung = res.getString(3);
+                Date deadline = res.getDate(4);
+                int id = res.getInt(5);
+
+                GregorianCalendar greg = dateZuGreg(deadline);
+
+                Arbeitspaket diesArbeitspaket = new Arbeitspaket(name, fertig, beschreibung, greg, projekt);
+                diesArbeitspaket.setName(name);
+                diesArbeitspaket.setFertig(fertig);
+                diesArbeitspaket.setBeschreibung(beschreibung);
+                diesArbeitspaket.setDeadline(greg);
+                diesArbeitspaket.setArbeitspaketNr(id);
+                diesArbeitspaket.setProjekt(projekt);
+
+                arbeitspakete.add(diesArbeitspaket);
+            }
+            res.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return arbeitspakete;
+    }
 
     /*brauchen wir die Methode???*/
     public void abrufeArbeitspaket(String sql) throws Exception {
@@ -1019,14 +1065,59 @@ public class Datenbank {
         con.close();
     }
     
+    /**
+     * speichert einen Statusbericht in der DB
+     * @param sb Statusbericht
+     * @throws Exception 
+     */
     public void speicherStatusbericht(Statusbericht sb)throws Exception{
         connect();
-        int year = n.getDatum().get(Calendar.YEAR);
-        int month = n.getDatum().get(Calendar.MONTH) + 1;
-        int day = n.getDatum().get(Calendar.DAY_OF_MONTH);
-        String sql = "INSERT INTO notiz (text,datum, verfasst_von) "
-                + "VALUES ('" + n.getText() + "','" + year + "-" + month + "-" + day + "'," + n.getMitarbeiter().getPersonalNr()+")";
+        int year = sb.getDatum().get(Calendar.YEAR);
+        int month = sb.getDatum().get(Calendar.MONTH) + 1;
+        int day = sb.getDatum().get(Calendar.DAY_OF_MONTH);
+        String sql = "INSERT INTO Statusbericht (prozent, gehört_zu, erstellt_am) "
+                + "VALUES ('" + sb.getProzent() + "',"+sb.getProjekt().getProjektNr() + ",'"+year + "-" + month + "-" + day + "')";
         ResultSet r = executeSQL(sql);
         con.close();
     }
+   
+    /**
+     * liest alle Statusberichte eines Projektes aus der DB aus
+     * @param p Projekt dessen Statusberichte ausgelesen werden sollen
+     * @return eine Liste aller vergangenen Statusberichte eines Projektes
+     */
+    public List<Statusbericht> selectAllStatusberichte(Projekt p){
+         List<Statusbericht> projektStatusberichte = new LinkedList<Statusbericht>();
+        try {
+            connect();
+            Statement stmt = con.createStatement();
+            String sql = "SELECT* FROM Statusbericht WHERE gehört_zu=" + p.getProjektNr();
+            ResultSet res = stmt.executeQuery(sql);
+
+            while (res.next()) {
+                int prozent = res.getInt(1);
+                int id = res.getInt(2);
+                Date datum = res.getDate(4);
+                
+                GregorianCalendar greg = dateZuGreg(datum);
+                
+                Statusbericht dieserBericht = new Statusbericht (prozent, greg, p);
+               
+                dieserBericht.setProzent(id);
+                dieserBericht.setStatusberichtId(id);
+                dieserBericht.setDatum(greg);
+                dieserBericht.setProjekt(p);
+                
+                projektStatusberichte.add(dieserBericht);
+            }
+            res.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return projektStatusberichte;
+    }
+    
+    
 }

@@ -5,6 +5,7 @@ package swt_projektplaner;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.LinkedList;
 /**
@@ -14,13 +15,15 @@ import java.util.LinkedList;
 public class Statusbericht {
     private int prozent;        //In UML
     private int statusberichtID;
-    
+    private GregorianCalendar datum;
     private List<Arbeitspaket> arbeitspaket = new LinkedList<Arbeitspaket>();
     private Projekt projekt;
     
-    public Statusbericht(int p){
-        this.prozent = p;
+    public Statusbericht(int pz, GregorianCalendar d, Projekt p){
+        this.prozent = pz;
+        this.datum = d;
         this.statusberichtID = -1;
+        this.projekt = p;
     }
     
     public int getProzent(){
@@ -37,6 +40,13 @@ public class Statusbericht {
         this.statusberichtID = id;
     }
     
+   public GregorianCalendar getDatum() {
+        return datum;
+    }
+    public void setDatum(GregorianCalendar d){
+        this.datum = d;
+    }
+    
     public List<Arbeitspaket> getArbeitspaket(){
         return this.arbeitspaket;
     }
@@ -44,7 +54,10 @@ public class Statusbericht {
     public Projekt getProjekt(){
         return this.projekt;
     }
-    
+    public void setProjekt(Projekt p){
+        this.projekt = p;
+    }
+    /* Methode steht in der kleinen Verwaltung
     public double berechneStatus(List<Arbeitspaket> Liste){
         int fertig = 0;
         double status;
@@ -54,7 +67,7 @@ public class Statusbericht {
         }
         status = (fertig /Liste.size()) * 100 ;
         return status;
-        
+        */
         
     }
 }

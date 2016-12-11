@@ -91,5 +91,12 @@ public class Projekt {
    public void setAuftraggeber(Auftraggeber ag){
        this.auftraggeber.add(ag);
    }
+   
+   public List<Statusbericht> getStatusberichte(){
+       return statusberichte;
+   }
+   public void setStatusbericht(Statusbericht sb){
+       this.statusberichte.add(sb);
+   }
  
 }

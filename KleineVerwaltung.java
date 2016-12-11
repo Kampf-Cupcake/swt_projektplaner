@@ -105,7 +105,7 @@ public class KleineVerwaltung {
         public void erstelleNotiz(String text, int tag, int monat, int jahr, Mitarbeiter verfasser){
         GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
         Notiz n = new Notiz (text, greg, verfasser);
-       
+        
         try{
             datenbank.erstelleNotiz(n);
         } catch (Exception e){
@@ -132,6 +132,53 @@ public class KleineVerwaltung {
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());
             e.printStackTrace();
         }
+        }
+        
+        public void speicherStatusbericht(int pz, int tag, int monat, int jahr, Projekt p){
+        GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
+        Statusbericht sb = new Statusbericht(pz, greg, p);
+       
+        try{
+            datenbank.speicherStatusbericht(sb);
+        } catch (Exception e){
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+        
+        /**
+         * ruft die Methode zum Auslesen aller Statusberichte eines Projektes aus der DB auf
+         * @param p Projekt dessen Statusberichte aufgerufen werden sollen
+         * @return eine Liste mit allen vergangen Statusberichte eines Projektes
+         */
+        public List<Statusbericht> getAllStatusberichte(Projekt p){
+            return datenbank.selectAllStatusberichte(p);
+        }
+        
+       /**
+        * berechnet einen Statusbericht eines Projektes 
+        * und speichert diesen per "speicherStatusbericht" dauerhaft in der DB
+        * @param tag des heutigen Datums
+        * @param monat es heutigen Datums
+        * @param jahres heutigen Datums
+        * @param p Projekt dessen Status berechnet und gespeichert werden soll
+        * @return einen (gerundeten) Integer der den prozentuale Status des Projektes darstellt
+        */
+        public Integer berechne_und_speicherStatus (int tag, int monat, int jahr, Projekt p){
+            int anzahl_allerAp = datenbank.selectAllArbeitspakete(p).size();
+            int anzahl_fertigeAP = datenbank.selectAllUnfertige_oder_FertigeArbeitspakete(p, true).size();
+            int status = (int) Math.round((anzahl_fertigeAP /anzahl_allerAp) * 100) ;
+            
+            GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
+            Statusbericht sb = new Statusbericht(status, greg, p);
+       
+        try{
+            datenbank.speicherStatusbericht(sb);
+        } catch (Exception e){
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return status;
         }
  
     }

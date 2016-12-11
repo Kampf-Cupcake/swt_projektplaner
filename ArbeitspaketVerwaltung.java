@@ -69,6 +69,17 @@ public class ArbeitspaketVerwaltung {
     }
     
     /**
+     * hier wird die Methode zum Auslesen aller fertigen/unfertigen 
+     * Arbeitsprojekte eines Projektes aus der DB aufgerufen
+     * @param p Projekt des un-/fertige Arbeitspakete ausgelesen werden soll
+     * @param trueOrfalse für fertige AP TRUE übergeben für unfertige FALSE
+     * @return eine Liste aller un-/fertigen Arbeitspakete eines Projektes
+     */
+    public List<Arbeitspaket> getFertige_oder_unfertigeArbeitspakete(Projekt p, boolean trueOrfalse){
+        return datenbank.selectAllUnfertige_oder_FertigeArbeitspakete(p, trueOrfalse);
+    }
+    
+    /**
      * Verbindung zwischen einem Arbeitspaket und einem Mitarbeiter (Daten der GUI) werden zur Laufzeit in 
      * die Liste der Mitarbeiter von einem Arbeitspaket in NetBeans angefügt
      * und per "weiseArbeitspaketMitarbeiterZu" dauerhaft in der Datenbank gespeichert
