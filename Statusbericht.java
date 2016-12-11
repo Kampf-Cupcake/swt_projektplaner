@@ -67,7 +67,7 @@ public class Statusbericht {
         }
         status = (fertig /Liste.size()) * 100 ;
         return status;
-        */
         
-    }
+        
+    }*/
 }

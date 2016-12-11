@@ -12,11 +12,11 @@ import java.util.LinkedList;
  *
  * @author Jan Beuster
  */
-public class BenutzerVerwaltung {
+public class MitarbeiterVerwaltung {
     
     private Datenbank datenbank;
     
-    public BenutzerVerwaltung(){
+    public MitarbeiterVerwaltung(){
          datenbank = MainFrame.db;
     }
     
@@ -103,8 +103,23 @@ public class BenutzerVerwaltung {
         }
     }
     
-    public void bearbeitePasswort(Mitarbeiter ma, String pw){
+    /**
+     * hier noch eine abfrage ob das eingegebene passwort mit dem eingespeicherten übereinstimmt
+     * wenn nicht dann kan der neue nicht eingespeichert werden, 
+     * wenn es passt dann wird das neue eingespeichert
+     * @param ma der Mitarbeiter dessen Passwort geändert werden soll
+     * @param altespw das alte Passwort
+     * @param neuespw das neue Passwort
+     */
+
+    public void bearbeitePasswort(Mitarbeiter ma, String altespw, String neuespw){
         
+        ma.setPasswort(neuespw);
+        try {
+            datenbank.bearbeiteMitarbeiterPasswort(ma, neuespw);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+        }
     }
     
     

@@ -23,7 +23,7 @@ public class Datenbank {
 
     private ProjektVerwaltung projektV;
     private ArbeitspaketVerwaltung arbeitspaketV;
-    private BenutzerVerwaltung mitarbeiterV;
+    private MitarbeiterVerwaltung mitarbeiterV;
     private KleineVerwaltung kleineV;
 
     Connection con = null;
@@ -655,6 +655,13 @@ public class Datenbank {
     public void bearbeiteMitarbeiterVorname(Mitarbeiter ma, String vn) throws Exception {
         connect();
         String sql = "UPDATE Mitarbeiter SET vorname ='" + vn + "' WHERE MitarbeiterNr =" + ma.getPersonalNr();
+        ResultSet r = executeSQL(sql);
+        con.close();
+    }
+    
+    public void bearbeiteMitarbeiterPasswort(Mitarbeiter ma, String pw) throws Exception {
+        connect();
+        String sql = "UPDATE Mitarbeiter SET passwort ='" + pw + "' WHERE MitarbeiterNr =" + ma.getPersonalNr();
         ResultSet r = executeSQL(sql);
         con.close();
     }

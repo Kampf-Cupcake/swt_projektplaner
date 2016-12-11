@@ -26,7 +26,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
     public static Datenbank db = new Datenbank();
     public static ProjektVerwaltung pv = new ProjektVerwaltung();
-    public static BenutzerVerwaltung bv = new BenutzerVerwaltung();
+    public static MitarbeiterVerwaltung bv = new MitarbeiterVerwaltung();
     public static ArbeitspaketVerwaltung av = new ArbeitspaketVerwaltung();
     public static KleineVerwaltung kv = new KleineVerwaltung();
     public static AuftraggeberVerwaltung agv = new AuftraggeberVerwaltung();
