@@ -44,7 +44,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-116,0,0,2,97"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,78,0,0,1,-59"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
@@ -78,7 +78,7 @@
                           <Component id="ButtonStartseiteEinloggen" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="293" max="32767" attributes="0"/>
+                  <EmptySpace pref="168" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -97,7 +97,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="ButtonStartseiteEinloggen" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="423" max="32767" attributes="0"/>
+                  <EmptySpace pref="361" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -146,7 +146,7 @@
                       <Component id="ButtonMenuProjekteAnsehen" max="32767" attributes="0"/>
                       <Component id="ButtonMenuProjektAnlegen" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="127" max="32767" attributes="0"/>
+                  <EmptySpace pref="55" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="ButtonMenuBenutzerAnlegen" max="32767" attributes="0"/>
                       <Component id="ButtonMenuArbeitspaketeAnsehen" max="32767" attributes="0"/>
@@ -168,7 +168,7 @@
                       <Component id="ButtonMenuProjekteAnsehen" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonMenuArbeitspaketeAnsehen" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="382" max="32767" attributes="0"/>
+                  <EmptySpace pref="320" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -251,7 +251,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="177" max="32767" attributes="0"/>
+                  <EmptySpace pref="76" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -284,7 +284,7 @@
                           <Component id="ButtonProjektAnlegen" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="157" max="32767" attributes="0"/>
+                  <EmptySpace pref="95" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -464,7 +464,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="166" max="32767" attributes="0"/>
+                          <EmptySpace pref="62" max="32767" attributes="0"/>
                           <Component id="RadioButtonArbeitspaketFertig" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jTextField1" max="32767" attributes="0"/>
@@ -496,7 +496,7 @@
                       <Component id="jTextField1" max="32767" attributes="0"/>
                       <Component id="jScrollPane6" pref="186" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="338" max="32767" attributes="0"/>
+                  <EmptySpace pref="276" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -591,7 +591,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="308" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="ButtonBackProjekteAnsehen" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -614,7 +614,7 @@
                       <Component id="jScrollPane2" min="-2" pref="234" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="234" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="221" max="32767" attributes="0"/>
+                  <EmptySpace pref="159" max="32767" attributes="0"/>
                   <Component id="ButtonProjektBearbeiten" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               </Group>
@@ -705,7 +705,7 @@
                       <Component id="LabelKommentar" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="174" max="32767" attributes="0"/>
+                  <EmptySpace pref="43" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -791,7 +791,7 @@
                   <Component id="ButtonArbeitspaketBearbeiten" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="ButtonProjektAendern" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="73" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1004,50 +1004,34 @@
                           <Component id="TextFieldAName" min="-2" pref="90" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Component id="jScrollPane7" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="ButtonArbeitspaketAnlegen" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="390" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jTextField6" min="-2" pref="98" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Component id="jTextField3" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="ComboBoxATag" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="ComboBoxAMonat" min="-2" pref="58" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="ComboBoxAJahr" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <Component id="jTextField6" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                                          <Component id="jTextField3" min="-2" pref="98" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="TextFieldABeschreibung" min="-2" pref="90" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="ComboBoxATag" min="-2" pref="40" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="ComboBoxAMonat" min="-2" pref="58" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="ComboBoxAJahr" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="61" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -1069,28 +1053,32 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                      <Component id="TextFieldABeschreibung" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane7" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ComboBoxATag" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ComboBoxAMonat" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ComboBoxAJahr" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="352" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTextField6" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="ComboBoxATag" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ComboBoxAMonat" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ComboBoxAJahr" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jTextField6" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jTextField3" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace pref="49" max="32767" attributes="0"/>
                   <Component id="ButtonArbeitspaketAnlegen" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1129,8 +1117,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Beschreibung"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="TextFieldABeschreibung">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
@@ -1259,6 +1245,22 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane7">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="TextAriaBeschreibung">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="lineWrap" type="boolean" value="true"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="BenutzerAnlegen">
@@ -1298,7 +1300,7 @@
                               <Component id="ButtonBenutzerAnlegen" alignment="1" min="-2" pref="98" max="-2" attributes="0"/>
                               <Component id="TextFieldBenutzername" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="250" max="32767" attributes="0"/>
+                          <EmptySpace pref="171" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -1343,7 +1345,7 @@
                   <Component id="RadioButtonAdministrator" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="ButtonBenutzerAnlegen" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="305" max="32767" attributes="0"/>
+                  <EmptySpace pref="243" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1456,7 +1458,7 @@
                           <Component id="ButtonMitarbeiterHinzufügen" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="251" max="32767" attributes="0"/>
+                  <EmptySpace pref="95" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1469,7 +1471,7 @@
                   <Component id="jScrollPane1" min="-2" pref="309" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="ButtonMitarbeiterHinzufügen" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="111" max="32767" attributes="0"/>
+                  <EmptySpace pref="49" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="ButtonBackMenu" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonWeiterArbeitspakete" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1553,7 +1555,7 @@
                               <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="232" max="32767" attributes="0"/>
+                          <EmptySpace pref="130" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="CheckBoxArbeitspaketFertig" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1601,7 +1603,7 @@
                   <Component id="CheckBoxArbeitspaketFertig" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                   <Component id="ButtonArbeitspaketBearbeitenÄndern" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="200" max="32767" attributes="0"/>
+                  <EmptySpace pref="138" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
