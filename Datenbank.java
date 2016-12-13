@@ -163,8 +163,13 @@ public class Datenbank {
      */
     public void weiseProjektAuftraggeberZu(Projekt p, Auftraggeber ag)throws Exception{
         connect();
+        String sql1 = "SELECT * FROM beauftragt WHERE beauftragt_von = "+ag.getKundenNr();
         String sql = "INSERT INTO beauftragt (beauftragt_von, gibt_in_auftrag) VALUES ("+ ag.getKundenNr() + "," + p.getProjektNr()+")";
-        ResultSet r = executeSQL(sql);
+        ResultSet r1 = executeSQL(sql1);
+        int pNr = r1.getInt(2);
+        if(pNr == p.getProjektNr()){
+        } else {
+        ResultSet r = executeSQL(sql);}
         con.close();
     }
     
@@ -497,8 +502,13 @@ public class Datenbank {
      */
     public void weiseArbeitspaketMitarbeiterZu(Arbeitspaket a, Mitarbeiter m)throws Exception{
         connect();
+        String sql2 = "SELECT * FROM AP_MA WHERE arbeitet_an="+a.getArbeitspaketNr();
         String sql = "INSERT INTO AP_MA (arbeitet_an, wird_bearbeitet_von) VALUES ("+a.getArbeitspaketNr()+","+m.getPersonalNr()+")";
-        ResultSet r = executeSQL(sql);
+        ResultSet r2 = executeSQL(sql2);
+        int mNr = r2.getInt(2);
+       
+        if(mNr == m.getPersonalNr()){ 
+        }else {ResultSet r = executeSQL(sql);}
         con.close();
     };
    
