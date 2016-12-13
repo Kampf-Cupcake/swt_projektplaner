@@ -85,6 +85,10 @@ public class MainFrame extends javax.swing.JFrame {
         ButtonProjektBearbeiten = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         TextAreaProjektBeschreibung = new javax.swing.JTextArea();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        ListProjektAnsehenMitarbeiter = new javax.swing.JList<>();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        ListProjekteAnsehenArbeitspakete = new javax.swing.JList<>();
         ProjektBearbeiten = new javax.swing.JPanel();
         LabelProjekteAnsehenSub = new javax.swing.JLabel();
         LabelProjektName = new javax.swing.JLabel();
@@ -479,27 +483,45 @@ public class MainFrame extends javax.swing.JFrame {
         TextAreaProjektBeschreibung.setWrapStyleWord(true);
         jScrollPane3.setViewportView(TextAreaProjektBeschreibung);
 
+        ListProjektAnsehenMitarbeiter.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane9.setViewportView(ListProjektAnsehenMitarbeiter);
+
+        ListProjekteAnsehenArbeitspakete.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane10.setViewportView(ListProjekteAnsehenArbeitspakete);
+
         javax.swing.GroupLayout ProjekteAnsehenLayout = new javax.swing.GroupLayout(ProjekteAnsehen);
         ProjekteAnsehen.setLayout(ProjekteAnsehenLayout);
         ProjekteAnsehenLayout.setHorizontalGroup(
             ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ProjekteAnsehenLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addContainerGap()
                 .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ProjekteAnsehenLayout.createSequentialGroup()
+                        .addGap(52, 52, 52)
                         .addComponent(ButtonProjektBearbeiten)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(ProjekteAnsehenLayout.createSequentialGroup()
-                        .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(ProjekteAnsehenLayout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(51, 51, 51)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ProjekteAnsehenLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ButtonBackProjekteAnsehen)))
-                        .addGap(21, 21, 21))))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                        .addComponent(ButtonBackProjekteAnsehen)
+                        .addGap(21, 21, 21))
+                    .addGroup(ProjekteAnsehenLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane10)
+                            .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane9)
+                                .addComponent(jScrollPane3)))
+                        .addGap(45, 45, 45))))
         );
         ProjekteAnsehenLayout.setVerticalGroup(
             ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -509,10 +531,14 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(ButtonBackProjekteAnsehen))
                 .addGap(84, 84, 84)
-                .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
+                .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
                 .addComponent(ButtonProjektBearbeiten)
                 .addGap(42, 42, 42))
         );
@@ -1355,7 +1381,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel LabelVorname;
     private javax.swing.JList<String> ListArbeitspakete;
     private javax.swing.JList<String> ListArbeitspaketeAnsehen;
+    private javax.swing.JList<String> ListProjektAnsehenMitarbeiter;
     private javax.swing.JList<String> ListProjekteAnsehen;
+    private javax.swing.JList<String> ListProjekteAnsehenArbeitspakete;
     private javax.swing.JList<String> ListeMitarbeiterHinzufuegen;
     private javax.swing.JPanel Menu;
     private javax.swing.JPanel MitarbeiterHinzufuegen;
@@ -1407,6 +1435,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1414,6 +1443,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
