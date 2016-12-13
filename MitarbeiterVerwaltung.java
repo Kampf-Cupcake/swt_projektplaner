@@ -106,24 +106,24 @@ public class MitarbeiterVerwaltung {
     }
     
     /**
-     * hier noch eine abfrage ob das eingegebene passwort mit dem eingespeicherten übereinstimmt
-     * wenn nicht dann kan der neue nicht eingespeichert werden, 
-     * wenn es passt dann wird das neue eingespeichert
+     * Passwort wird geändert
      * @param ma der Mitarbeiter dessen Passwort geändert werden soll
-     * @param altespw das alte Passwort
-     * @param neuespw das neue Passwort
+     * @param pw das neue Passwort
      */
-
-    public void bearbeitePasswort(Mitarbeiter ma, String altespw, String neuespw){
-        
-        ma.setPasswort(neuespw);
+   public void bearbeitePasswort(Mitarbeiter ma, String pw){
         try {
-            datenbank.bearbeiteMitarbeiterPasswort(ma, neuespw);
+            datenbank.bearbeiteMitarbeiterPasswort(ma, pw);
         } catch (Exception e) {
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());
         }
     }
     
+   /**
+    * Methode zum einloggen
+    * @param bn Benutzername zum einloggen
+    * @param pw das Passwort
+    * @return ob es geht oder nicht
+    */
     public boolean einloggen(String bn, String pw){
         boolean b = false;
         try {
@@ -134,6 +134,12 @@ public class MitarbeiterVerwaltung {
         return b;
     }
     
+    /**
+    * Methode zum vergleichen von Passwort
+    * @param ma der Mitarbeiter dessen Passwort vergleicht werden soll
+    * @param pw das Passwort
+    * @return ob es gleich ist oder nicht
+    */
     public boolean vergleichePasswort(Mitarbeiter ma, String pw){
         boolean b = false;
         try {
