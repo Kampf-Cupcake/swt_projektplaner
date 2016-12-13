@@ -483,7 +483,7 @@ public class Datenbank {
         connect();
 
         String sql = "INSERT INTO Mitarbeiter (name, vorname, rang, benutzername, passwort) "
-                + "VALUES ('" + mitarbeiter.getName() + "','" + mitarbeiter.getVorname() + "','" + mitarbeiter.getRang() + "','" + mitarbeiter.getBenutzername() + "','"+ mitarbeiter.getPasswort() + "','" + "')";
+                + "VALUES ('" + mitarbeiter.getName() + "','" + mitarbeiter.getVorname() + "','" + mitarbeiter.getRang() + "','" + mitarbeiter.getBenutzername() + "','"+ mitarbeiter.getPasswort()+ "')";
         System.out.println(sql);
         ResultSet r = executeSQL(sql);
         con.close();
