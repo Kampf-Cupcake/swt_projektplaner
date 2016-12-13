@@ -1143,7 +1143,7 @@ public class MainFrame extends javax.swing.JFrame {
     
       DefaultListModel dm = new DefaultListModel();
       ListArbeitspakete.setModel(dm);
-      
+      //
       for(int i = 0 ; i < a.size(); i++){
           dm.addElement(a.get(i).getName());
       }
