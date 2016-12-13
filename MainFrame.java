@@ -1209,7 +1209,9 @@ public class MainFrame extends javax.swing.JFrame {
         String date = tag+ "." + monat + "." + jahr;
         System.out.println(date);
         pv.bearbeiteDeadline(projekt, tag, monat, jahr); 
-        TextAreaProjektBeschreibung.setText("Beschreibung: " + projekt.getbeschreibung() + "\n" + "\n" + "Deadline: " + date + "\n" );
+      TextAreaProjektBeschreibung.setText("Beschreibung: " + projekt.getbeschreibung() + "\n" + "\n" + "Deadline: " + date + "\n" );
+      
+      
     }//GEN-LAST:event_ButtonProjektAendernActionPerformed
 
     private void ButtonStartseiteEinloggenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonStartseiteEinloggenActionPerformed
@@ -1256,7 +1258,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonBackProjektAnlegenActionPerformed
 
     private void ButtonProjektAnlegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProjektAnlegenActionPerformed
-
+        ProjektAnlegen.setVisible(false);
+        ArbeitspaketAnlegen.setVisible(true);
     }//GEN-LAST:event_ButtonProjektAnlegenActionPerformed
 
 
