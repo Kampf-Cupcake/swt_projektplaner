@@ -163,8 +163,13 @@ public class Datenbank {
      */
     public void weiseProjektAuftraggeberZu(Projekt p, Auftraggeber ag)throws Exception{
         connect();
+        String sql1 = "SELECT * FROM beauftragt WHERE beauftragt_von = "+ag.getKundenNr();
         String sql = "INSERT INTO beauftragt (beauftragt_von, gibt_in_auftrag) VALUES ("+ ag.getKundenNr() + "," + p.getProjektNr()+")";
-        ResultSet r = executeSQL(sql);
+        ResultSet r1 = executeSQL(sql1);
+        int pNr = r1.getInt(2);
+        if(pNr == p.getProjektNr()){
+        } else {
+        ResultSet r = executeSQL(sql);}
         con.close();
     }
     
@@ -497,8 +502,13 @@ public class Datenbank {
      */
     public void weiseArbeitspaketMitarbeiterZu(Arbeitspaket a, Mitarbeiter m)throws Exception{
         connect();
+        String sql2 = "SELECT * FROM AP_MA WHERE arbeitet_an="+a.getArbeitspaketNr();
         String sql = "INSERT INTO AP_MA (arbeitet_an, wird_bearbeitet_von) VALUES ("+a.getArbeitspaketNr()+","+m.getPersonalNr()+")";
-        ResultSet r = executeSQL(sql);
+        ResultSet r2 = executeSQL(sql2);
+        int mNr = r2.getInt(2);
+       
+        if(mNr == m.getPersonalNr()){ 
+        }else {ResultSet r = executeSQL(sql);}
         con.close();
     };
    
@@ -625,13 +635,7 @@ public class Datenbank {
         return myAPvonProjekt;
     }
     
-
-    /*Brauchen wir diese Methode???*/
-    public void abrufeMitarbeiter(String sql) throws Exception {
-        connect();
-        ResultSet r = executeSQL(sql);
-        con.close();
-    }
+/*Block für den Mitarbeiter*/    
 
     /**
      * Name wird geändert
@@ -666,13 +670,41 @@ public class Datenbank {
         con.close();
     }
     
+    public boolean einloggen(String bn, String pw) throws Exception{
+        connect();
+        Statement stmt = con.createStatement();
+        String sql = "SELECT* FROM Mitarbeiter WHERE benutzername ='"+ bn +"'";
+        ResultSet res = stmt.executeQuery(sql);
+        String passwort = res.getString(5);
+        res.close();
+        stmt.close();
+        con.close();
+        if (passwort.equals(pw)){
+            return true;}
+        else {return false;}
+    }
+    
+    public boolean vergleichePasswort(Mitarbeiter ma, String pw)throws Exception{
+        connect();
+        Statement stmt = con.createStatement();
+        String sql = "SELECT* FROM Mitarbeiter WHERE benutzername ='"+ ma.getBenutzername() +"'";
+        ResultSet res = stmt.executeQuery(sql);
+        String passwort = res.getString(5);
+        res.close();
+        stmt.close();
+        con.close();
+        if (passwort.equals(pw)){
+            return true;}
+        else {return false;}
+    }
+    
     /**
      * Rang wird geändert
      * @param ma der Mitarbeiter wessen Rang geändert werden soll
      * @param ra der neue Rang
      * @throws Exception 
      */
-    public void bearbeiteMitarbeiterRang(Mitarbeiter ma, int ra) throws Exception {
+    public void bearbeiteMitarbeiterRang(Mitarbeiter ma, String ra) throws Exception {
         connect();
         String sql = "UPDATE Mitarbeiter SET rang ='" + ra + "' WHERE MitarbeiterNr =" + ma.getPersonalNr();
         ResultSet r = executeSQL(sql);
@@ -714,6 +746,7 @@ public class Datenbank {
         ResultSet r2 = executeSQL(sql2);
         ResultSet r3 = executeSQL(sql3);
         ResultSet r4 = executeSQL(sql4);
+        ResultSet r5 = executeSQL(sql5);
         ResultSet r6 = executeSQL(sql6);
         con.close();
     }

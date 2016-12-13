@@ -8,6 +8,8 @@ package swt_projektplaner;
 
 import java.util.List;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Jan Beuster
@@ -82,7 +84,7 @@ public class MitarbeiterVerwaltung {
     public void bearbeiteRang(Mitarbeiter ma, String r){
         ma.setRang(r);
         try {
-            datenbank.bearbeiteMitarbeiterVorname(ma, r);
+            datenbank.bearbeiteMitarbeiterRang(ma, r);
         } catch (Exception e) {
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());
         }
@@ -122,6 +124,25 @@ public class MitarbeiterVerwaltung {
         }
     }
     
+    public boolean einloggen(String bn, String pw){
+        boolean b = false;
+        try {
+            b = datenbank.einloggen(bn, pw);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Einloggen: " + e.getMessage());
+        }
+        return b;
+    }
+    
+    public boolean vergleichePasswort(Mitarbeiter ma, String pw){
+        boolean b = false;
+        try {
+            b = datenbank.vergleichePasswort(ma, pw);
+        } catch (Exception e) {
+            System.err.print("Fehler beim Vergleichen: " + e.getMessage());
+        }
+        return b;
+    }
     
     /**
      * ruft die Methode zum Auslesen aller Mitarbeiter aus der DB auf

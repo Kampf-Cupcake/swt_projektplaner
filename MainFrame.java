@@ -1020,6 +1020,10 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Methode zum Anlegen eines Projekts 
+     * @param evt 
+     */
     private void ButtonProjektAnlegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProjektAnlegenActionPerformed
      int tag = Integer.parseInt((String)ComboBoxTag.getSelectedItem());
      int monat = ComboBoxMonat.getSelectedIndex()+1;
@@ -1061,6 +1065,9 @@ public class MainFrame extends javax.swing.JFrame {
        
              
        bv.erstelleProfil(TextFieldNachname.getText(), TextFieldVorname.getText(), TextFieldPasswort.getText(), rang, TextFieldBenutzername.getText());
+       
+       BenutzerAnlegen.setVisible(false);
+       Menu.setVisible(true);
     }//GEN-LAST:event_ButtonBenutzerAnlegenActionPerformed
 
     private void ProjekteAnsehenComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_ProjekteAnsehenComponentShown
