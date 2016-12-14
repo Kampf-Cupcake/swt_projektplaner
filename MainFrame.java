@@ -1395,20 +1395,32 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonStartseiteEinloggenActionPerformed
 
     private void ButtonMenuArbeitspaketeAnsehenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuArbeitspaketeAnsehenActionPerformed
+      DefaultListModel dm = new DefaultListModel();       
+        ListArbeitspaketeAnsehen.setModel(dm);     
+        dm.removeAllElements();
+        
+        
       List<Projekt> p = pv.getProjekte();
       List<Projekt> myp = bv.getMyProjects(bv.getAktuellerLogin());
       List<Arbeitspaket> alleap = new LinkedList<Arbeitspaket>();
-      
-      for(Projekt projekt : myp){
+      System.out.println(myp.toString() + myp.size());
+     /* for(Projekt projekt : myp){
           alleap.addAll(bv.getMyAPvonProjekt(projekt, bv.getAktuellerLogin()));
+      }*/
+      
+      for(int j = 0; j <= myp.size()-1; j++){
+          Projekt projekt = myp.get(j);
+          for(int y = 0; y <= bv.getMyAPvonProjekt(projekt, bv.getAktuellerLogin()).size()-1; y++){
+              alleap.add(bv.getMyAPvonProjekt(projekt, bv.getAktuellerLogin()).get(y));
+          }
       }
+      
         Menu.setVisible(false);
        ArbeitspaketeAnsehen.setVisible(true);
        
-       DefaultListModel dm = new DefaultListModel();       
-        ListArbeitspaketeAnsehen.setModel(dm);       
-        for(int i = 0; i < alleap.size()-1; i++){             
-            dm.addElement(alleap.get(i).getProjekt() + alleap.get(i).getName() );
+        
+        for(int i = 0; i <= alleap.size()-1; i++){             
+            dm.addElement( alleap.get(i).getName() + " (" + alleap.get(i).getProjekt().getname() + ")" );
         }
     }//GEN-LAST:event_ButtonMenuArbeitspaketeAnsehenActionPerformed
 
@@ -1451,8 +1463,8 @@ public class MainFrame extends javax.swing.JFrame {
         ProjektAnlegen.setVisible(false);
         ArbeitspaketAnlegen.setVisible(true);
         
-        int tag = ComboBoxTag.getSelectedIndex();
-       int monat = ComboBoxMonat.getSelectedIndex();
+        int tag = ComboBoxTag.getSelectedIndex()+1;
+       int monat = ComboBoxMonat.getSelectedIndex()+1;
         //Jahr 
         pv.anlegenProjekt(TextFieldName.getText(), TextAreaBeschreibung.getText(), tag, monat, 2016);
         

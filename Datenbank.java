@@ -579,7 +579,7 @@ public class Datenbank {
             }
                 }
             }
-            
+            System.out.println(myProjects.toString() + myProjects.size());
             res.close();
             stmt.close();
             con.close();
