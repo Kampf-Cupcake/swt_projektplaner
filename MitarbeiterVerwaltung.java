@@ -180,6 +180,15 @@ public class MitarbeiterVerwaltung {
         return datenbank.selectMyArbeitspaketeVonProjekt(p, m);
     }
     
+    /**NUR DIESE METHODE BENUTZEN
+     * ruft die Methode zum Auslesen aller ARbeitspakete eines Mitarbeiters auf (VON ALLEN PROJEKTEN) 
+     * @param m Mitarbeiter
+     * @return eine Listse mit allen Arbeitspaketen eines Mitarbeiters
+     */
+    public List<Arbeitspaket> getAllMyArbeitspakete(Mitarbeiter m){
+        return datenbank.selectALLMyArbeitspakete(m);
+    }
+    
       /**
       * löscht ein Mitarbeiter und alle Datensätze die ohne dieses Mitarbeiter kein Sinn machen würde, aus der DB
       * @param m Mitarbeiter

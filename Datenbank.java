@@ -554,11 +554,11 @@ public class Datenbank {
             Statement stmt = con.createStatement();
             String sql = "SELECT* FROM AP_MA WHERE wird_bearbeitet_von=" + ma.getPersonalNr();
             ResultSet res = stmt.executeQuery(sql);
-            if (res.next()) {
+            while (res.next()) {
             int apNr = res.getInt(1);
             String sql2 = "SELECT * FROM Arbeitspaket WHERE ArbeitspaketNr="+apNr;
             ResultSet res2 = stmt.executeQuery(sql2);
-                if(res2.next()){
+                while(res2.next()){
                     int pNr = res2.getInt(6);
                     String sql3 = "SELECT * FROM Projekt WHERE ProjektNr="+ pNr;
                     ResultSet res3 = stmt.executeQuery(sql3);
@@ -630,6 +630,61 @@ public class Datenbank {
             e.printStackTrace();
         }
         return myAPvonProjekt;
+    }
+    
+    /**
+     * liest alle Arbeitspakete eines Mitarbeiters aus (VON ALLEN PROJEKTEN) 
+     * @param m Mitarbeiter
+     * @return eine Liste von allein Arbeitspaketen eines Mitarbeiters
+     */
+    public List<Arbeitspaket> selectALLMyArbeitspakete(Mitarbeiter m) {
+        List<Arbeitspaket> myArbeitspakete = new LinkedList<Arbeitspaket>();
+        
+        try {
+            connect();
+            Statement stmt = con.createStatement();
+            String sql = "SELECT* FROM AP_MA, Arbeitspaket WHERE AP_MA.wird_bearbeitet_von=" + m.getPersonalNr();
+            ResultSet res = stmt.executeQuery(sql);
+            //String sql2 = "S"
+            while (res.next()) {
+            int apNr = res.getInt(1);
+            String sql2 = "SELECT * FROM Arbeitspaket WHERE ArbeitspaketNr="+apNr;
+            ResultSet res2 = stmt.executeQuery(sql2);
+            
+            while (res.next()) {
+                
+                String name = res2.getString(1);
+                boolean fertig = res2.getBoolean(2);
+                String beschreibung = res2.getString(3);
+                Date deadline = res2.getDate(4);
+                
+                String sql3 = "SELECT * FROM Projekt WHERE ProjektNr="+res2.getInt(6);
+                ResultSet res3 = stmt.executeQuery(sql3);
+                String pN = res3.getString(1);
+                String pB = res3.getString(2);
+                Date pD = res3.getDate(3);
+                GregorianCalendar greg2 = dateZuGreg(pD);
+                Projekt diesP = new Projekt(pN, pB, greg2);
+
+                GregorianCalendar greg = dateZuGreg(deadline);
+
+                Arbeitspaket diesArbeitspaket = new Arbeitspaket(name, fertig, beschreibung, greg, diesP);
+                diesArbeitspaket.setName(name);
+                diesArbeitspaket.setFertig(fertig);
+                diesArbeitspaket.setBeschreibung(beschreibung);
+                diesArbeitspaket.setDeadline(greg);
+                diesArbeitspaket.setArbeitspaketNr(apNr);
+                diesArbeitspaket.setProjekt(diesP);
+
+                myArbeitspakete.add(diesArbeitspaket);
+            }}
+            res.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return myArbeitspakete;
     }
     
 /*Block für den Mitarbeiter*/    
