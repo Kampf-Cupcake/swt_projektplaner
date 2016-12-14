@@ -71,7 +71,7 @@ public class KleineVerwaltung {
         public void erstelleAKommentar(String text, int tag, int monat, int jahr, Mitarbeiter verfasser, Arbeitspaket ap){    
         
         System.out.println("Kommentar "+ text);
-        GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
+        GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
         
         AKommentar ak = new AKommentar(text, greg, verfasser, ap);
         

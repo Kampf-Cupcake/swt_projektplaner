@@ -163,13 +163,8 @@ public class Datenbank {
      */
     public void weiseProjektAuftraggeberZu(Projekt p, Auftraggeber ag)throws Exception{
         connect();
-        String sql1 = "SELECT * FROM beauftragt WHERE beauftragt_von = "+ag.getKundenNr();
         String sql = "INSERT INTO beauftragt (beauftragt_von, gibt_in_auftrag) VALUES ("+ ag.getKundenNr() + "," + p.getProjektNr()+")";
-        ResultSet r1 = executeSQL(sql1);
-        int pNr = r1.getInt(2);
-        if(pNr == p.getProjektNr()){
-        } else {
-        ResultSet r = executeSQL(sql);}
+        ResultSet r = executeSQL(sql);
         con.close();
     }
     
@@ -502,13 +497,8 @@ public class Datenbank {
      */
     public void weiseArbeitspaketMitarbeiterZu(Arbeitspaket a, Mitarbeiter m)throws Exception{
         connect();
-        String sql2 = "SELECT * FROM AP_MA WHERE arbeitet_an="+a.getArbeitspaketNr();
         String sql = "INSERT INTO AP_MA (arbeitet_an, wird_bearbeitet_von) VALUES ("+a.getArbeitspaketNr()+","+m.getPersonalNr()+")";
-        ResultSet r2 = executeSQL(sql2);
-        int mNr = r2.getInt(2);
-       
-        if(mNr == m.getPersonalNr()){ 
-        }else {ResultSet r = executeSQL(sql);}
+        ResultSet r = executeSQL(sql);
         con.close();
     };
    
@@ -562,17 +552,21 @@ public class Datenbank {
         try {
             connect();
             Statement stmt = con.createStatement();
-            String sql = "SELECT* FROM P_MA WHERE P_MA.wird_bearbeitet_von=" + ma.getPersonalNr();
+            String sql = "SELECT* FROM AP_MA WHERE wird_bearbeitet_von=" + ma.getPersonalNr();
             ResultSet res = stmt.executeQuery(sql);
-            
-            String sql2 = "SELECT * FROM Projekte WHERE Projekt.Projektnr="+res.getInt(1);
+            if (res.next()) {
+            int apNr = res.getInt(1);
+            String sql2 = "SELECT * FROM Arbeitspaket WHERE ArbeitspaketNr="+apNr;
             ResultSet res2 = stmt.executeQuery(sql2);
-            
-            while (res2.next()) {
-                String name = res.getString(1);
-                String beschreibung = res.getString(2);
-                Date deadline = res.getDate(3);
-                int id = res.getInt(4);
+                if(res2.next()){
+                    int pNr = res2.getInt(6);
+                    String sql3 = "SELECT * FROM Projekt WHERE ProjektNr="+ pNr;
+                    ResultSet res3 = stmt.executeQuery(sql3);
+                    while (res3.next()) {
+                String name = res3.getString(1);
+                String beschreibung = res3.getString(2);
+                Date deadline = res3.getDate(3);
+                int id = res3.getInt(4);
                 GregorianCalendar greg = dateZuGreg(deadline);
 
                 Projekt meinProjekt = new Projekt(name, beschreibung, greg);
@@ -583,6 +577,9 @@ public class Datenbank {
                
                 myProjects.add(meinProjekt);
             }
+                }
+            }
+            
             res.close();
             stmt.close();
             con.close();

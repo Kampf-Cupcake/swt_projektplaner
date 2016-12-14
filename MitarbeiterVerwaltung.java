@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 public class MitarbeiterVerwaltung {
     
     private Datenbank datenbank;
+    private Mitarbeiter aktuellerLogin; //= new Mitarbeiter("Jan","Beuster","Administrator","JB","passwort");
     
     public MitarbeiterVerwaltung(){
          datenbank = MainFrame.db;
@@ -191,4 +192,24 @@ public class MitarbeiterVerwaltung {
             System.err.print("Fehler beim Einspeichern: " + e.getMessage());
         }
      }
+    
+     public void aktuellerMitarbeiter(String bn){
+         List<Mitarbeiter> ml = this.getMitarbeiter();
+        
+         for(int i = 0; i <= ml.size() - 1; i++ ){
+            
+        if(ml.get(i).getBenutzername().equals(bn)){
+            
+       this.aktuellerLogin = ml.get(i);
+    
+                }
+            }
+     
+     }
+     
+     public Mitarbeiter getAktuellerLogin(){
+         return this.aktuellerLogin;
+     }
+     
+     
 }
