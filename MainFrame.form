@@ -139,16 +139,24 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="ButtonMenuProjekteAnsehen" max="32767" attributes="0"/>
-                      <Component id="ButtonMenuProjektAnlegen" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="ButtonMenuBenutzerVerwalten" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="ButtonMenuProjekteAnsehen" max="32767" attributes="0"/>
+                              <Component id="ButtonMenuProjektAnlegen" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="127" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="ButtonMenuBenutzerAnlegen" max="32767" attributes="0"/>
+                              <Component id="ButtonMenuArbeitspaketeAnsehen" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="127" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="ButtonMenuBenutzerAnlegen" max="32767" attributes="0"/>
-                      <Component id="ButtonMenuArbeitspaketeAnsehen" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -165,7 +173,9 @@
                       <Component id="ButtonMenuProjekteAnsehen" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonMenuArbeitspaketeAnsehen" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="397" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="ButtonMenuBenutzerVerwalten" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="325" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -201,6 +211,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonMenuArbeitspaketeAnsehenActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="ButtonMenuBenutzerVerwalten">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Benutzer verwalten"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonMenuBenutzerVerwaltenActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -744,6 +762,7 @@
                       <Component id="LabelProjektBeschreibung" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="LabelKommentar" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="ButtonProjektBearbeitenLöschen" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="135" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -838,7 +857,10 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="ButtonOpenArbeitspaketHinzufuegen" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="ButtonProjektAendern" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ButtonProjektAendern" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ButtonProjektBearbeitenLöschen" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -1031,6 +1053,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonOpenArbeitspaketHinzufuegenActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="ButtonProjektBearbeitenL&#xf6;schen">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="L&#xf6;schen"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonProjektBearbeitenL&#xf6;schenActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -2072,6 +2102,73 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Deadline"/>
           </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="BenutzerVerwalten">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+          <CardConstraints cardName="card13"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
+                  <Component id="jScrollPane12" min="-2" pref="198" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                  <Component id="ButtonBenutzerLöschen" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="141" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+                          <Component id="jScrollPane12" min="-2" pref="333" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
+                          <Component id="ButtonBenutzerLöschen" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="221" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane12">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JList" name="ListBenutzerVerwalten">
+              <Properties>
+                <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JButton" name="ButtonBenutzerL&#xf6;schen">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="L&#xf6;schen"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonBenutzerL&#xf6;schenActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

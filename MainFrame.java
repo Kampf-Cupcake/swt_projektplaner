@@ -57,6 +57,7 @@ public class MainFrame extends javax.swing.JFrame {
         ButtonMenuBenutzerAnlegen = new javax.swing.JButton();
         ButtonMenuProjekteAnsehen = new javax.swing.JButton();
         ButtonMenuArbeitspaketeAnsehen = new javax.swing.JButton();
+        ButtonMenuBenutzerVerwalten = new javax.swing.JButton();
         ProjektAnlegen = new javax.swing.JPanel();
         LabelName = new javax.swing.JLabel();
         LabelBeschreibung = new javax.swing.JLabel();
@@ -112,6 +113,7 @@ public class MainFrame extends javax.swing.JFrame {
         ComboBoxProjektBearbeitenMonat = new javax.swing.JComboBox<>();
         ComboBoxProjektBearbeitenJahr = new javax.swing.JComboBox<>();
         ButtonOpenArbeitspaketHinzufuegen = new javax.swing.JButton();
+        ButtonProjektBearbeitenLöschen = new javax.swing.JButton();
         ArbeitspaketAnlegen = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         ButtonArbeitspaketAnlegenZurück = new javax.swing.JButton();
@@ -180,6 +182,10 @@ public class MainFrame extends javax.swing.JFrame {
         ComboBoxAHinzufuegenMonat = new javax.swing.JComboBox<>();
         ComboBoxAHinzufuegenJahr = new javax.swing.JComboBox<>();
         jLabel24 = new javax.swing.JLabel();
+        BenutzerVerwalten = new javax.swing.JPanel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        ListBenutzerVerwalten = new javax.swing.JList<>();
+        ButtonBenutzerLöschen = new javax.swing.JButton();
 
         jButton2.setText("jButton2");
 
@@ -265,20 +271,32 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        ButtonMenuBenutzerVerwalten.setText("Benutzer verwalten");
+        ButtonMenuBenutzerVerwalten.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonMenuBenutzerVerwaltenActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ButtonMenuProjekteAnsehen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ButtonMenuProjektAnlegen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
-                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ButtonMenuBenutzerAnlegen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ButtonMenuArbeitspaketeAnsehen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(68, 68, 68))
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addComponent(ButtonMenuBenutzerVerwalten)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ButtonMenuProjekteAnsehen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ButtonMenuProjektAnlegen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ButtonMenuBenutzerAnlegen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ButtonMenuArbeitspaketeAnsehen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(68, 68, 68))))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,7 +309,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonMenuProjekteAnsehen)
                     .addComponent(ButtonMenuArbeitspaketeAnsehen))
-                .addContainerGap(397, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(ButtonMenuBenutzerVerwalten)
+                .addContainerGap(325, Short.MAX_VALUE))
         );
 
         getContentPane().add(Menu, "card4");
@@ -611,6 +631,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        ButtonProjektBearbeitenLöschen.setText("Löschen");
+        ButtonProjektBearbeitenLöschen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonProjektBearbeitenLöschenActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ProjektBearbeitenLayout = new javax.swing.GroupLayout(ProjektBearbeiten);
         ProjektBearbeiten.setLayout(ProjektBearbeitenLayout);
         ProjektBearbeitenLayout.setHorizontalGroup(
@@ -624,7 +651,8 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(LabelProjekteAnsehenSub)
                     .addComponent(LabelProjektBeschreibung)
                     .addComponent(LabelKommentar)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(ButtonProjektBearbeitenLöschen))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProjektBearbeitenLayout.createSequentialGroup()
@@ -697,7 +725,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ButtonOpenArbeitspaketHinzufuegen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ButtonProjektAendern)
+                .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonProjektAendern)
+                    .addComponent(ButtonProjektBearbeitenLöschen))
                 .addGap(42, 42, 42))
         );
 
@@ -1193,6 +1223,41 @@ public class MainFrame extends javax.swing.JFrame {
 
         getContentPane().add(ArbeitspaketHinzufuegen, "card12");
 
+        jScrollPane12.setViewportView(ListBenutzerVerwalten);
+
+        ButtonBenutzerLöschen.setText("Löschen");
+        ButtonBenutzerLöschen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonBenutzerLöschenActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout BenutzerVerwaltenLayout = new javax.swing.GroupLayout(BenutzerVerwalten);
+        BenutzerVerwalten.setLayout(BenutzerVerwaltenLayout);
+        BenutzerVerwaltenLayout.setHorizontalGroup(
+            BenutzerVerwaltenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BenutzerVerwaltenLayout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63)
+                .addComponent(ButtonBenutzerLöschen)
+                .addContainerGap(141, Short.MAX_VALUE))
+        );
+        BenutzerVerwaltenLayout.setVerticalGroup(
+            BenutzerVerwaltenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BenutzerVerwaltenLayout.createSequentialGroup()
+                .addGroup(BenutzerVerwaltenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BenutzerVerwaltenLayout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(BenutzerVerwaltenLayout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(ButtonBenutzerLöschen)))
+                .addContainerGap(221, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(BenutzerVerwalten, "card13");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1580,6 +1645,27 @@ public class MainFrame extends javax.swing.JFrame {
       }        
     }//GEN-LAST:event_ListArbeitspaketeAnsehenValueChanged
 
+    private void ButtonProjektBearbeitenLöschenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProjektBearbeitenLöschenActionPerformed
+         List<Projekt> projekte = pv.getProjekte();
+      Projekt projekt = projekte.get(ListProjekteAnsehen.getSelectedIndex());
+      pv.löscheProjekt(projekt);
+    }//GEN-LAST:event_ButtonProjektBearbeitenLöschenActionPerformed
+
+    private void ButtonMenuBenutzerVerwaltenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuBenutzerVerwaltenActionPerformed
+        Menu.setVisible(false);
+        BenutzerVerwalten.setVisible(true);
+              
+        DefaultListModel dm = new DefaultListModel();
+        ListBenutzerVerwalten.setModel(dm);
+        for(int i = 0 ; i <= bv.getMitarbeiter().size()-1; i++ ){
+           dm.addElement(bv.getMitarbeiter().get(i).getName());
+        }
+    }//GEN-LAST:event_ButtonMenuBenutzerVerwaltenActionPerformed
+
+    private void ButtonBenutzerLöschenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBenutzerLöschenActionPerformed
+       bv.löscheMitarbeiter(bv.getMitarbeiter().get(ListBenutzerVerwalten.getSelectedIndex()));
+    }//GEN-LAST:event_ButtonBenutzerLöschenActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -1627,6 +1713,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel ArbeitspaketHinzufuegen;
     private javax.swing.JPanel ArbeitspaketeAnsehen;
     private javax.swing.JPanel BenutzerAnlegen;
+    private javax.swing.JPanel BenutzerVerwalten;
     private javax.swing.JButton ButtonAKommentarBearbeitenHinzufuegen;
     private javax.swing.JButton ButtonArbeitspaketAnlegen;
     private javax.swing.JButton ButtonArbeitspaketAnlegenZurück;
@@ -1638,9 +1725,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton ButtonBackProjektAnlegen;
     private javax.swing.JButton ButtonBackProjekteAnsehen;
     private javax.swing.JButton ButtonBenutzerAnlegen;
+    private javax.swing.JButton ButtonBenutzerLöschen;
     private javax.swing.JButton ButtonBenutzerprofilAnlegenZurück;
     private javax.swing.JButton ButtonMenuArbeitspaketeAnsehen;
     private javax.swing.JButton ButtonMenuBenutzerAnlegen;
+    private javax.swing.JButton ButtonMenuBenutzerVerwalten;
     private javax.swing.JButton ButtonMenuProjektAnlegen;
     private javax.swing.JButton ButtonMenuProjekteAnsehen;
     private javax.swing.JButton ButtonMitarbeiterHinzufügen;
@@ -1648,6 +1737,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton ButtonProjektAendern;
     private javax.swing.JButton ButtonProjektAnlegen;
     private javax.swing.JButton ButtonProjektBearbeiten;
+    private javax.swing.JButton ButtonProjektBearbeitenLöschen;
     private javax.swing.JButton ButtonProjektBearbeitenZurück;
     private javax.swing.JButton ButtonStartseiteEinloggen;
     private javax.swing.JButton ButtonWeiterArbeitspakete;
@@ -1683,6 +1773,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel LabelVorname;
     private javax.swing.JList<String> ListArbeitspakete;
     private javax.swing.JList<String> ListArbeitspaketeAnsehen;
+    private javax.swing.JList<String> ListBenutzerVerwalten;
     private javax.swing.JList<String> ListProjekteAnsehen;
     private javax.swing.JList<String> ListeMitarbeiterHinzufuegen;
     private javax.swing.JPanel Menu;
@@ -1748,6 +1839,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
