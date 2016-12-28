@@ -741,7 +741,11 @@ public class Datenbank {
         Statement stmt = con.createStatement();
         String sql = "SELECT* FROM Mitarbeiter WHERE benutzername ='"+ ma.getBenutzername() +"'";
         ResultSet res = stmt.executeQuery(sql);
-        String passwort = res.getString(5);
+        String passwort="";
+        while (res.next()) {
+        passwort = res.getString(5);
+        }
+        
         res.close();
         stmt.close();
         con.close();

@@ -145,6 +145,7 @@ public class MitarbeiterVerwaltung {
         boolean b = false;
         try {
             b = datenbank.vergleichePasswort(ma, pw);
+            System.out.println(b);
         } catch (Exception e) {
             System.err.print("Fehler beim Vergleichen: " + e.getMessage());
         }

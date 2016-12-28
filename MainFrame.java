@@ -6,6 +6,7 @@ package swt_projektplaner;
  * and open the template in the editor.
  */
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
@@ -191,8 +192,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel13.setText("Passwort");
 
-        EinloggenPasswort.setText("jPasswordField1");
-
         ButtonStartseiteEinloggen.setText("Einloggen");
         ButtonStartseiteEinloggen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,7 +232,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(EinloggenPasswort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(ButtonStartseiteEinloggen)
-                .addContainerGap(423, Short.MAX_VALUE))
+                .addContainerGap(432, Short.MAX_VALUE))
         );
 
         getContentPane().add(StartseiteEinloggen, "card8");
@@ -292,7 +291,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonMenuProjekteAnsehen)
                     .addComponent(ButtonMenuArbeitspaketeAnsehen))
-                .addContainerGap(382, Short.MAX_VALUE))
+                .addContainerGap(397, Short.MAX_VALUE))
         );
 
         getContentPane().add(Menu, "card4");
@@ -360,7 +359,7 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(ComboBoxMonat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ComboBoxJahr, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(177, Short.MAX_VALUE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
         ProjektAnlegenLayout.setVerticalGroup(
             ProjektAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -386,7 +385,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48)
                         .addComponent(ButtonProjektAnlegen)))
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         getContentPane().add(ProjektAnlegen, "card2");
@@ -394,6 +393,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel14.setText("Arbeitspakete ansehen");
 
+        ListArbeitspaketeAnsehen.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                ListArbeitspaketeAnsehenValueChanged(evt);
+            }
+        });
         jScrollPane6.setViewportView(ListArbeitspaketeAnsehen);
 
         jLabel15.setText("Arbeitspakete:");
@@ -467,9 +471,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
                 .addComponent(jLabel26)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         getContentPane().add(ArbeitspaketeAnsehen, "card9");
@@ -549,7 +553,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 221, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
                 .addComponent(ButtonProjektBearbeiten)
                 .addGap(42, 42, 42))
         );
@@ -808,7 +812,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(ComboBoxATag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboBoxAMonat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboBoxAJahr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 352, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 334, Short.MAX_VALUE)
                 .addGroup(ArbeitspaketAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
@@ -918,7 +922,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(RadioButtonAdministrator)
                 .addGap(40, 40, 40)
                 .addComponent(ButtonBenutzerAnlegen)
-                .addContainerGap(305, Short.MAX_VALUE))
+                .addContainerGap(277, Short.MAX_VALUE))
         );
 
         getContentPane().add(BenutzerAnlegen, "card3");
@@ -979,7 +983,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(ButtonMitarbeiterHinzufügen)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addGroup(MitarbeiterHinzufuegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonBackMenu)
                     .addComponent(ButtonWeiterArbeitspakete))
@@ -1103,7 +1107,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ButtonAKommentarBearbeitenHinzufuegen)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ButtonArbeitspaketBearbeitenÄndern)
                 .addGap(66, 66, 66))
         );
@@ -1184,7 +1188,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel24))
                 .addGap(63, 63, 63)
                 .addComponent(ButtonArbeitspaketHinzufuegen)
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addContainerGap(257, Short.MAX_VALUE))
         );
 
         getContentPane().add(ArbeitspaketHinzufuegen, "card12");
@@ -1387,10 +1391,12 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonProjektAendernActionPerformed
 
     private void ButtonStartseiteEinloggenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonStartseiteEinloggenActionPerformed
-       StartseiteEinloggen.setVisible(false);
+     bv.aktuellerMitarbeiter(EinloggenBenutzername.getText());
+   // System.out.println(Arrays.toString(EinloggenPasswort.getPassword()).);
+       if(bv.vergleichePasswort(bv.getAktuellerLogin(), EinloggenPasswort.getText())){
+           StartseiteEinloggen.setVisible(false);
        Menu.setVisible(true);
-       
-       bv.aktuellerMitarbeiter(EinloggenBenutzername.getText());
+       }
        //System.out.println(bv.getAktuellerLogin());
     }//GEN-LAST:event_ButtonStartseiteEinloggenActionPerformed
 
@@ -1400,28 +1406,32 @@ public class MainFrame extends javax.swing.JFrame {
         dm.removeAllElements();
         
         
-      List<Projekt> p = pv.getProjekte();
-      List<Projekt> myp = bv.getMyProjects(bv.getAktuellerLogin());
-      List<Arbeitspaket> alleap = new LinkedList<Arbeitspaket>();
-      System.out.println(myp.toString() + myp.size());
+      //List<Projekt> p = pv.getProjekte();
+      //List<Projekt> myp = bv.getMyProjects(bv.getAktuellerLogin());
+      //List<Arbeitspaket> alleap = new LinkedList<Arbeitspaket>();
+      //System.out.println(myp.toString() + myp.size());
      /* for(Projekt projekt : myp){
           alleap.addAll(bv.getMyAPvonProjekt(projekt, bv.getAktuellerLogin()));
       }*/
       
-      for(int j = 0; j <= myp.size()-1; j++){
-          Projekt projekt = myp.get(j);
+     List<Arbeitspaket> myap = bv.getAllMyArbeitspakete(bv.getAktuellerLogin());
+     
+      /*for(int j = 0; j <= myap.size()-1; j++){
+          Projekt projekt = myap.get(j);
           for(int y = 0; y <= bv.getMyAPvonProjekt(projekt, bv.getAktuellerLogin()).size()-1; y++){
               alleap.add(bv.getMyAPvonProjekt(projekt, bv.getAktuellerLogin()).get(y));
           }
-      }
+      }*/
       
-        Menu.setVisible(false);
+       Menu.setVisible(false);
        ArbeitspaketeAnsehen.setVisible(true);
        
         
-        for(int i = 0; i <= alleap.size()-1; i++){             
-            dm.addElement( alleap.get(i).getName() + " (" + alleap.get(i).getProjekt().getname() + ")" );
+        for(int i = 0; i <= myap.size()-1; i++){             
+            dm.addElement( myap.get(i).getName() + " (" + myap.get(i).getProjekt().getname() + ")" );
         }
+        
+       
     }//GEN-LAST:event_ButtonMenuArbeitspaketeAnsehenActionPerformed
 
     private void ButtonArbeitspaketeAnsehenZurückActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonArbeitspaketeAnsehenZurückActionPerformed
@@ -1552,6 +1562,23 @@ public class MainFrame extends javax.swing.JFrame {
     
         kv.erstelleAKommentar(TextAreaAKommentarBearbeitenHinzufuegen.getText(), tag, monat, jahr, m, ap);
     }//GEN-LAST:event_ButtonAKommentarBearbeitenHinzufuegenActionPerformed
+
+    private void ListArbeitspaketeAnsehenValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListArbeitspaketeAnsehenValueChanged
+     List<Projekt> p = pv.getProjekte();
+      List<Projekt> myp = bv.getMyProjects(bv.getAktuellerLogin());
+      List<Arbeitspaket> alleap = new LinkedList<Arbeitspaket>();
+        
+      if (!evt.getValueIsAdjusting() ) {
+            int selectedindex = ListArbeitspaketeAnsehen.getSelectedIndex();
+            if(selectedindex >= 0){
+                   TextAreaAAnsehenBeschreibung.setText(alleap.get(ListArbeitspaketeAnsehen.getSelectedIndex()+1).getBeschreibung());
+        
+        for(int i = 0 ; i <= alleap.get(ListArbeitspaketeAnsehen.getSelectedIndex()).getAKommentar().size(); i++){
+        TextAreaAAnsehenKommentar.setText(alleap.get(ListArbeitspaketeAnsehen.getSelectedIndex()).getAKommentar().get(i).getText());
+        }
+            }
+      }        
+    }//GEN-LAST:event_ListArbeitspaketeAnsehenValueChanged
 
 
     /**
