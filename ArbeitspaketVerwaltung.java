@@ -167,7 +167,7 @@ public class ArbeitspaketVerwaltung {
      */
     public void löscheArbeitspaket (Arbeitspaket ap){
         //nötig? störend? fehlt was?
-        ap.getProjekt().removeArbeitspaket(ap);
+        //ap.getProjekt().removeArbeitspaket(ap);
         try {
             datenbank.loeschenArbeitspaket(ap);
         } catch (Exception e) {

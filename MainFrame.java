@@ -58,6 +58,7 @@ public class MainFrame extends javax.swing.JFrame {
         ButtonMenuProjekteAnsehen = new javax.swing.JButton();
         ButtonMenuArbeitspaketeAnsehen = new javax.swing.JButton();
         ButtonMenuBenutzerVerwalten = new javax.swing.JButton();
+        ButtonLoescheKommentarTest = new javax.swing.JButton();
         ProjektAnlegen = new javax.swing.JPanel();
         LabelName = new javax.swing.JLabel();
         LabelBeschreibung = new javax.swing.JLabel();
@@ -278,6 +279,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        ButtonLoescheKommentarTest.setText("KommDelete");
+        ButtonLoescheKommentarTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonLoescheKommentarTestActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
@@ -297,6 +305,10 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(ButtonMenuBenutzerAnlegen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ButtonMenuArbeitspaketeAnsehen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(68, 68, 68))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ButtonLoescheKommentarTest)
+                .addGap(208, 208, 208))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,7 +323,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(ButtonMenuArbeitspaketeAnsehen))
                 .addGap(43, 43, 43)
                 .addComponent(ButtonMenuBenutzerVerwalten)
-                .addContainerGap(325, Short.MAX_VALUE))
+                .addGap(79, 79, 79)
+                .addComponent(ButtonLoescheKommentarTest)
+                .addContainerGap(217, Short.MAX_VALUE))
         );
 
         getContentPane().add(Menu, "card4");
@@ -1648,7 +1662,8 @@ public class MainFrame extends javax.swing.JFrame {
     private void ButtonProjektBearbeitenLöschenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProjektBearbeitenLöschenActionPerformed
          List<Projekt> projekte = pv.getProjekte();
       Projekt projekt = projekte.get(ListProjekteAnsehen.getSelectedIndex());
-      pv.löscheProjekt(projekt);
+      av.löscheArbeitspaket(av.getArbeitspaket(projekt).get(0));
+    pv.löscheProjekt(projekt);
     }//GEN-LAST:event_ButtonProjektBearbeitenLöschenActionPerformed
 
     private void ButtonMenuBenutzerVerwaltenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuBenutzerVerwaltenActionPerformed
@@ -1665,6 +1680,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void ButtonBenutzerLöschenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBenutzerLöschenActionPerformed
        bv.löscheMitarbeiter(bv.getMitarbeiter().get(ListBenutzerVerwalten.getSelectedIndex()));
     }//GEN-LAST:event_ButtonBenutzerLöschenActionPerformed
+
+    private void ButtonLoescheKommentarTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLoescheKommentarTestActionPerformed
+        
+    }//GEN-LAST:event_ButtonLoescheKommentarTestActionPerformed
 
 
     /**
@@ -1727,6 +1746,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton ButtonBenutzerAnlegen;
     private javax.swing.JButton ButtonBenutzerLöschen;
     private javax.swing.JButton ButtonBenutzerprofilAnlegenZurück;
+    private javax.swing.JButton ButtonLoescheKommentarTest;
     private javax.swing.JButton ButtonMenuArbeitspaketeAnsehen;
     private javax.swing.JButton ButtonMenuBenutzerAnlegen;
     private javax.swing.JButton ButtonMenuBenutzerVerwalten;
