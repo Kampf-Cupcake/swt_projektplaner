@@ -651,33 +651,36 @@ public class Datenbank {
             String sql2 = "SELECT * FROM Arbeitspaket WHERE ArbeitspaketNr="+apNr;
             ResultSet res2 = stmt.executeQuery(sql2);
             
-            while (res.next()) {
+            while (res2.next()) {
                 
                 String name = res2.getString(1);
                 boolean fertig = res2.getBoolean(2);
                 String beschreibung = res2.getString(3);
                 Date deadline = res2.getDate(4);
-                
+                // müssen hier die Ergebnisse evt in einer List zwishcengespeichert werden?
                 String sql3 = "SELECT * FROM Projekt WHERE ProjektNr="+res2.getInt(6);
                 ResultSet res3 = stmt.executeQuery(sql3);
-                String pN = res3.getString(1);
-                String pB = res3.getString(2);
-                Date pD = res3.getDate(3);
-                GregorianCalendar greg2 = dateZuGreg(pD);
-                Projekt diesP = new Projekt(pN, pB, greg2);
+                
+                while (res3.next()){
+                    String pN = res3.getString(1);
+                    String pB = res3.getString(2);
+                    Date pD = res3.getDate(3);
+                    GregorianCalendar greg2 = dateZuGreg(pD);
+                    Projekt diesP = new Projekt(pN, pB, greg2);
 
-                GregorianCalendar greg = dateZuGreg(deadline);
+                    GregorianCalendar greg = dateZuGreg(deadline);
 
-                Arbeitspaket diesArbeitspaket = new Arbeitspaket(name, fertig, beschreibung, greg, diesP);
-                diesArbeitspaket.setName(name);
-                diesArbeitspaket.setFertig(fertig);
-                diesArbeitspaket.setBeschreibung(beschreibung);
-                diesArbeitspaket.setDeadline(greg);
-                diesArbeitspaket.setArbeitspaketNr(apNr);
-                diesArbeitspaket.setProjekt(diesP);
+                    Arbeitspaket diesArbeitspaket = new Arbeitspaket(name, fertig, beschreibung, greg, diesP);
+                    diesArbeitspaket.setName(name);
+                    diesArbeitspaket.setFertig(fertig);
+                    diesArbeitspaket.setBeschreibung(beschreibung);
+                    diesArbeitspaket.setDeadline(greg);
+                    diesArbeitspaket.setArbeitspaketNr(apNr);
+                    diesArbeitspaket.setProjekt(diesP);
 
-                myArbeitspakete.add(diesArbeitspaket);
+                    myArbeitspakete.add(diesArbeitspaket);
             }}
+            }
             res.close();
             stmt.close();
             con.close();
@@ -786,11 +789,11 @@ public class Datenbank {
      * @throws Exception 
      */
     public void loeschenMitarbeiter(Mitarbeiter ma)throws Exception{
-        connect();
         List<Notiz> löschList = this.selectAllMyNotizen(ma);
             for(Notiz n:löschList){
                 this.loescheNotiz(n);
             }
+        connect();   
         String sql1 = "DELETE FROM AKommentar WHERE verfasst_von ="+ ma.getPersonalNr();
         String sql2 = "DELETE FROM PKommentar WHERE verfasst_von ="+ ma.getPersonalNr();
         String sql3 = "DELETE FROM P_MA WHERE wird_bearbeitet_von ="+ ma.getPersonalNr();
