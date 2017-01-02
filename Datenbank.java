@@ -645,10 +645,19 @@ public class Datenbank {
             Statement stmt = con.createStatement();
             String sql = "SELECT* FROM AP_MA, Arbeitspaket WHERE AP_MA.wird_bearbeitet_von=" + m.getPersonalNr();
             ResultSet res = stmt.executeQuery(sql);
-            //String sql2 = "S"
+            
+            LinkedList <Integer> apIDs = new LinkedList <Integer>();
             while (res.next()) {
+                
             int apNr = res.getInt(1);
-            String sql2 = "SELECT * FROM Arbeitspaket WHERE ArbeitspaketNr="+apNr;
+            if(!apIDs.contains(apNr)){
+            apIDs.add(apNr);}
+            
+            }
+            
+            for(int i: apIDs){
+                System.out.println(i);
+            String sql2 = "SELECT * FROM Arbeitspaket WHERE ArbeitspaketNr="+i;
             ResultSet res2 = stmt.executeQuery(sql2);
             
             while (res2.next()) {
@@ -657,6 +666,7 @@ public class Datenbank {
                 boolean fertig = res2.getBoolean(2);
                 String beschreibung = res2.getString(3);
                 Date deadline = res2.getDate(4);
+                int id = res2.getInt(5);
                 // müssen hier die Ergebnisse evt in einer List zwishcengespeichert werden?
                 String sql3 = "SELECT * FROM Projekt WHERE ProjektNr="+res2.getInt(6);
                 ResultSet res3 = stmt.executeQuery(sql3);
@@ -669,13 +679,13 @@ public class Datenbank {
                     Projekt diesP = new Projekt(pN, pB, greg2);
 
                     GregorianCalendar greg = dateZuGreg(deadline);
-
+                    
                     Arbeitspaket diesArbeitspaket = new Arbeitspaket(name, fertig, beschreibung, greg, diesP);
                     diesArbeitspaket.setName(name);
                     diesArbeitspaket.setFertig(fertig);
                     diesArbeitspaket.setBeschreibung(beschreibung);
                     diesArbeitspaket.setDeadline(greg);
-                    diesArbeitspaket.setArbeitspaketNr(apNr);
+                    diesArbeitspaket.setArbeitspaketNr(id);
                     diesArbeitspaket.setProjekt(diesP);
 
                     myArbeitspakete.add(diesArbeitspaket);
