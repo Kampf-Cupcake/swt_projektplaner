@@ -1482,7 +1482,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void ButtonMenuArbeitspaketeAnsehenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuArbeitspaketeAnsehenActionPerformed
       DefaultListModel dm = new DefaultListModel();       
         ListArbeitspaketeAnsehen.setModel(dm);     
-        dm.removeAllElements();
+      //  dm.removeAllElements();
         
         
       //List<Projekt> p = pv.getProjekte();
@@ -1505,8 +1505,9 @@ public class MainFrame extends javax.swing.JFrame {
        Menu.setVisible(false);
        ArbeitspaketeAnsehen.setVisible(true);
        
-        
-        for(int i = 0; i <= myap.size()-1; i++){             
+        System.out.println(myap);
+        for(int i = 0; i <= myap.size()-1; i++){    
+            
             dm.addElement( myap.get(i).getName() + " (" + myap.get(i).getProjekt().getname() + ")" );
         }
         
