@@ -195,7 +195,7 @@ public class MitarbeiterVerwaltung {
       * @param m Mitarbeiter
       */
      public void löscheMitarbeiter (Mitarbeiter m){
-        //aus NetBeans in Listen löschen?
+        //an Jan: vorher Notiz löschen!
          try {
             datenbank.loeschenMitarbeiter(m);
         } catch (Exception e) {

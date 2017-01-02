@@ -86,6 +86,7 @@ public class Datenbank {
     * @throws Exception 
     */
     public void speicherProjekt(Projekt projekt) throws Exception {
+        List <Projekt> vergleichePn = this.selectAllProjects();
         connect();
         int year = projekt.getDeadline().get(Calendar.YEAR);
         int month = projekt.getDeadline().get(Calendar.MONTH) ;
@@ -93,7 +94,12 @@ public class Datenbank {
         String sql = "INSERT INTO Projekt (name,beschreibung,deadline) "
                 + "VALUES ('" + projekt.getname() + "','" + projekt.getbeschreibung() + "','" + year + "-" + month + "-" + day + "')";
         System.out.println(sql);
-        ResultSet r = executeSQL(sql);
+        LinkedList <String> pN = new LinkedList <String>();
+        for (Projekt p : vergleichePn){
+            pN.add(p.getname());
+        }
+        if(!pN.contains(projekt.getname())){
+        ResultSet r = executeSQL(sql);}
         con.close();
     }
 
@@ -230,9 +236,10 @@ public class Datenbank {
         ResultSet r2 = executeSQL(sql2);
         
         
-        List<Arbeitspaket> löschList = this.selectAllArbeitspakete(projekt);
-                
+       /* List<Arbeitspaket> löschList = this.selectAllArbeitspakete(projekt);
+            if(!löschList.isEmpty()){   
             for(Arbeitspaket ap:löschList){
+                System.out.println("bla"+ap);
                 String sql1a = "DELETE FROM AKommentar WHERE gehört_zu ="+ ap.getArbeitspaketNr();
                 String sql2a = "DELETE FROM AP_MA WHERE arbeitet_an="+ ap.getArbeitspaketNr();
                 String sql3a = "DELETE FROM Arbeitspaket WHERE ArbeitspaketNr ="+ ap.getArbeitspaketNr();
@@ -241,7 +248,7 @@ public class Datenbank {
                 ResultSet r2a = executeSQL(sql2a);
                 ResultSet r3a = executeSQL(sql3a);
             //this.loeschenArbeitspaket(ap);
-        }
+        }}*/
             
         ResultSet r4 = executeSQL(sql4);
         ResultSet r5 = executeSQL(sql5);
@@ -303,6 +310,7 @@ public class Datenbank {
      * @throws Exception 
      */
     public void speicherArbeitspaket(Arbeitspaket arbeitspaket) throws Exception {
+        List <Arbeitspaket> vergleicheApN = this.selectAllArbeitspakete(arbeitspaket.getProjekt());
         connect();
         int year = arbeitspaket.getDeadline().get(Calendar.YEAR);
         int month = arbeitspaket.getDeadline().get(Calendar.MONTH) + 1;
@@ -311,7 +319,12 @@ public class Datenbank {
                 + "VALUES ('" + arbeitspaket.getName() + "'," + arbeitspaket.getFertig() + ",'"
                 + arbeitspaket.getBeschreibung() + "','" + year + "-" + month + "-" + day + "'," + arbeitspaket.getProjekt().getProjektNr() + ")";
         System.out.println(sql);
-        ResultSet r = executeSQL(sql);
+        LinkedList <String> apN = new LinkedList <String>();
+        for(Arbeitspaket ap : vergleicheApN){
+            apN.add(ap.getName());
+        }
+        if(!apN.contains(arbeitspaket.getName())){
+        ResultSet r = executeSQL(sql);}
         con.close();
     }
 
@@ -492,12 +505,18 @@ public class Datenbank {
      * @throws Exception 
      */
     public void speicherMitarbeiter(Mitarbeiter mitarbeiter) throws Exception {
+        List <Mitarbeiter> vergleicheBn = this.selectAllMitarbeiters();
         connect();
-
         String sql = "INSERT INTO Mitarbeiter (name, vorname, rang, benutzername, passwort) "
                 + "VALUES ('" + mitarbeiter.getName() + "','" + mitarbeiter.getVorname() + "','" + mitarbeiter.getRang() + "','" + mitarbeiter.getBenutzername() + "','"+ mitarbeiter.getPasswort()+ "')";
         System.out.println(sql);
-        ResultSet r = executeSQL(sql);
+        
+        LinkedList <String> bn = new LinkedList <String>();
+        for(Mitarbeiter m : vergleicheBn){
+            bn.add(m.getBenutzername());
+        }
+        if(!bn.contains(mitarbeiter.getBenutzername())){
+        ResultSet r = executeSQL(sql);}
         con.close();
     }
     
@@ -841,11 +860,17 @@ public class Datenbank {
      * @throws Exception 
      */
     public void speicherAuftraggeber(Auftraggeber a)throws Exception{
+        List <Auftraggeber> vergleichAgN = this.selectAllAuftraggebers();
         connect();
         String sql = "INSERT INTO Auftraggeber (name,ansprechpartner,tel,strasse,hausnr,plz,ort) "
                + "VALUES ('" + a.getName() + "','" + a.getAnsprechpartner() + "','" + a.getTel() + "','" + a.getStrasse()
                + "','" + a.getHausNr() + "','" + a.getPlz() + "','" + a.getOrt() + "')";
-        ResultSet r = executeSQL(sql);
+        LinkedList <String> agN = new LinkedList <String>();
+        for (Auftraggeber ag : vergleichAgN){
+            agN.add(ag.getName());
+        }
+        if(!agN.contains(a.getName())){
+        ResultSet r = executeSQL(sql);}
         con.close();
     }
     
