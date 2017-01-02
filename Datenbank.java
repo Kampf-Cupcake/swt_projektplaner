@@ -220,6 +220,8 @@ public class Datenbank {
         String sql1 = "DELETE FROM Statusbericht WHERE gehört_zu ="+ projekt.getProjektNr();
         String sql2 = "DELETE FROM PKommentar WHERE gehört_zu ="+ projekt.getProjektNr();
         
+
+        
         String sql4 = "DELETE FROM beauftragt WHERE gibt_in_auftrag ="+ projekt.getProjektNr();
         String sql5 = "DELETE FROM P_MA WHERE arbeitet_an ="+ projekt.getProjektNr();
         String sql6 = "DELETE FROM Projekt WHERE ProjektNr ="+ projekt.getProjektNr();
@@ -227,9 +229,18 @@ public class Datenbank {
         ResultSet r1 = executeSQL(sql1);
         ResultSet r2 = executeSQL(sql2);
         
+        
         List<Arbeitspaket> löschList = this.selectAllArbeitspakete(projekt);
+                
             for(Arbeitspaket ap:löschList){
-            this.loeschenArbeitspaket(ap);
+                String sql1a = "DELETE FROM AKommentar WHERE gehört_zu ="+ ap.getArbeitspaketNr();
+                String sql2a = "DELETE FROM AP_MA WHERE arbeitet_an="+ ap.getArbeitspaketNr();
+                String sql3a = "DELETE FROM Arbeitspaket WHERE ArbeitspaketNr ="+ ap.getArbeitspaketNr();
+                
+                ResultSet r1a = executeSQL(sql1a);
+                ResultSet r2a = executeSQL(sql2a);
+                ResultSet r3a = executeSQL(sql3a);
+            //this.loeschenArbeitspaket(ap);
         }
             
         ResultSet r4 = executeSQL(sql4);
@@ -239,6 +250,7 @@ public class Datenbank {
         con.close();
     }
     
+
     /**
      * Liest alle Mitarbeiter aus der DB die bei einem Projekt beteiligt sind
      * @param p Projekt

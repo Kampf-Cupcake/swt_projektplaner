@@ -125,7 +125,7 @@ public class AuftraggeberVerwaltung {
         try {
             datenbank.loeschenAuftraggeber(ag);
         } catch (Exception e) {
-            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+            System.err.print("Fehler beim Löschen: " + e.getMessage());
         }
     }
 }

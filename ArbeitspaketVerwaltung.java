@@ -171,7 +171,7 @@ public class ArbeitspaketVerwaltung {
         try {
             datenbank.loeschenArbeitspaket(ap);
         } catch (Exception e) {
-            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
+            System.err.print("Fehler beim Löschen: " + e.getMessage());
         }
     }
 }
