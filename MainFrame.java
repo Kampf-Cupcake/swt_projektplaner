@@ -1933,6 +1933,12 @@ public class MainFrame extends javax.swing.JFrame {
         if(RadioButtonGroupProfilBearbeiten.isSelected(RadioButtonProfilBearbeitenAdmin.getModel()))
             bv.bearbeiteRang(ma, "Administrator");
         
+        TextFieldProfilBearbeitenVorname.setText("");
+        TextFieldProfilBearbeitenNachname.setText("");
+        TextFieldProfilBearbeitenBenutzername.setText("");
+        TextFieldProfilBearbeitenPasswort.setText("");
+        
+        
     }//GEN-LAST:event_ButtonProfilBearbeitenAendernActionPerformed
 
 
