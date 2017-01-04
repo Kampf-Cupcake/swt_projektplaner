@@ -98,7 +98,7 @@ public class MitarbeiterVerwaltung {
      * @param bn der neue Benutzername
      */
     public void bearbeiteBenutzername(Mitarbeiter ma, String bn){
-        ma.setName(bn);
+        ma.setBenutzername(bn);
         try {
             datenbank.bearbeiteMitarbeiterBenutzername(ma, bn);
         } catch (Exception e) {

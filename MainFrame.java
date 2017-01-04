@@ -12,6 +12,7 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
 /**
  *
  * @author Jan Beuster
@@ -46,6 +47,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jTextField4 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
+        RadioButtonGroupProfilBearbeiten = new javax.swing.ButtonGroup();
         StartseiteEinloggen = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -54,7 +56,7 @@ public class MainFrame extends javax.swing.JFrame {
         ButtonStartseiteEinloggen = new javax.swing.JButton();
         Menu = new javax.swing.JPanel();
         ButtonMenuProjektAnlegen = new javax.swing.JButton();
-        ButtonMenuBenutzerAnlegen = new javax.swing.JButton();
+        ButtonMenuProfilBearbeiten = new javax.swing.JButton();
         ButtonMenuProjekteAnsehen = new javax.swing.JButton();
         ButtonMenuArbeitspaketeAnsehen = new javax.swing.JButton();
         ButtonMenuBenutzerVerwalten = new javax.swing.JButton();
@@ -188,6 +190,25 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane12 = new javax.swing.JScrollPane();
         ListBenutzerVerwalten = new javax.swing.JList<>();
         ButtonBenutzerLöschen = new javax.swing.JButton();
+        ButtonBenutzerVerwaltenZurück = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        ButtonBenutzerVerwaltenAnlegen = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
+        ProfilBearbeiten = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        TextFieldProfilBearbeitenVorname = new javax.swing.JTextField();
+        TextFieldProfilBearbeitenNachname = new javax.swing.JTextField();
+        TextFieldProfilBearbeitenBenutzername = new javax.swing.JTextField();
+        TextFieldProfilBearbeitenPasswort = new javax.swing.JTextField();
+        RadioButtonProfilBearbeitenStandard = new javax.swing.JRadioButton();
+        RadioButtonProfilBearbeitenAdmin = new javax.swing.JRadioButton();
+        ButtonProfilBearbeitenZurück = new javax.swing.JButton();
+        ButtonProfilBearbeitenAendern = new javax.swing.JButton();
 
         jButton2.setText("jButton2");
 
@@ -240,7 +261,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(EinloggenPasswort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(ButtonStartseiteEinloggen)
-                .addContainerGap(432, Short.MAX_VALUE))
+                .addContainerGap(463, Short.MAX_VALUE))
         );
 
         getContentPane().add(StartseiteEinloggen, "card8");
@@ -252,10 +273,10 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        ButtonMenuBenutzerAnlegen.setText("Benutzer anlegen");
-        ButtonMenuBenutzerAnlegen.addActionListener(new java.awt.event.ActionListener() {
+        ButtonMenuProfilBearbeiten.setText("Profil bearbeiten");
+        ButtonMenuProfilBearbeiten.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonMenuBenutzerAnlegenActionPerformed(evt);
+                ButtonMenuProfilBearbeitenActionPerformed(evt);
             }
         });
 
@@ -293,19 +314,15 @@ public class MainFrame extends javax.swing.JFrame {
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(70, 70, 70)
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ButtonMenuBenutzerVerwalten, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(ButtonMenuProjekteAnsehen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ButtonMenuProjektAnlegen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MenuLayout.createSequentialGroup()
-                        .addComponent(ButtonMenuBenutzerVerwalten)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(MenuLayout.createSequentialGroup()
-                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ButtonMenuProjekteAnsehen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonMenuProjektAnlegen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
-                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ButtonMenuBenutzerAnlegen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ButtonMenuArbeitspaketeAnsehen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(68, 68, 68))))
+                    .addComponent(ButtonMenuArbeitspaketeAnsehen, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ButtonMenuProfilBearbeiten, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(68, 68, 68))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ButtonLoescheKommentarTest)
@@ -315,18 +332,18 @@ public class MainFrame extends javax.swing.JFrame {
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(206, 206, 206)
-                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ButtonMenuProjektAnlegen)
-                    .addComponent(ButtonMenuBenutzerAnlegen))
+                    .addComponent(ButtonMenuProfilBearbeiten))
                 .addGap(18, 18, 18)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonMenuProjekteAnsehen)
                     .addComponent(ButtonMenuArbeitspaketeAnsehen))
-                .addGap(43, 43, 43)
+                .addGap(30, 30, 30)
                 .addComponent(ButtonMenuBenutzerVerwalten)
-                .addGap(79, 79, 79)
+                .addGap(92, 92, 92)
                 .addComponent(ButtonLoescheKommentarTest)
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addContainerGap(248, Short.MAX_VALUE))
         );
 
         getContentPane().add(Menu, "card4");
@@ -420,7 +437,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(48, 48, 48)
                         .addComponent(ButtonProjektAnlegen)))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
 
         getContentPane().add(ProjektAnlegen, "card2");
@@ -508,7 +525,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         getContentPane().add(ArbeitspaketeAnsehen, "card9");
@@ -597,7 +614,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(ProjekteAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(ButtonProjektLöschen)
                 .addGap(18, 18, 18)
                 .addComponent(ButtonProjektBearbeiten)
@@ -868,7 +885,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(ComboBoxATag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboBoxAMonat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboBoxAJahr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 334, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
                 .addGroup(ArbeitspaketAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
@@ -978,7 +995,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(RadioButtonAdministrator)
                 .addGap(40, 40, 40)
                 .addComponent(ButtonBenutzerAnlegen)
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addContainerGap(308, Short.MAX_VALUE))
         );
 
         getContentPane().add(BenutzerAnlegen, "card3");
@@ -1039,7 +1056,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(ButtonMitarbeiterHinzufügen)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
                 .addGroup(MitarbeiterHinzufuegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonBackMenu)
                     .addComponent(ButtonWeiterArbeitspakete))
@@ -1244,7 +1261,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel24))
                 .addGap(63, 63, 63)
                 .addComponent(ButtonArbeitspaketHinzufuegen)
-                .addContainerGap(257, Short.MAX_VALUE))
+                .addContainerGap(288, Short.MAX_VALUE))
         );
 
         getContentPane().add(ArbeitspaketHinzufuegen, "card12");
@@ -1258,31 +1275,174 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        ButtonBenutzerVerwaltenZurück.setText("Zurück");
+        ButtonBenutzerVerwaltenZurück.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonBenutzerVerwaltenZurückActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setText("Benutzer löschen");
+
+        ButtonBenutzerVerwaltenAnlegen.setText("neuen Benutzer anlegen");
+        ButtonBenutzerVerwaltenAnlegen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonBenutzerVerwaltenAnlegenActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel28.setText("Benutzer Verwalten");
+
         javax.swing.GroupLayout BenutzerVerwaltenLayout = new javax.swing.GroupLayout(BenutzerVerwalten);
         BenutzerVerwalten.setLayout(BenutzerVerwaltenLayout);
         BenutzerVerwaltenLayout.setHorizontalGroup(
             BenutzerVerwaltenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BenutzerVerwaltenLayout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(ButtonBenutzerLöschen)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addGroup(BenutzerVerwaltenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BenutzerVerwaltenLayout.createSequentialGroup()
+                        .addComponent(jLabel28)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ButtonBenutzerVerwaltenZurück)
+                        .addGap(53, 53, 53))
+                    .addGroup(BenutzerVerwaltenLayout.createSequentialGroup()
+                        .addComponent(jLabel27)
+                        .addGap(49, 49, 49)
+                        .addGroup(BenutzerVerwaltenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ButtonBenutzerVerwaltenAnlegen)
+                            .addComponent(ButtonBenutzerLöschen)
+                            .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(201, Short.MAX_VALUE))))
         );
         BenutzerVerwaltenLayout.setVerticalGroup(
             BenutzerVerwaltenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BenutzerVerwaltenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(BenutzerVerwaltenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonBenutzerVerwaltenZurück)
+                    .addComponent(jLabel28))
+                .addGap(8, 8, 8)
                 .addGroup(BenutzerVerwaltenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BenutzerVerwaltenLayout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(BenutzerVerwaltenLayout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addComponent(ButtonBenutzerLöschen)))
-                .addContainerGap(221, Short.MAX_VALUE))
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27))
+                .addGap(29, 29, 29)
+                .addComponent(ButtonBenutzerLöschen)
+                .addGap(69, 69, 69)
+                .addComponent(ButtonBenutzerVerwaltenAnlegen)
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         getContentPane().add(BenutzerVerwalten, "card13");
+
+        ProfilBearbeiten.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                ProfilBearbeitenComponentShown(evt);
+            }
+        });
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel29.setText("Profil bearbeiten");
+
+        jLabel30.setText("Vorname");
+
+        jLabel31.setText("Nachname");
+
+        jLabel32.setText("Benutzername");
+
+        jLabel33.setText("Passwort");
+
+        jLabel34.setText("Rang");
+
+        RadioButtonGroupProfilBearbeiten.add(RadioButtonProfilBearbeitenStandard);
+        RadioButtonProfilBearbeitenStandard.setText("Standardbenutzer");
+
+        RadioButtonGroupProfilBearbeiten.add(RadioButtonProfilBearbeitenAdmin);
+        RadioButtonProfilBearbeitenAdmin.setText("Administrator");
+
+        ButtonProfilBearbeitenZurück.setText("Zurück");
+        ButtonProfilBearbeitenZurück.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonProfilBearbeitenZurückActionPerformed(evt);
+            }
+        });
+
+        ButtonProfilBearbeitenAendern.setText("Ändern");
+        ButtonProfilBearbeitenAendern.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonProfilBearbeitenAendernActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ProfilBearbeitenLayout = new javax.swing.GroupLayout(ProfilBearbeiten);
+        ProfilBearbeiten.setLayout(ProfilBearbeitenLayout);
+        ProfilBearbeitenLayout.setHorizontalGroup(
+            ProfilBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProfilBearbeitenLayout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addGroup(ProfilBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ProfilBearbeitenLayout.createSequentialGroup()
+                        .addGroup(ProfilBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel33)
+                            .addComponent(jLabel34))
+                        .addGap(103, 103, 103)
+                        .addGroup(ProfilBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(RadioButtonProfilBearbeitenStandard)
+                            .addGroup(ProfilBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(TextFieldProfilBearbeitenVorname)
+                                .addComponent(TextFieldProfilBearbeitenNachname)
+                                .addComponent(TextFieldProfilBearbeitenBenutzername)
+                                .addComponent(TextFieldProfilBearbeitenPasswort, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE))
+                            .addComponent(RadioButtonProfilBearbeitenAdmin)
+                            .addComponent(ButtonProfilBearbeitenAendern))
+                        .addContainerGap(171, Short.MAX_VALUE))
+                    .addGroup(ProfilBearbeitenLayout.createSequentialGroup()
+                        .addComponent(jLabel29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ButtonProfilBearbeitenZurück)
+                        .addGap(51, 51, 51))))
+        );
+        ProfilBearbeitenLayout.setVerticalGroup(
+            ProfilBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProfilBearbeitenLayout.createSequentialGroup()
+                .addGroup(ProfilBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ProfilBearbeitenLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel29))
+                    .addGroup(ProfilBearbeitenLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(ButtonProfilBearbeitenZurück)))
+                .addGap(43, 43, 43)
+                .addGroup(ProfilBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(TextFieldProfilBearbeitenVorname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ProfilBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(TextFieldProfilBearbeitenNachname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(ProfilBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(TextFieldProfilBearbeitenBenutzername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(ProfilBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(TextFieldProfilBearbeitenPasswort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(ProfilBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel34)
+                    .addComponent(RadioButtonProfilBearbeitenStandard))
+                .addGap(18, 18, 18)
+                .addComponent(RadioButtonProfilBearbeitenAdmin)
+                .addGap(43, 43, 43)
+                .addComponent(ButtonProfilBearbeitenAendern)
+                .addContainerGap(255, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(ProfilBearbeiten, "card14");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1297,10 +1457,10 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonMenuProjektAnlegenActionPerformed
 
     
-    private void ButtonMenuBenutzerAnlegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuBenutzerAnlegenActionPerformed
+    private void ButtonMenuProfilBearbeitenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMenuProfilBearbeitenActionPerformed
        Menu.setVisible(false);
-       BenutzerAnlegen.setVisible(true);
-    }//GEN-LAST:event_ButtonMenuBenutzerAnlegenActionPerformed
+       ProfilBearbeiten.setVisible(true);
+    }//GEN-LAST:event_ButtonMenuProfilBearbeitenActionPerformed
 
     
     private void ButtonBenutzerAnlegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBenutzerAnlegenActionPerformed
@@ -1453,7 +1613,7 @@ public class MainFrame extends javax.swing.JFrame {
     
     
     Arbeitspaket ap = av.getArbeitspaket(projekt).get(av.getArbeitspaket(projekt).size()-1);
-       kv.erstelleAKommentar(TextFieldKommentar.getText(), ktag, kmonat, kjahr, bv.getAktuellerLogin(), ap);
+       kv.erstelleAKommentar(jTextField6.getText(), ktag, kmonat, kjahr, bv.getAktuellerLogin(), ap);
        
         TextFieldAName.setText("");
         TextFieldABeschreibung.setText("");
@@ -1642,6 +1802,7 @@ public class MainFrame extends javax.swing.JFrame {
      //  int jahr = (int)ComboBoxAHinzufuegenJahr.getSelectedItem();
         
       av.anlegeArbeitspaket(TextFieldANameAnlegen.getText(), false, TextAreaABeschreibungAnlegen.getText(), tag, monat, 2016, projekt);
+      av.weiseMitarbeiterZu(a.get(a.size()-1), bv.getAktuellerLogin());
       ArbeitspaketHinzufuegen.setVisible(false);
       ProjektBearbeiten.setVisible(true);
       DefaultListModel dm = new DefaultListModel();
@@ -1681,9 +1842,9 @@ public class MainFrame extends javax.swing.JFrame {
             
                    TextAreaAAnsehenBeschreibung.setText(alleap.get(ListArbeitspaketeAnsehen.getSelectedIndex()).getBeschreibung());
         System.out.println(alleap.get(ListArbeitspaketeAnsehen.getSelectedIndex()).getBeschreibung());
-        for(int i = 0 ; i <= alleap.get(ListArbeitspaketeAnsehen.getSelectedIndex()).getAKommentar().size()-1; i++){ 
+        for(int i = 0 ; i <= kv.getAKommentare(alleap.get(ListArbeitspaketeAnsehen.getSelectedIndex()), bv.getAktuellerLogin()).size()-1; i++){ 
             System.out.println("check");
-        TextAreaAAnsehenKommentar.setText(alleap.get(ListArbeitspaketeAnsehen.getSelectedIndex()).getAKommentar().get(i).getText());
+        TextAreaAAnsehenKommentar.setText(kv.getAKommentare(alleap.get(ListArbeitspaketeAnsehen.getSelectedIndex()),bv.getAktuellerLogin()).get(i).getText());
        
         }
             
@@ -1713,6 +1874,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void ButtonBenutzerLöschenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBenutzerLöschenActionPerformed
        bv.löscheMitarbeiter(bv.getMitarbeiter().get(ListBenutzerVerwalten.getSelectedIndex()));
+       DefaultListModel dm = (DefaultListModel) ListBenutzerVerwalten.getModel();
+       dm.remove(ListBenutzerVerwalten.getSelectedIndex());
     }//GEN-LAST:event_ButtonBenutzerLöschenActionPerformed
 
     private void ButtonLoescheKommentarTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonLoescheKommentarTestActionPerformed
@@ -1722,13 +1885,55 @@ public class MainFrame extends javax.swing.JFrame {
     private void ButtonProjektLöschenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProjektLöschenActionPerformed
          List<Projekt> projekte = pv.getProjekte();
       Projekt projekt = projekte.get(ListProjekteAnsehen.getSelectedIndex());
-     
+     DefaultListModel<String> dm = (DefaultListModel<String>) ListProjekteAnsehen.getModel();
+     dm.remove(ListProjekteAnsehen.getSelectedIndex());
+    
       List<Arbeitspaket> ap = av.getArbeitspaket(projekt);
      for(int i = 0; i<=ap.size()-1; i++){
       av.löscheArbeitspaket(ap.get(i));
      }
       pv.löscheProjekt(projekt);
     }//GEN-LAST:event_ButtonProjektLöschenActionPerformed
+
+    private void ButtonBenutzerVerwaltenZurückActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBenutzerVerwaltenZurückActionPerformed
+        BenutzerVerwalten.setVisible(false);
+        Menu.setVisible(true);
+    }//GEN-LAST:event_ButtonBenutzerVerwaltenZurückActionPerformed
+
+    private void ButtonBenutzerVerwaltenAnlegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBenutzerVerwaltenAnlegenActionPerformed
+       BenutzerVerwalten.setVisible(false);
+       BenutzerAnlegen.setVisible(true);
+    }//GEN-LAST:event_ButtonBenutzerVerwaltenAnlegenActionPerformed
+
+    private void ButtonProfilBearbeitenZurückActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProfilBearbeitenZurückActionPerformed
+        ProfilBearbeiten.setVisible(false);
+        Menu.setVisible(true);
+    }//GEN-LAST:event_ButtonProfilBearbeitenZurückActionPerformed
+
+    private void ProfilBearbeitenComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_ProfilBearbeitenComponentShown
+        TextFieldProfilBearbeitenVorname.setText(bv.getAktuellerLogin().getVorname());
+        TextFieldProfilBearbeitenNachname.setText(bv.getAktuellerLogin().getName());
+        TextFieldProfilBearbeitenBenutzername.setText(bv.getAktuellerLogin().getBenutzername());
+        TextFieldProfilBearbeitenPasswort.setText(bv.getAktuellerLogin().getPasswort());
+        System.out.println(bv.getAktuellerLogin().getRang());
+        if("Standard Benutzer".equals(bv.getAktuellerLogin().getRang()))RadioButtonGroupProfilBearbeiten.setSelected(RadioButtonProfilBearbeitenStandard.getModel(),true);
+        if("Administrator".equals(bv.getAktuellerLogin().getRang()))RadioButtonGroupProfilBearbeiten.setSelected(RadioButtonProfilBearbeitenAdmin.getModel(),true);
+    }//GEN-LAST:event_ProfilBearbeitenComponentShown
+
+    private void ButtonProfilBearbeitenAendernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProfilBearbeitenAendernActionPerformed
+       Mitarbeiter ma = bv.getAktuellerLogin();
+        bv.bearbeiteVorname(ma, TextFieldProfilBearbeitenVorname.getText());
+        bv.bearbeiteName(ma, TextFieldProfilBearbeitenNachname.getText());
+        bv.bearbeiteBenutzername(ma, TextFieldProfilBearbeitenBenutzername.getText());
+        bv.bearbeitePasswort(ma, TextFieldProfilBearbeitenPasswort.getText());
+        
+        if(RadioButtonGroupProfilBearbeiten.isSelected(RadioButtonProfilBearbeitenStandard.getModel()))
+            bv.bearbeiteRang(ma, "Standard Benutzer");
+        
+        if(RadioButtonGroupProfilBearbeiten.isSelected(RadioButtonProfilBearbeitenAdmin.getModel()))
+            bv.bearbeiteRang(ma, "Administrator");
+        
+    }//GEN-LAST:event_ButtonProfilBearbeitenAendernActionPerformed
 
 
     /**
@@ -1791,15 +1996,19 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton ButtonBackProjekteAnsehen;
     private javax.swing.JButton ButtonBenutzerAnlegen;
     private javax.swing.JButton ButtonBenutzerLöschen;
+    private javax.swing.JButton ButtonBenutzerVerwaltenAnlegen;
+    private javax.swing.JButton ButtonBenutzerVerwaltenZurück;
     private javax.swing.JButton ButtonBenutzerprofilAnlegenZurück;
     private javax.swing.JButton ButtonLoescheKommentarTest;
     private javax.swing.JButton ButtonMenuArbeitspaketeAnsehen;
-    private javax.swing.JButton ButtonMenuBenutzerAnlegen;
     private javax.swing.JButton ButtonMenuBenutzerVerwalten;
+    private javax.swing.JButton ButtonMenuProfilBearbeiten;
     private javax.swing.JButton ButtonMenuProjektAnlegen;
     private javax.swing.JButton ButtonMenuProjekteAnsehen;
     private javax.swing.JButton ButtonMitarbeiterHinzufügen;
     private javax.swing.JButton ButtonOpenArbeitspaketHinzufuegen;
+    private javax.swing.JButton ButtonProfilBearbeitenAendern;
+    private javax.swing.JButton ButtonProfilBearbeitenZurück;
     private javax.swing.JButton ButtonProjektAendern;
     private javax.swing.JButton ButtonProjektAnlegen;
     private javax.swing.JButton ButtonProjektBearbeiten;
@@ -1844,12 +2053,16 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JList<String> ListeMitarbeiterHinzufuegen;
     private javax.swing.JPanel Menu;
     private javax.swing.JPanel MitarbeiterHinzufuegen;
+    private javax.swing.JPanel ProfilBearbeiten;
     private javax.swing.JPanel ProjektAnlegen;
     private javax.swing.JPanel ProjektBearbeiten;
     private javax.swing.JPanel ProjekteAnsehen;
     private javax.swing.JRadioButton RadioButtonAdministrator;
     private javax.swing.JRadioButton RadioButtonArbeitspaketFertig;
+    private javax.swing.ButtonGroup RadioButtonGroupProfilBearbeiten;
     private javax.swing.ButtonGroup RadioButtonGroupRangAuswaehlen;
+    private javax.swing.JRadioButton RadioButtonProfilBearbeitenAdmin;
+    private javax.swing.JRadioButton RadioButtonProfilBearbeitenStandard;
     private javax.swing.JRadioButton RadioButtonStandardBenutzer;
     private javax.swing.JPanel StartseiteEinloggen;
     private javax.swing.JTextArea TextAreaAAnsehenBeschreibung;
@@ -1869,6 +2082,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField TextFieldName;
     private javax.swing.JTextField TextFieldNotiz;
     private javax.swing.JTextField TextFieldPasswort;
+    private javax.swing.JTextField TextFieldProfilBearbeitenBenutzername;
+    private javax.swing.JTextField TextFieldProfilBearbeitenNachname;
+    private javax.swing.JTextField TextFieldProfilBearbeitenPasswort;
+    private javax.swing.JTextField TextFieldProfilBearbeitenVorname;
     private javax.swing.JTextField TextFieldProjektBeschreibung;
     private javax.swing.JTextField TextFieldProjektName;
     private javax.swing.JTextField TextFieldVorname;
@@ -1895,7 +2112,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
