@@ -741,7 +741,7 @@ public class Datenbank {
      */
     public void bearbeiteMitarbeiterName(Mitarbeiter ma, String n) throws Exception {
         connect();
-        String sql = "UPDATE Mitarbeiter SET name ='" + n + "' WHERE MitarbeiterNr =" + ma.getPersonalNr();
+        String sql = "UPDATE Mitarbeiter SET name ='" + n + "' WHERE PersonalNr =" + ma.getPersonalNr();
         ResultSet r = executeSQL(sql);
         con.close();
     }
@@ -754,14 +754,14 @@ public class Datenbank {
      */
     public void bearbeiteMitarbeiterVorname(Mitarbeiter ma, String vn) throws Exception {
         connect();
-        String sql = "UPDATE Mitarbeiter SET vorname ='" + vn + "' WHERE MitarbeiterNr =" + ma.getPersonalNr();
+        String sql = "UPDATE Mitarbeiter SET vorname ='" + vn + "' WHERE PersonalNr =" + ma.getPersonalNr();
         ResultSet r = executeSQL(sql);
         con.close();
     }
     
     public void bearbeiteMitarbeiterPasswort(Mitarbeiter ma, String pw) throws Exception {
         connect();
-        String sql = "UPDATE Mitarbeiter SET passwort ='" + pw + "' WHERE MitarbeiterNr =" + ma.getPersonalNr();
+        String sql = "UPDATE Mitarbeiter SET passwort ='" + pw + "' WHERE PersonalNr =" + ma.getPersonalNr();
         ResultSet r = executeSQL(sql);
         con.close();
     }
@@ -806,7 +806,7 @@ public class Datenbank {
      */
     public void bearbeiteMitarbeiterRang(Mitarbeiter ma, String ra) throws Exception {
         connect();
-        String sql = "UPDATE Mitarbeiter SET rang ='" + ra + "' WHERE MitarbeiterNr =" + ma.getPersonalNr();
+        String sql = "UPDATE Mitarbeiter SET rang ='" + ra + "' WHERE PersonalNr =" + ma.getPersonalNr();
         ResultSet r = executeSQL(sql);
         con.close();
     }
@@ -819,7 +819,7 @@ public class Datenbank {
      */
     public void bearbeiteMitarbeiterBenutzername(Mitarbeiter ma, String bn) throws Exception {
         connect();
-        String sql = "UPDATE Mitarbeiter SET benutzername ='" + bn + "' WHERE MitarbeiterNr =" + ma.getPersonalNr();
+        String sql = "UPDATE Mitarbeiter SET benutzername ='" + bn + "' WHERE PersonalNr =" + ma.getPersonalNr();
         ResultSet r = executeSQL(sql);
         con.close();
     }
