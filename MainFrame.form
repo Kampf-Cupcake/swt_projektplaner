@@ -650,25 +650,28 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="ButtonProjektBearbeiten" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jScrollPane2" min="-2" pref="153" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="308" max="32767" attributes="0"/>
                                   <Component id="ButtonBackProjekteAnsehen" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jScrollPane2" min="-2" pref="153" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="ButtonProjektLöschen" alignment="0" max="32767" attributes="0"/>
+                              <Component id="ButtonProjektBearbeiten" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -687,9 +690,11 @@
                       <Component id="jScrollPane2" min="-2" pref="234" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="234" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="236" max="32767" attributes="0"/>
+                  <EmptySpace pref="68" max="32767" attributes="0"/>
+                  <Component id="ButtonProjektLöschen" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="ButtonProjektBearbeiten" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -755,6 +760,14 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="ButtonProjektL&#xf6;schen">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="L&#xf6;schen"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonProjektL&#xf6;schenActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="ProjektBearbeiten">
@@ -770,62 +783,54 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="ButtonProjektBearbeitenProjektLöschen" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="LabelProjektName" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="LabelProjektDeadline" min="-2" max="-2" attributes="0"/>
+                      <Component id="LabelProjekteAnsehenSub" min="-2" max="-2" attributes="0"/>
+                      <Component id="LabelProjektBeschreibung" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="LabelKommentar" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Component id="ButtonAPBearbeitenLöschen" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="135" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="TextFieldNotiz" pref="91" max="32767" attributes="0"/>
+                              <Component id="TextFieldProjektBeschreibung" alignment="1" max="32767" attributes="0"/>
+                              <Component id="TextFieldProjektName" alignment="1" max="32767" attributes="0"/>
+                              <Component id="TextFieldKommentar" alignment="1" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="ButtonProjektBearbeitenZurück" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="LabelProjektName" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="LabelProjektDeadline" min="-2" max="-2" attributes="0"/>
-                              <Component id="LabelProjekteAnsehenSub" min="-2" max="-2" attributes="0"/>
-                              <Component id="LabelProjektBeschreibung" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="LabelKommentar" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <Component id="ButtonAPBearbeitenLöschen" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="135" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="TextFieldNotiz" pref="91" max="32767" attributes="0"/>
-                                      <Component id="TextFieldProjektBeschreibung" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="TextFieldProjektName" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="TextFieldKommentar" alignment="1" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="ButtonProjektBearbeitenZurück" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="ButtonProjektAendern" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ButtonArbeitspaketBearbeiten" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="ComboBoxProjektBearbeitenTag" min="-2" pref="49" max="-2" attributes="0"/>
-                                                      <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="ComboBoxProjektBearbeitenMonat" pref="0" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="jScrollPane4" min="-2" pref="139" max="-2" attributes="0"/>
-                                              </Group>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="ButtonProjektAendern" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ButtonArbeitspaketBearbeiten" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="ComboBoxProjektBearbeitenTag" min="-2" pref="49" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="ComboBoxProjektBearbeitenJahr" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ComboBoxProjektBearbeitenMonat" pref="0" max="32767" attributes="0"/>
                                           </Group>
+                                          <Component id="jScrollPane4" min="-2" pref="139" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="ButtonOpenArbeitspaketHinzufuegen" min="-2" pref="214" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="ComboBoxProjektBearbeitenJahr" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="ButtonOpenArbeitspaketHinzufuegen" min="-2" pref="214" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -877,9 +882,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="ButtonArbeitspaketBearbeiten" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ButtonProjektBearbeitenProjektLöschen" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="ButtonOpenArbeitspaketHinzufuegen" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -1086,14 +1089,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAPBearbeitenL&#xf6;schenActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="ButtonProjektBearbeitenProjektL&#xf6;schen">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Projekt  l&#xf6;schen"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonProjektBearbeitenProjektL&#xf6;schenActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
