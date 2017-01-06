@@ -203,17 +203,17 @@ public class MitarbeiterVerwaltung {
         }
      }
     
-     public void aktuellerMitarbeiter(String bn){
+     public boolean aktuellerMitarbeiter(String bn) {
          List<Mitarbeiter> ml = this.getMitarbeiter();
-        
+        boolean b = false;
          for(int i = 0; i <= ml.size() - 1; i++ ){
-            
-        if(ml.get(i).getBenutzername().equals(bn)){
-            
-       this.aktuellerLogin = ml.get(i);
-    
-                }
-            }
+            if(ml.get(i).getBenutzername().equals(bn)){
+                this.aktuellerLogin = ml.get(i);
+                b = true;
+                break;
+                }else
+            {}}
+         return b;  
      
      }
      

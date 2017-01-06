@@ -1152,7 +1152,7 @@ public class Datenbank {
     public void erstelleNotiz(Notiz n)throws Exception{
         connect();
         int year = n.getDatum().get(Calendar.YEAR);
-        int month = n.getDatum().get(Calendar.MONTH) + 1;
+        int month = n.getDatum().get(Calendar.MONTH) +1;
         int day = n.getDatum().get(Calendar.DAY_OF_MONTH);
         String sql = "INSERT INTO notiz (text,datum, verfasst_von) "
                 + "VALUES ('" + n.getText() + "','" + year + "-" + month + "-" + day + "'," + n.getMitarbeiter().getPersonalNr()+")";

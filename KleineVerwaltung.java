@@ -36,7 +36,7 @@ public class KleineVerwaltung {
         public void erstellePKommentar(String text, int tag, int monat, int jahr, Mitarbeiter verfasser, Projekt projekt){    
         
         System.out.println("Kommentar "+ text);
-        GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
+        GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
         
         PKommentar pk = new PKommentar(text, greg, verfasser, projekt);
         
@@ -103,7 +103,7 @@ public class KleineVerwaltung {
          * @param verfasser 
          */
         public void erstelleNotiz(String text, int tag, int monat, int jahr, Mitarbeiter verfasser){
-        GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
+        GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
         Notiz n = new Notiz (text, greg, verfasser);
         
         try{
