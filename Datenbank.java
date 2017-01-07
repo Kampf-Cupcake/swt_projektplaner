@@ -1154,8 +1154,8 @@ public class Datenbank {
         int year = n.getDatum().get(Calendar.YEAR);
         int month = n.getDatum().get(Calendar.MONTH) +1;
         int day = n.getDatum().get(Calendar.DAY_OF_MONTH);
-        String sql = "INSERT INTO notiz (text,datum, verfasst_von) "
-                + "VALUES ('" + n.getText() + "','" + year + "-" + month + "-" + day + "'," + n.getMitarbeiter().getPersonalNr()+")";
+        String sql = "INSERT INTO notiz (text,datum, verfasst_von, bezeichnung) "
+                + "VALUES ('" + n.getText() + "','" + year + "-" + month + "-" + day + "'," + n.getMitarbeiter().getPersonalNr()+",'"+n.getBez()+"')";
         ResultSet r = executeSQL(sql);
         con.close();
     }
@@ -1179,10 +1179,11 @@ public class Datenbank {
                 String text = res.getString(1);
                 Date datum = res.getDate(2);
                 int id = res.getInt(3);
+                String bez = res.getString(4);
 
                 GregorianCalendar greg = dateZuGreg(datum);
                    
-                Notiz dieseNotiz = new Notiz (text, greg, verfasser);
+                Notiz dieseNotiz = new Notiz (text, greg, verfasser, bez);
                 dieseNotiz.setText(text);
                 dieseNotiz.setDatum(greg);
                 dieseNotiz.setNotizID(id);

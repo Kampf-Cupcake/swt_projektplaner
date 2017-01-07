@@ -102,9 +102,9 @@ public class KleineVerwaltung {
          * @param jahr
          * @param verfasser 
          */
-        public void erstelleNotiz(String text, int tag, int monat, int jahr, Mitarbeiter verfasser){
+        public void erstelleNotiz(String text, int tag, int monat, int jahr, Mitarbeiter verfasser, String bezeichnung){
         GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
-        Notiz n = new Notiz (text, greg, verfasser);
+        Notiz n = new Notiz (text, greg, verfasser, bezeichnung);
         
         try{
             datenbank.erstelleNotiz(n);

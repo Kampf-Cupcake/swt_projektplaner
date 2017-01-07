@@ -9,21 +9,30 @@ import java.util.GregorianCalendar;
  */
 public class Notiz {
     
+    private String bezeichnung;
     private String text;
     private GregorianCalendar datum;
     private int notizID;
     
     private Mitarbeiter mitarbeiter;
     
-    public Notiz (String t, GregorianCalendar d, Mitarbeiter m){
+    public Notiz (String t, GregorianCalendar d, Mitarbeiter m, String b){
         this.text = t;
         this.datum = d;
         this.notizID = -1;
         this.mitarbeiter = m;
+        this.bezeichnung = b;
     }
     
     public String toString(){       //UML
         return datum+":\n"+text;
+    }
+    
+    public String getBez(){
+        return bezeichnung;
+    }
+    public void setBez(String b){
+        this.bezeichnung = b;
     }
     
     public String getText(){
