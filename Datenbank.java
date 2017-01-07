@@ -1179,7 +1179,7 @@ public class Datenbank {
                 String text = res.getString(1);
                 Date datum = res.getDate(2);
                 int id = res.getInt(3);
-                String bez = res.getString(4);
+                String bez = res.getString(5);
 
                 GregorianCalendar greg = dateZuGreg(datum);
                    
@@ -1188,7 +1188,7 @@ public class Datenbank {
                 dieseNotiz.setDatum(greg);
                 dieseNotiz.setNotizID(id);
                 dieseNotiz.setMitarbeiter(verfasser);
-                
+                dieseNotiz.setBez(bez);
                 myNotizen.add(dieseNotiz);
             }
             res.close();
