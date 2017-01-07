@@ -218,12 +218,16 @@ public class MainFrame extends javax.swing.JFrame {
         ListNotizen = new javax.swing.JList<>();
         ButtonNotizHinzufuegen = new javax.swing.JButton();
         ButtonNotizLoeschen = new javax.swing.JButton();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        ListNotizenAnsehen = new javax.swing.JList<>();
         NotizHinzufuegen = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jScrollPane14 = new javax.swing.JScrollPane();
         TextAreaNotiz = new javax.swing.JTextArea();
         ButtonNotizHinzufuegenOk = new javax.swing.JButton();
         ButtonNotizenZurueck = new javax.swing.JButton();
+        TextFieldNotizHinzufuegen = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
 
         jButton2.setText("jButton2");
 
@@ -1552,24 +1556,28 @@ public class MainFrame extends javax.swing.JFrame {
 
         ButtonNotizLoeschen.setText("Löschen");
 
+        jScrollPane18.setViewportView(ListNotizenAnsehen);
+
         javax.swing.GroupLayout NotizenAnsehenLayout = new javax.swing.GroupLayout(NotizenAnsehen);
         NotizenAnsehen.setLayout(NotizenAnsehenLayout);
         NotizenAnsehenLayout.setHorizontalGroup(
             NotizenAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NotizenAnsehenLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NotizenAnsehenLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(jLabel36)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 342, Short.MAX_VALUE)
-                .addComponent(ButtonNotizenZurück)
+                .addGroup(NotizenAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(NotizenAnsehenLayout.createSequentialGroup()
+                        .addComponent(jLabel36)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 342, Short.MAX_VALUE)
+                        .addComponent(ButtonNotizenZurück))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, NotizenAnsehenLayout.createSequentialGroup()
+                        .addGroup(NotizenAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ButtonNotizHinzufuegen)
+                            .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(NotizenAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ButtonNotizLoeschen))))
                 .addGap(38, 38, 38))
-            .addGroup(NotizenAnsehenLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addGroup(NotizenAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ButtonNotizHinzufuegen)
-                    .addComponent(ButtonNotizLoeschen))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         NotizenAnsehenLayout.setVerticalGroup(
             NotizenAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1578,16 +1586,15 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(NotizenAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
                     .addComponent(ButtonNotizenZurück))
-                .addGroup(NotizenAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(NotizenAnsehenLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(NotizenAnsehenLayout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(ButtonNotizHinzufuegen)
-                        .addGap(78, 78, 78)
-                        .addComponent(ButtonNotizLoeschen)))
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addGroup(NotizenAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane15)
+                    .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addGroup(NotizenAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonNotizHinzufuegen)
+                    .addComponent(ButtonNotizLoeschen))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         getContentPane().add(NotizenAnsehen, "card15");
@@ -1611,24 +1618,32 @@ public class MainFrame extends javax.swing.JFrame {
 
         ButtonNotizenZurueck.setText("Zurück");
 
+        jLabel37.setText("Titel");
+
         javax.swing.GroupLayout NotizHinzufuegenLayout = new javax.swing.GroupLayout(NotizHinzufuegen);
         NotizHinzufuegen.setLayout(NotizHinzufuegenLayout);
         NotizHinzufuegenLayout.setHorizontalGroup(
             NotizHinzufuegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NotizHinzufuegenLayout.createSequentialGroup()
-                .addGap(131, 131, 131)
-                .addGroup(NotizHinzufuegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(NotizHinzufuegenLayout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(ButtonNotizHinzufuegenOk)))
-                .addContainerGap(162, Short.MAX_VALUE))
             .addGroup(NotizHinzufuegenLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ButtonNotizenZurueck)
                 .addGap(61, 61, 61))
+            .addGroup(NotizHinzufuegenLayout.createSequentialGroup()
+                .addGroup(NotizHinzufuegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(NotizHinzufuegenLayout.createSequentialGroup()
+                        .addGap(255, 255, 255)
+                        .addComponent(ButtonNotizHinzufuegenOk))
+                    .addGroup(NotizHinzufuegenLayout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addGroup(NotizHinzufuegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(NotizHinzufuegenLayout.createSequentialGroup()
+                                .addComponent(jLabel37)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(TextFieldNotizHinzufuegen, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
         NotizHinzufuegenLayout.setVerticalGroup(
             NotizHinzufuegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1637,11 +1652,15 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(NotizHinzufuegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel10)
                     .addComponent(ButtonNotizenZurueck))
-                .addGap(65, 65, 65)
+                .addGap(78, 78, 78)
+                .addGroup(NotizHinzufuegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TextFieldNotizHinzufuegen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel37))
+                .addGap(54, 54, 54)
                 .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(29, 29, 29)
                 .addComponent(ButtonNotizHinzufuegenOk)
-                .addContainerGap(327, Short.MAX_VALUE))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
 
         getContentPane().add(NotizHinzufuegen, "card16");
@@ -2162,14 +2181,14 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void NotizenAnsehenComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_NotizenAnsehenComponentShown
        DefaultListModel dm = new DefaultListModel();
-        ListNotizen.setModel(dm);
+        ListNotizenAnsehen.setModel(dm);
         
         for(Notiz n :kv.getMyNotizen(bv.getAktuellerLogin()) ){
             GregorianCalendar date = n.getDatum();
             int tag = date.get(Calendar.DAY_OF_MONTH);
             int monat = date.get(Calendar.MONTH);
             int jahr = date.get(Calendar.YEAR);
-            dm.addElement(tag +"." + monat + "." + jahr + ": " + n.getText() + "\n\n");
+            dm.addElement(tag +"." + monat + "." + jahr + ": " + n.getBez()+ "\n\n");
            
         }
     }//GEN-LAST:event_NotizenAnsehenComponentShown
@@ -2207,7 +2226,7 @@ public class MainFrame extends javax.swing.JFrame {
         int monat = date.get(Calendar.MONTH);
         int jahr = date.get(Calendar.YEAR);
         
-        kv.erstelleNotiz(TextAreaNotiz.getText(), tag, monat, jahr, bv.getAktuellerLogin());
+        kv.erstelleNotiz(TextAreaNotiz.getText(), tag, monat, jahr, bv.getAktuellerLogin(), TextFieldNotizHinzufuegen.getText());
         
         TextAreaNotiz.setText("");
         
@@ -2343,6 +2362,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JList<String> ListArbeitspaketeAnsehen;
     private javax.swing.JList<String> ListBenutzerVerwalten;
     private javax.swing.JList<String> ListNotizen;
+    private javax.swing.JList<String> ListNotizenAnsehen;
     private javax.swing.JList<String> ListProjekteAnsehen;
     private javax.swing.JList<String> ListeMitarbeiterHinzufuegen;
     private javax.swing.JPanel Menu;
@@ -2377,6 +2397,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField TextFieldBenutzername;
     private javax.swing.JTextField TextFieldNachname;
     private javax.swing.JTextField TextFieldName;
+    private javax.swing.JTextField TextFieldNotizHinzufuegen;
     private javax.swing.JTextField TextFieldPasswort;
     private javax.swing.JTextField TextFieldProfilBearbeitenBenutzername;
     private javax.swing.JTextField TextFieldProfilBearbeitenNachname;
@@ -2419,6 +2440,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2434,6 +2456,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
+    private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
