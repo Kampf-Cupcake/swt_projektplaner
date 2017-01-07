@@ -135,7 +135,7 @@ public class KleineVerwaltung {
         }
         
         public void speicherStatusbericht(int pz, int tag, int monat, int jahr, Projekt p){
-        GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
+        GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
         Statusbericht sb = new Statusbericht(pz, greg, p);
        
         try{
@@ -169,7 +169,7 @@ public class KleineVerwaltung {
             int anzahl_fertigeAP = datenbank.selectAllUnfertige_oder_FertigeArbeitspakete(p, true).size();
             int status = (int) Math.round((anzahl_fertigeAP /anzahl_allerAp) * 100) ;
             
-            GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
+            GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
             Statusbericht sb = new Statusbericht(status, greg, p);
        
         try{

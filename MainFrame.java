@@ -154,6 +154,7 @@ public class MainFrame extends javax.swing.JFrame {
         ComboBoxAJahr = new javax.swing.JComboBox<>();
         jScrollPane13 = new javax.swing.JScrollPane();
         TextAreaAAnlegenKommentar = new javax.swing.JTextArea();
+        jLabel38 = new javax.swing.JLabel();
         BenutzerAnlegen = new javax.swing.JPanel();
         TitelBenutzerAnlegen = new javax.swing.JLabel();
         LabelVorname = new javax.swing.JLabel();
@@ -214,12 +215,12 @@ public class MainFrame extends javax.swing.JFrame {
         NotizenAnsehen = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
         ButtonNotizenZurück = new javax.swing.JButton();
-        jScrollPane15 = new javax.swing.JScrollPane();
-        ListNotizen = new javax.swing.JList<>();
         ButtonNotizHinzufuegen = new javax.swing.JButton();
         ButtonNotizLoeschen = new javax.swing.JButton();
         jScrollPane18 = new javax.swing.JScrollPane();
         ListNotizenAnsehen = new javax.swing.JList<>();
+        jScrollPane19 = new javax.swing.JScrollPane();
+        TextAreaNotizenAnsehen = new javax.swing.JTextArea();
         NotizHinzufuegen = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jScrollPane14 = new javax.swing.JScrollPane();
@@ -513,6 +514,16 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel16.setText("Beschreibung:");
 
         RadioButtonArbeitspaketFertig.setText("Fertig");
+        RadioButtonArbeitspaketFertig.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                RadioButtonArbeitspaketFertigStateChanged(evt);
+            }
+        });
+        RadioButtonArbeitspaketFertig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadioButtonArbeitspaketFertigActionPerformed(evt);
+            }
+        });
 
         ButtonArbeitspaketeAnsehenZurück.setText("Zurück");
         ButtonArbeitspaketeAnsehenZurück.addActionListener(new java.awt.event.ActionListener() {
@@ -1024,6 +1035,9 @@ public class MainFrame extends javax.swing.JFrame {
         TextAreaAAnlegenKommentar.setWrapStyleWord(true);
         jScrollPane13.setViewportView(TextAreaAAnlegenKommentar);
 
+        jLabel38.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel38.setText("Die Deadline muss später als die Projekt Deadline sein!");
+
         javax.swing.GroupLayout ArbeitspaketAnlegenLayout = new javax.swing.GroupLayout(ArbeitspaketAnlegen);
         ArbeitspaketAnlegen.setLayout(ArbeitspaketAnlegenLayout);
         ArbeitspaketAnlegenLayout.setHorizontalGroup(
@@ -1041,23 +1055,25 @@ public class MainFrame extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(ArbeitspaketAnlegenLayout.createSequentialGroup()
                         .addGroup(ArbeitspaketAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ArbeitspaketAnlegenLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(175, 175, 175)
-                                .addGroup(ArbeitspaketAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TextFieldAName, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TextFieldABeschreibung, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(ArbeitspaketAnlegenLayout.createSequentialGroup()
-                                        .addComponent(ComboBoxATag, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(ComboBoxAMonat, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(ComboBoxAJahr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(ButtonArbeitspaketAnlegen)))
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(0, 45, Short.MAX_VALUE))))
+                            .addComponent(jLabel7)
+                            .addGroup(ArbeitspaketAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel38)
+                                .addGroup(ArbeitspaketAnlegenLayout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addGap(175, 175, 175)
+                                    .addGroup(ArbeitspaketAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(TextFieldAName, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(TextFieldABeschreibung, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(ArbeitspaketAnlegenLayout.createSequentialGroup()
+                                            .addComponent(ComboBoxATag, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(ComboBoxAMonat, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(ComboBoxAJahr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(ButtonArbeitspaketAnlegen)))))
+                        .addGap(0, 95, Short.MAX_VALUE))))
         );
         ArbeitspaketAnlegenLayout.setVerticalGroup(
             ArbeitspaketAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1084,7 +1100,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(ArbeitspaketAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addComponent(jLabel38)
+                .addGap(63, 63, 63)
                 .addComponent(ButtonArbeitspaketAnlegen)
                 .addGap(107, 107, 107))
         );
@@ -1544,9 +1562,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        ListNotizen.setLayoutOrientation(javax.swing.JList.HORIZONTAL_WRAP);
-        jScrollPane15.setViewportView(ListNotizen);
-
         ButtonNotizHinzufuegen.setText("Hinzufügen");
         ButtonNotizHinzufuegen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1555,8 +1570,25 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         ButtonNotizLoeschen.setText("Löschen");
+        ButtonNotizLoeschen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonNotizLoeschenActionPerformed(evt);
+            }
+        });
 
+        ListNotizenAnsehen.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                ListNotizenAnsehenValueChanged(evt);
+            }
+        });
         jScrollPane18.setViewportView(ListNotizenAnsehen);
+
+        TextAreaNotizenAnsehen.setColumns(20);
+        TextAreaNotizenAnsehen.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        TextAreaNotizenAnsehen.setLineWrap(true);
+        TextAreaNotizenAnsehen.setRows(5);
+        TextAreaNotizenAnsehen.setWrapStyleWord(true);
+        jScrollPane19.setViewportView(TextAreaNotizenAnsehen);
 
         javax.swing.GroupLayout NotizenAnsehenLayout = new javax.swing.GroupLayout(NotizenAnsehen);
         NotizenAnsehen.setLayout(NotizenAnsehenLayout);
@@ -1574,9 +1606,11 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(ButtonNotizHinzufuegen)
                             .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(NotizenAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ButtonNotizLoeschen))))
+                        .addGroup(NotizenAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(NotizenAnsehenLayout.createSequentialGroup()
+                                .addComponent(ButtonNotizLoeschen)
+                                .addGap(213, 213, 213))
+                            .addComponent(jScrollPane19))))
                 .addGap(38, 38, 38))
         );
         NotizenAnsehenLayout.setVerticalGroup(
@@ -1588,8 +1622,8 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(ButtonNotizenZurück))
                 .addGap(38, 38, 38)
                 .addGroup(NotizenAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane15)
-                    .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE))
+                    .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                    .addComponent(jScrollPane19))
                 .addGap(44, 44, 44)
                 .addGroup(NotizenAnsehenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonNotizHinzufuegen)
@@ -1753,7 +1787,16 @@ public class MainFrame extends javax.swing.JFrame {
                   int jahr = projekte.get(selectedindex).getDeadline().get(Calendar.YEAR);
                   String date = tag + "." + monat + "." + jahr;
                   
-                  TextAreaProjektBeschreibung.append("\n" + "Deadline: " + date + "\n" );
+                  GregorianCalendar greg = new GregorianCalendar();
+                  int day = greg.get(Calendar.DAY_OF_MONTH);
+                  int month = greg.get(Calendar.MONTH);
+                  int year = greg.get(Calendar.YEAR);
+                  kv.berechne_und_speicherStatus(day, month, year, projekte.get(selectedindex));
+                  
+                  TextAreaProjektBeschreibung.append("\n" + "Deadline: " + date + "\n" + kv.getAllStatusberichte(projekte.get(selectedindex)).get(kv.getAllStatusberichte(projekte.get(selectedindex)).size()-1).getProzent());
+                  
+                  
+                  
             }
         }
     }//GEN-LAST:event_ListProjekteAnsehenValueChanged
@@ -1834,8 +1877,14 @@ public class MainFrame extends javax.swing.JFrame {
         
         Projekt projekt = p.get(p.size()-1);
         
+        GregorianCalendar date = projekt.getDeadline();
+        int day = date.get(Calendar.DAY_OF_MONTH);
+        int month = date.get(Calendar.MONTH);
+        int year = date.get(Calendar.YEAR);
+        
+        if(day>tag && month>monat && year>=jahr){
             av.anlegeArbeitspaket(TextFieldAName.getText(),false, TextFieldABeschreibung.getText(), tag, monat, jahr, projekt);  
-       
+        
             
     GregorianCalendar greg = new GregorianCalendar();
     int ktag = greg.get(Calendar.DAY_OF_MONTH);
@@ -1868,6 +1917,9 @@ public class MainFrame extends javax.swing.JFrame {
         
         ArbeitspaketAnlegen.setVisible(false);
         MitarbeiterHinzufuegen.setVisible(true);
+        }else{
+            jLabel36.setVisible(true);
+        }
     }//GEN-LAST:event_ButtonArbeitspaketAnlegenActionPerformed
 
     private void ButtonProjektAendernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProjektAendernActionPerformed
@@ -1966,7 +2018,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void ButtonArbeitspaketBearbeitenÄndernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonArbeitspaketBearbeitenÄndernActionPerformed
      
-        List<Projekt> projekte = pv.getProjekte();
+        List<Projekt> projekte = bv.getMyProjects(bv.getAktuellerLogin());
        Projekt projekt = projekte.get(ListProjekteAnsehen.getSelectedIndex());  
        List<Arbeitspaket> a = av.getArbeitspaket(projekt);
        Arbeitspaket ap = a.get(ListArbeitspakete.getSelectedIndex());
@@ -1979,13 +2031,13 @@ public class MainFrame extends javax.swing.JFrame {
        
        int tag = ComboBoxATagBearbeiten.getSelectedIndex();
        int monat = ComboBoxAMonatBearbeiten.getSelectedIndex();
-     //  int jahr = (int)ComboBoxAJahrBearbeiten.getSelectedItem();
+       int jahr = ComboBoxAJahrBearbeiten.getSelectedIndex() + 2016;
        boolean status = CheckBoxArbeitspaketFertig.isSelected();
       
        
        av.bearbeiteArbeitpaketName(ap, TextFieldANameBearbeiten.getText());
        av.bearbeiteArbeitpaketBeschreibung(ap, TextAreaABeschreibungBearbeiten.getText());
-       av.bearbeiteDeadline(ap, tag, monat, 2016);
+       av.bearbeiteDeadline(ap, tag, monat, jahr);
        av.bearbeiteArbeitspaketStatus(ap, status);
        
        DefaultListModel dm = new DefaultListModel();
@@ -2211,8 +2263,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         int tag = ComboBoxTag.getSelectedIndex()+1;
         int monat = ComboBoxMonat.getSelectedIndex()+1;
-        //Jahr
-        pv.anlegenProjekt(TextFieldName.getText(), TextAreaBeschreibung.getText(), tag, monat, 2016);
+        int jahr = ComboBoxJahr.getSelectedIndex()+2016;
+        pv.anlegenProjekt(TextFieldName.getText(), TextAreaBeschreibung.getText(), tag, monat, jahr);
     }//GEN-LAST:event_ButtonProjektAnlegenActionPerformed
 
     private void ButtonNotizHinzufuegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNotizHinzufuegenActionPerformed
@@ -2239,8 +2291,27 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_StartseiteEinloggenComponentShown
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        jLabel35.setVisible(false);       
+        jLabel35.setVisible(false);   
+        jLabel36.setVisible(false); 
     }//GEN-LAST:event_formWindowOpened
+
+    private void ButtonNotizLoeschenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonNotizLoeschenActionPerformed
+       kv.loescheNotiz(kv.getMyNotizen(bv.getAktuellerLogin()).get(ListNotizenAnsehen.getSelectedIndex()));
+       DefaultListModel dm = (DefaultListModel) ListNotizenAnsehen.getModel();
+       dm.remove(ListNotizenAnsehen.getSelectedIndex());
+    }//GEN-LAST:event_ButtonNotizLoeschenActionPerformed
+
+    private void ListNotizenAnsehenValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListNotizenAnsehenValueChanged
+        if (!evt.getValueIsAdjusting() ) {          
+            Notiz n = kv.getMyNotizen(bv.getAktuellerLogin()).get(ListNotizenAnsehen.getSelectedIndex()); 
+            TextAreaNotizenAnsehen.setText(n.getText());
+        }
+    }//GEN-LAST:event_ListNotizenAnsehenValueChanged
+
+    private void RadioButtonArbeitspaketFertigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonArbeitspaketFertigActionPerformed
+    }//GEN-LAST:event_RadioButtonArbeitspaketFertigActionPerformed
+    private void RadioButtonArbeitspaketFertigStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_RadioButtonArbeitspaketFertigStateChanged
+    }//GEN-LAST:event_RadioButtonArbeitspaketFertigStateChanged
 
 
     /**
@@ -2361,7 +2432,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JList<String> ListArbeitspakete;
     private javax.swing.JList<String> ListArbeitspaketeAnsehen;
     private javax.swing.JList<String> ListBenutzerVerwalten;
-    private javax.swing.JList<String> ListNotizen;
     private javax.swing.JList<String> ListNotizenAnsehen;
     private javax.swing.JList<String> ListProjekteAnsehen;
     private javax.swing.JList<String> ListeMitarbeiterHinzufuegen;
@@ -2389,6 +2459,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextArea TextAreaAKommentarBearbeitenHinzufuegen;
     private javax.swing.JTextArea TextAreaBeschreibung;
     private javax.swing.JTextArea TextAreaNotiz;
+    private javax.swing.JTextArea TextAreaNotizenAnsehen;
     private javax.swing.JTextArea TextAreaProjektBeschreibung;
     private javax.swing.JTextField TextFieldABeschreibung;
     private javax.swing.JTextField TextFieldAName;
@@ -2441,6 +2512,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2453,10 +2525,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
-    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
+    private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
