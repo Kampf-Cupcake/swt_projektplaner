@@ -101,6 +101,7 @@ public class KleineVerwaltung {
          * @param monat
          * @param jahr
          * @param verfasser 
+         * @param bezeichnung
          */
         public void erstelleNotiz(String text, int tag, int monat, int jahr, Mitarbeiter verfasser, String bezeichnung){
         GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);

@@ -1250,7 +1250,7 @@ public class Datenbank {
                 
                 Statusbericht dieserBericht = new Statusbericht (prozent, greg, p);
                
-                dieserBericht.setProzent(id);
+                dieserBericht.setProzent(prozent);
                 dieserBericht.setStatusberichtId(id);
                 dieserBericht.setDatum(greg);
                 dieserBericht.setProjekt(p);
