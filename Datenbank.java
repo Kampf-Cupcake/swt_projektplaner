@@ -1096,8 +1096,8 @@ public class Datenbank {
         int year = pk.getDatum().get(Calendar.YEAR);
         int month = pk.getDatum().get(Calendar.MONTH) + 1;
         int day = pk.getDatum().get(Calendar.DAY_OF_MONTH);
-        String sql = "INSERT INTO PKommentar (text,datum) "
-                + "VALUES ('" + pk.getText() + "','" + year + "-" + month + "-" + day + "'" + pk.getVerfasser().getPersonalNr() + pk.getProjekt().getProjektNr()+")";
+        String sql = "INSERT INTO PKommentar (text,datum, verfasst_von, gehört_zu) "
+                + "VALUES ('" + pk.getText() + "','" + year + "-" + month + "-" + day + "'," + pk.getVerfasser().getPersonalNr() +","+ pk.getProjekt().getProjektNr()+")";
         ResultSet r = executeSQL(sql);
         con.close();
     }
