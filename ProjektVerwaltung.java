@@ -37,12 +37,12 @@ public class ProjektVerwaltung {
      * @param jahr der Deadline
      */
     public void anlegenProjekt(String name, String beschreibung, int tag, int monat, int jahr) {        //'int name' zu 'String name' geändert, beschreibung in UML
-        System.out.println(name);
-        System.out.println(beschreibung);
+        //System.out.println(name);
+        //System.out.println(beschreibung);
         GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
        
         Projekt projekt = new Projekt(name, beschreibung, greg);
-        System.out.println(greg);
+        //System.out.println(greg);
        // Date datum =  new Date(greg.getGregorianChange().getTime());
         try{
             datenbank.speicherProjekt(projekt);

@@ -225,9 +225,6 @@ public class Datenbank {
         connect();
         String sql1 = "DELETE FROM Statusbericht WHERE gehört_zu ="+ projekt.getProjektNr();
         String sql2 = "DELETE FROM PKommentar WHERE gehört_zu ="+ projekt.getProjektNr();
-        
-
-        
         String sql4 = "DELETE FROM beauftragt WHERE gibt_in_auftrag ="+ projekt.getProjektNr();
         String sql5 = "DELETE FROM P_MA WHERE arbeitet_an ="+ projekt.getProjektNr();
         String sql6 = "DELETE FROM Projekt WHERE ProjektNr ="+ projekt.getProjektNr();
@@ -1099,8 +1096,8 @@ public class Datenbank {
         int year = pk.getDatum().get(Calendar.YEAR);
         int month = pk.getDatum().get(Calendar.MONTH) + 1;
         int day = pk.getDatum().get(Calendar.DAY_OF_MONTH);
-        String sql = "INSERT INTO PKommentar (text,datum) "
-                + "VALUES ('" + pk.getText() + "','" + year + "-" + month + "-" + day + "'" + pk.getVerfasser().getPersonalNr() + pk.getProjekt().getProjektNr()+")";
+        String sql = "INSERT INTO PKommentar (text,datum, verfasst_von, gehört_zu) "
+                + "VALUES ('" + pk.getText() + "','" + year + "-" + month + "-" + day + "'," + pk.getVerfasser().getPersonalNr() +","+ pk.getProjekt().getProjektNr()+")";
         ResultSet r = executeSQL(sql);
         con.close();
     }
