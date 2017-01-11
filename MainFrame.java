@@ -190,6 +190,7 @@ public class MainFrame extends javax.swing.JFrame {
         ComboBoxAHinzufuegenMonat = new javax.swing.JComboBox<>();
         ComboBoxAHinzufuegenJahr = new javax.swing.JComboBox<>();
         jLabel24 = new javax.swing.JLabel();
+        ButtonArbeitspaketHinzuZurueck = new javax.swing.JButton();
         BenutzerVerwalten = new javax.swing.JPanel();
         jScrollPane12 = new javax.swing.JScrollPane();
         ListBenutzerVerwalten = new javax.swing.JList<>();
@@ -491,7 +492,6 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(ProjektAnlegenLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addGroup(ProjektAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TitelProjektAnlegen, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(ProjektAnlegenLayout.createSequentialGroup()
                         .addGroup(ProjektAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(LabelBeschreibung, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -501,15 +501,19 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGroup(ProjektAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(ButtonProjektAnlegen)
                             .addComponent(jScrollPane8)
-                            .addComponent(ButtonBackProjektAnlegen, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(ProjektAnlegenLayout.createSequentialGroup()
                                 .addComponent(ComboBoxTag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(14, 14, 14)
                                 .addComponent(ComboBoxMonat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(ComboBoxJahr, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(TextFieldName))))
-                .addContainerGap(283, Short.MAX_VALUE))
+                            .addComponent(TextFieldName))
+                        .addContainerGap(283, Short.MAX_VALUE))
+                    .addGroup(ProjektAnlegenLayout.createSequentialGroup()
+                        .addComponent(TitelProjektAnlegen, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ButtonBackProjektAnlegen)
+                        .addGap(38, 38, 38))))
         );
         ProjektAnlegenLayout.setVerticalGroup(
             ProjektAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1405,6 +1409,14 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         jLabel24.setText("Deadline");
 
+        ButtonArbeitspaketHinzuZurueck.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        ButtonArbeitspaketHinzuZurueck.setText("Zurück");
+        ButtonArbeitspaketHinzuZurueck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonArbeitspaketHinzuZurueckActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ArbeitspaketHinzufuegenLayout = new javax.swing.GroupLayout(ArbeitspaketHinzufuegen);
         ArbeitspaketHinzufuegen.setLayout(ArbeitspaketHinzufuegenLayout);
         ArbeitspaketHinzufuegenLayout.setHorizontalGroup(
@@ -1412,7 +1424,10 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(ArbeitspaketHinzufuegenLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(ArbeitspaketHinzufuegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel21)
+                    .addGroup(ArbeitspaketHinzufuegenLayout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE)
+                        .addComponent(ButtonArbeitspaketHinzuZurueck))
                     .addGroup(ArbeitspaketHinzufuegenLayout.createSequentialGroup()
                         .addGroup(ArbeitspaketHinzufuegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel22)
@@ -1429,14 +1444,16 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(ComboBoxAHinzufuegenJahr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane7)
                             .addComponent(TextFieldANameAnlegen))))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap())
         );
         ArbeitspaketHinzufuegenLayout.setVerticalGroup(
             ArbeitspaketHinzufuegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ArbeitspaketHinzufuegenLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel21)
-                .addGap(49, 49, 49)
+                .addGroup(ArbeitspaketHinzufuegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(ButtonArbeitspaketHinzuZurueck))
+                .addGap(45, 45, 45)
                 .addGroup(ArbeitspaketHinzufuegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextFieldANameAnlegen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22))
@@ -2437,6 +2454,11 @@ public class MainFrame extends javax.swing.JFrame {
         kv.erstellePKommentar(TextAreaProjektBearbeitenKommentarHinzufuegen.getText(), tag, monat, jahr, bv.getAktuellerLogin(), projekt);
     }//GEN-LAST:event_HinzufügenActionPerformed
 
+    private void ButtonArbeitspaketHinzuZurueckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonArbeitspaketHinzuZurueckActionPerformed
+       ArbeitspaketHinzufuegen.setVisible(false);
+       ProjektBearbeiten.setVisible(true);
+    }//GEN-LAST:event_ButtonArbeitspaketHinzuZurueckActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -2491,6 +2513,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton ButtonArbeitspaketAnlegenZurück;
     private javax.swing.JButton ButtonArbeitspaketBearbeiten;
     private javax.swing.JButton ButtonArbeitspaketBearbeitenÄndern;
+    private javax.swing.JButton ButtonArbeitspaketHinzuZurueck;
     private javax.swing.JButton ButtonArbeitspaketHinzufuegen;
     private javax.swing.JButton ButtonArbeitspaketeAnsehenZurück;
     private javax.swing.JButton ButtonBackMenu;
