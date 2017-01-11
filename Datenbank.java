@@ -225,9 +225,6 @@ public class Datenbank {
         connect();
         String sql1 = "DELETE FROM Statusbericht WHERE gehört_zu ="+ projekt.getProjektNr();
         String sql2 = "DELETE FROM PKommentar WHERE gehört_zu ="+ projekt.getProjektNr();
-        
-
-        
         String sql4 = "DELETE FROM beauftragt WHERE gibt_in_auftrag ="+ projekt.getProjektNr();
         String sql5 = "DELETE FROM P_MA WHERE arbeitet_an ="+ projekt.getProjektNr();
         String sql6 = "DELETE FROM Projekt WHERE ProjektNr ="+ projekt.getProjektNr();
