@@ -124,8 +124,6 @@ public class MainFrame extends javax.swing.JFrame {
         Hinzufügen = new javax.swing.JButton();
         jScrollPane15 = new javax.swing.JScrollPane();
         TextAreaProjektBearbeitenBes = new javax.swing.JTextArea();
-        jScrollPane17 = new javax.swing.JScrollPane();
-        TextAreaAuftraggeber = new javax.swing.JTextArea();
         ArbeitspaketBearbeiten = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         TextFieldANameBearbeiten = new javax.swing.JTextField();
@@ -874,10 +872,6 @@ public class MainFrame extends javax.swing.JFrame {
         TextAreaProjektBearbeitenBes.setWrapStyleWord(true);
         jScrollPane15.setViewportView(TextAreaProjektBearbeitenBes);
 
-        TextAreaAuftraggeber.setColumns(20);
-        TextAreaAuftraggeber.setRows(5);
-        jScrollPane17.setViewportView(TextAreaAuftraggeber);
-
         javax.swing.GroupLayout ProjektBearbeitenLayout = new javax.swing.GroupLayout(ProjektBearbeiten);
         ProjektBearbeiten.setLayout(ProjektBearbeitenLayout);
         ProjektBearbeitenLayout.setHorizontalGroup(
@@ -928,10 +922,9 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(LabelProjektBeschreibung)
                                     .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                                .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(LabelKommentar)
-                                    .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane17))))
+                                    .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(54, 54, 54))))
         );
         ProjektBearbeitenLayout.setVerticalGroup(
@@ -964,17 +957,15 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(ProjektBearbeitenLayout.createSequentialGroup()
-                            .addComponent(ButtonArbeitspaketBearbeiten)
-                            .addGap(18, 18, 18)
-                            .addComponent(ButtonOpenArbeitspaketHinzufuegen)
-                            .addGap(18, 18, 18)
-                            .addComponent(ButtonAPBearbeitenLöschen)
-                            .addGap(13, 13, 13))
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ProjektBearbeitenLayout.createSequentialGroup()
+                        .addComponent(ButtonArbeitspaketBearbeiten)
+                        .addGap(18, 18, 18)
+                        .addComponent(ButtonOpenArbeitspaketHinzufuegen)
+                        .addGap(18, 18, 18)
+                        .addComponent(ButtonAPBearbeitenLöschen)
+                        .addGap(13, 13, 13))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(65, 65, 65)
                 .addComponent(ButtonProjektAendern)
                 .addGap(29, 29, 29))
@@ -2091,14 +2082,20 @@ public class MainFrame extends javax.swing.JFrame {
         ProjekteAnsehen.setVisible(false);
         ProjektBearbeiten.setVisible(true);
 
+        List<Projekt> pj = pv.getProjekte();
+        Projekt pro = pj.get(ListProjekteAnsehen.getSelectedIndex());
+        
+        
+        
         TextFieldProjektName.setText(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getname());
         TextAreaProjektBearbeitenBes.setText(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getbeschreibung());
         ComboBoxProjektBearbeitenTag.setSelectedIndex(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getDeadline().get(Calendar.DAY_OF_MONTH)-1);
         ComboBoxProjektBearbeitenMonat.setSelectedIndex(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getDeadline().get(Calendar.MONTH));
         ComboBoxProjektBearbeitenJahr.setSelectedIndex(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getDeadline().get(Calendar.YEAR)-2016);
-        Auftraggeber ag = projekt.getAuftraggeber().get(projekt.getAuftraggeber().size()-1);
-        TextAreaAuftraggeber.setText("Name: " + ag.getName() + "\n" + "Ansprechpartner: " + ag.getAnsprechpartner() + "\n" + "Tel: " + ag.getTel() + "\n" 
-        + "Straße: " + ag.getStrasse() + "\n" + "Hausnummer: " + ag.getHausNr() + "\n" + "PLZ: " + ag.getPlz() + "\n" + "Ort: " + ag.getOrt());
+       // Auftraggeber ag = pro.getAuftraggeber().get(0);
+       
+        //TextAreaAuftraggeber.setText("Name: " + ag.getName() + "\n" + "Ansprechpartner: " + ag.getAnsprechpartner() + "\n" + "Tel: " + ag.getTel() + "\n" 
+        //+ "Straße: " + ag.getStrasse() + "\n" + "Hausnummer: " + ag.getHausNr() + "\n" + "PLZ: " + ag.getPlz() + "\n" + "Ort: " + ag.getOrt());
         
         DefaultListModel dm = new DefaultListModel();
         ListArbeitspakete.setModel(dm);
@@ -2549,10 +2546,16 @@ public class MainFrame extends javax.swing.JFrame {
         String hnr = TextFieldAuftraggeberHausnummer.getText();
         int plz = Integer.parseInt(TextFieldAuftraggeberPlz.getText());
         String ort = TextFieldAuftraggeberOrt.getText();
-        Auftraggeber ag = new Auftraggeber(name, an, tel, str, hnr, plz, ort);
         
+        agv.anlegenAuftraggeber(name, an, tel, str, hnr, plz, ort);
         Projekt projekt = p.get(p.size()-1);
+        Auftraggeber ag = agv.getAuftraggeber().get(agv.getAuftraggeber().size()-1);
+        System.out.println(ag.getName());
         projekt.setAuftraggeber(ag);
+        
+        
+        
+      
         
     }//GEN-LAST:event_ButtonProjektAnlegenActionPerformed
 
@@ -2620,7 +2623,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonArbeitspaketHinzuZurueckActionPerformed
 
     private void ButtonAuftraggeberHinzufuegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonAuftraggeberHinzufuegenActionPerformed
-        ProjektBearbeiten.setVisible(false);
+        ProjektAnlegen.setVisible(false);
         AuftraggeberHinzufuegen.setVisible(true);
         
     }//GEN-LAST:event_ButtonAuftraggeberHinzufuegenActionPerformed
@@ -2784,7 +2787,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextArea TextAreaABeschreibungAnlegen;
     private javax.swing.JTextArea TextAreaABeschreibungBearbeiten;
     private javax.swing.JTextArea TextAreaAKommentarBearbeitenHinzufuegen;
-    private javax.swing.JTextArea TextAreaAuftraggeber;
     private javax.swing.JTextArea TextAreaBeschreibung;
     private javax.swing.JTextArea TextAreaNotiz;
     private javax.swing.JTextArea TextAreaNotizenAnsehen;
@@ -2873,7 +2875,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
-    private javax.swing.JScrollPane jScrollPane17;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;

@@ -61,7 +61,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-24,0,0,2,97"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-19,0,0,2,-90"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
@@ -117,7 +117,7 @@
                           <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="199" max="32767" attributes="0"/>
+                  <EmptySpace pref="192" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -142,7 +142,7 @@
                   <Component id="ButtonStartseiteEinloggen" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="401" max="32767" attributes="0"/>
+                  <EmptySpace pref="387" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -240,7 +240,7 @@
                               <Component id="ButtonMenuProjektAnlegen" max="32767" attributes="0"/>
                               <Component id="ButtonMenuNotizen" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="123" max="32767" attributes="0"/>
+                          <EmptySpace pref="192" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="ButtonMenuArbeitspaketeAnsehen" max="32767" attributes="0"/>
                               <Component id="ButtonMenuProfilBearbeiten" max="32767" attributes="0"/>
@@ -380,31 +380,34 @@
                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+                          <Component id="TitelProjektAnlegen" min="-2" pref="146" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="ButtonBackProjektAnlegen" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="LabelBeschreibung" alignment="0" max="32767" attributes="0"/>
                               <Component id="LabelName" alignment="0" min="-2" pref="45" max="-2" attributes="0"/>
                               <Component id="LabelDeadline" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="ButtonProjektAnlegen" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane8" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="ComboBoxTag" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  <Component id="ComboBoxMonat" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="ComboBoxJahr" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="ButtonAuftraggeberHinzufuegen" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="ButtonProjektAnlegen" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane8" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="ComboBoxTag" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Component id="ComboBoxMonat" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="ComboBoxJahr" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="TextFieldName" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="TextFieldName" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="283" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="TitelProjektAnlegen" min="-2" pref="146" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="ButtonBackProjektAnlegen" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <EmptySpace pref="278" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -430,12 +433,14 @@
                       <Component id="ComboBoxJahr" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ComboBoxMonat" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="LabelBeschreibung" min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane8" min="-2" pref="205" max="-2" attributes="0"/>
+                      <Component id="jScrollPane8" min="-2" pref="153" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="86" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                  <Component id="ButtonAuftraggeberHinzufuegen" min="-2" pref="27" max="-2" attributes="0"/>
+                  <EmptySpace pref="78" max="32767" attributes="0"/>
                   <Component id="ButtonProjektAnlegen" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
               </Group>
@@ -616,6 +621,14 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="ButtonAuftraggeberHinzufuegen">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Auftraggeber Hinzuf&#xfc;gen"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAuftraggeberHinzufuegenActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="ArbeitspaketeAnsehen">
@@ -654,7 +667,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="92" max="32767" attributes="0"/>
+                                          <EmptySpace pref="153" max="32767" attributes="0"/>
                                           <Component id="RadioButtonArbeitspaketFertig" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jScrollPane11" alignment="0" max="32767" attributes="0"/>
@@ -839,7 +852,7 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="284" max="32767" attributes="0"/>
+                          <EmptySpace pref="353" max="32767" attributes="0"/>
                           <Component id="ButtonBackProjekteAnsehen" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -877,7 +890,7 @@
                       <Component id="ButtonProjektBearbeiten" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonProjektLöschen" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="285" max="32767" attributes="0"/>
+                  <EmptySpace pref="290" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1000,48 +1013,49 @@
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="LabelProjektName" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Component id="TextFieldProjektName" min="-2" pref="211" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="LabelProjektDeadline" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="ComboBoxProjektBearbeitenTag" min="-2" pref="49" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="ComboBoxProjektBearbeitenMonat" min="-2" pref="81" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="ComboBoxProjektBearbeitenJahr" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="LabelProjektName" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                                  <Component id="TextFieldProjektName" min="-2" pref="183" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="LabelProjektDeadline" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="ComboBoxProjektBearbeitenTag" min="-2" pref="49" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="ComboBoxProjektBearbeitenMonat" min="-2" pref="81" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="ComboBoxProjektBearbeitenJahr" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="LabelProjektBeschreibung" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane15" min="-2" pref="209" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="LabelKommentar" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane16" min="-2" pref="240" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="LabelProjekteAnsehenSub" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="250" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="ButtonProjektBearbeitenZurück" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="Hinzufügen" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="LabelProjektBeschreibung" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane15" min="-2" pref="209" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="120" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="LabelKommentar" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane16" min="-2" pref="240" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
@@ -1082,7 +1096,7 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="Hinzufügen" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="68" max="32767" attributes="0"/>
+                  <EmptySpace pref="55" max="32767" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -1411,7 +1425,7 @@
                           </Group>
                           <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane5" alignment="0" pref="286" max="32767" attributes="0"/>
+                              <Component id="jScrollPane5" alignment="0" pref="355" max="32767" attributes="0"/>
                               <Component id="TextFieldANameBearbeiten" alignment="0" max="32767" attributes="0"/>
                               <Component id="jScrollPane9" max="32767" attributes="0"/>
                               <Group type="102" attributes="0">
@@ -1472,7 +1486,7 @@
                   <Component id="ButtonAKommentarBearbeitenHinzufuegen" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="ButtonArbeitspaketBearbeitenÄndern" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="86" max="32767" attributes="0"/>
+                  <EmptySpace pref="75" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1743,7 +1757,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1790,7 +1804,7 @@
                   <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   <Component id="ButtonArbeitspaketAnlegen" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="213" max="32767" attributes="0"/>
+                  <EmptySpace pref="197" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2029,7 +2043,7 @@
                                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="264" max="32767" attributes="0"/>
+                          <EmptySpace pref="327" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -2074,7 +2088,7 @@
                   <Component id="RadioButtonAdministrator" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Component id="ButtonBenutzerAnlegen" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="386" max="32767" attributes="0"/>
+                  <EmptySpace pref="357" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2215,7 +2229,7 @@
                           <Component id="jScrollPane1" min="-2" pref="288" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="168" max="32767" attributes="0"/>
+                  <EmptySpace pref="232" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2233,7 +2247,7 @@
                       <Component id="ButtonBackMenu" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonWeiterArbeitspakete" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="210" max="32767" attributes="0"/>
+                  <EmptySpace pref="215" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2325,7 +2339,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="271" max="32767" attributes="0"/>
+                          <EmptySpace pref="335" max="32767" attributes="0"/>
                           <Component id="ButtonArbeitspaketHinzuZurueck" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -2589,7 +2603,7 @@
                               <Component id="ButtonBenutzerLöschen" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane12" min="-2" pref="198" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="201" max="32767" attributes="0"/>
+                          <EmptySpace pref="267" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
@@ -2618,7 +2632,7 @@
                   <Component id="ButtonBenutzerLöschen" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                   <Component id="ButtonBenutzerVerwaltenAnlegen" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="217" max="32767" attributes="0"/>
+                  <EmptySpace pref="211" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2734,7 +2748,7 @@
                               <Component id="TextFieldProfilBearbeitenPasswort" alignment="0" max="32767" attributes="0"/>
                               <Component id="TextFieldProfilBearbeitenBenutzername" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="185" max="32767" attributes="0"/>
+                          <EmptySpace pref="248" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
@@ -2783,7 +2797,7 @@
                   <Component id="RadioButtonProfilBearbeitenAdmin" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                   <Component id="ButtonProfilBearbeitenAendern" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="323" max="32767" attributes="0"/>
+                  <EmptySpace pref="295" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -2917,7 +2931,7 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="322" max="32767" attributes="0"/>
+                          <EmptySpace pref="391" max="32767" attributes="0"/>
                           <Component id="ButtonNotizenZurück" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -2954,7 +2968,7 @@
                       <Component id="ButtonNotizHinzufuegen" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ButtonNotizLoeschen" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="96" max="32767" attributes="0"/>
+                  <EmptySpace pref="101" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -3088,7 +3102,7 @@
                           <Component id="ButtonNotizHinzufuegenOk" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="156" max="32767" attributes="0"/>
+                  <EmptySpace pref="225" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -3171,6 +3185,160 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Titel"/>
           </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="AuftraggeberHinzufuegen">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+          <CardConstraints cardName="card17"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel42" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel47" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel46" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel45" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="56" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="ButtonAuftraggeberAnlegen" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="TextFieldAuftraggeberName" max="32767" attributes="0"/>
+                          <Component id="TextFieldAuftraggeberAnsprechpartner" max="32767" attributes="0"/>
+                          <Component id="TextFieldAuftraggeberTelefon" max="32767" attributes="0"/>
+                          <Component id="TextFieldAuftraggeberStrasse" max="32767" attributes="0"/>
+                          <Component id="TextFieldAuftraggeberHausnummer" max="32767" attributes="0"/>
+                          <Component id="TextFieldAuftraggeberPlz" max="32767" attributes="0"/>
+                          <Component id="TextFieldAuftraggeberOrt" pref="147" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  <Component id="jLabel41" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel42" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TextFieldAuftraggeberName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel43" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TextFieldAuftraggeberAnsprechpartner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TextFieldAuftraggeberTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel45" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TextFieldAuftraggeberStrasse" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TextFieldAuftraggeberHausnummer" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel47" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TextFieldAuftraggeberPlz" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel48" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TextFieldAuftraggeberOrt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="ButtonAuftraggeberAnlegen" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="237" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel41">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Auftraggeber hinzuf&#xfc;gen"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel42">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Name"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel43">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ansprechpartner"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel44">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Telefon"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel45">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Stra&#xdf;e"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel46">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Hausnummer"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel47">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="PLZ"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel48">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ort"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="TextFieldAuftraggeberName">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TextFieldAuftraggeberNameActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="TextFieldAuftraggeberAnsprechpartner">
+        </Component>
+        <Component class="javax.swing.JTextField" name="TextFieldAuftraggeberTelefon">
+        </Component>
+        <Component class="javax.swing.JTextField" name="TextFieldAuftraggeberStrasse">
+        </Component>
+        <Component class="javax.swing.JTextField" name="TextFieldAuftraggeberHausnummer">
+        </Component>
+        <Component class="javax.swing.JTextField" name="TextFieldAuftraggeberPlz">
+        </Component>
+        <Component class="javax.swing.JTextField" name="TextFieldAuftraggeberOrt">
+        </Component>
+        <Component class="javax.swing.JButton" name="ButtonAuftraggeberAnlegen">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="anlegen"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ButtonAuftraggeberAnlegenActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

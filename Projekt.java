@@ -86,10 +86,12 @@ public class Projekt {
    }
     
    public List<Auftraggeber> getAuftraggeber(){
-       return auftraggeber;
+       return this.auftraggeber;
    }
    public void setAuftraggeber(Auftraggeber ag){
+       
        this.auftraggeber.add(ag);
+       System.out.println(auftraggeber.get(auftraggeber.size()-1));
    }
    
    public List<Statusbericht> getStatusberichte(){
