@@ -166,8 +166,8 @@ public class KleineVerwaltung {
         * @return einen (gerundeten) Integer der den prozentuale Status des Projektes darstellt
         */
         public Integer berechne_und_speicherStatus (int tag, int monat, int jahr, Projekt p){
-            int anzahl_allerAp = datenbank.selectAllArbeitspakete(p).size();
-            int anzahl_fertigeAP = datenbank.selectAllUnfertige_oder_FertigeArbeitspakete(p, true).size();
+            double anzahl_allerAp = datenbank.selectAllArbeitspakete(p).size();
+            double anzahl_fertigeAP = datenbank.selectAllUnfertige_oder_FertigeArbeitspakete(p, true).size();
             int status = (int) Math.round((anzahl_fertigeAP /anzahl_allerAp) * 100) ;
             
             GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);

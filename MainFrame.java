@@ -1931,7 +1931,7 @@ public class MainFrame extends javax.swing.JFrame {
                   int year = greg.get(Calendar.YEAR);
                   kv.berechne_und_speicherStatus(day, month, year, projekte.get(selectedindex));
                   
-                  TextAreaProjektBeschreibung.append("\n" + "Deadline: " + date + "\n" + kv.getAllStatusberichte(projekte.get(selectedindex)).get(kv.getAllStatusberichte(projekte.get(selectedindex)).size()-1).getProzent());
+                  TextAreaProjektBeschreibung.append("\n" + "Deadline: " + date + "\n" + kv.getAllStatusberichte(projekte.get(selectedindex)).get(kv.getAllStatusberichte(projekte.get(selectedindex)).size()-1).getProzent() + " %");
                   
                   
                   
@@ -2018,12 +2018,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         Projekt projekt = p.get(p.size()-1);
         
-        GregorianCalendar date = projekt.getDeadline();
-        int day = date.get(Calendar.DAY_OF_MONTH);
-        int month = date.get(Calendar.MONTH);
-        int year = date.get(Calendar.YEAR);
-        
-        if(day>tag && month>monat && year>=jahr){
+       
             av.anlegeArbeitspaket(TextFieldAName.getText(),false, TextFieldABeschreibung.getText(), tag, monat, jahr, projekt);  
         
             
@@ -2058,9 +2053,9 @@ public class MainFrame extends javax.swing.JFrame {
         
         ArbeitspaketAnlegen.setVisible(false);
         MitarbeiterHinzufuegen.setVisible(true);
-        }else{
-            jLabel36.setVisible(true);
-        }
+       
+         
+    
     }//GEN-LAST:event_ButtonArbeitspaketAnlegenActionPerformed
 
     private void ButtonProjektAendernActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonProjektAendernActionPerformed
