@@ -1026,9 +1026,9 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="LabelProjektBeschreibung" min="-2" max="-2" attributes="0"/>
-                                      <Component id="TextFieldProjektBeschreibung" min="-2" pref="209" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane15" min="-2" pref="209" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="51" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="LabelKommentar" min="-2" max="-2" attributes="0"/>
                                       <Component id="jScrollPane16" min="-2" pref="240" max="-2" attributes="0"/>
@@ -1076,9 +1076,9 @@
                       <Component id="LabelProjektBeschreibung" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane16" min="-2" pref="122" max="-2" attributes="0"/>
-                      <Component id="TextFieldProjektBeschreibung" min="-2" pref="122" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jScrollPane15" max="32767" attributes="0"/>
+                      <Component id="jScrollPane16" pref="122" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="Hinzufügen" min="-2" max="-2" attributes="0"/>
@@ -1140,8 +1140,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="TextFieldProjektName">
-        </Component>
-        <Component class="javax.swing.JTextField" name="TextFieldProjektBeschreibung">
         </Component>
         <Component class="javax.swing.JLabel" name="LabelKommentar">
           <Properties>
@@ -1343,7 +1341,9 @@
             <Component class="javax.swing.JTextArea" name="TextAreaProjektBearbeitenKommentarHinzufuegen">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
+                <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
+                <Property name="wrapStyleWord" type="boolean" value="true"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -1359,6 +1359,23 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Hinzuf&#xfc;genActionPerformed"/>
           </Events>
         </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane15">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="TextAreaProjektBearbeitenBes">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="lineWrap" type="boolean" value="true"/>
+                <Property name="rows" type="int" value="5"/>
+                <Property name="wrapStyleWord" type="boolean" value="true"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="ArbeitspaketBearbeiten">

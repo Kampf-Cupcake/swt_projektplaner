@@ -106,7 +106,6 @@ public class MainFrame extends javax.swing.JFrame {
         LabelProjektBeschreibung = new javax.swing.JLabel();
         LabelProjektDeadline = new javax.swing.JLabel();
         TextFieldProjektName = new javax.swing.JTextField();
-        TextFieldProjektBeschreibung = new javax.swing.JTextField();
         LabelKommentar = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         ButtonArbeitspaketBearbeiten = new javax.swing.JButton();
@@ -122,6 +121,8 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane16 = new javax.swing.JScrollPane();
         TextAreaProjektBearbeitenKommentarHinzufuegen = new javax.swing.JTextArea();
         Hinzufügen = new javax.swing.JButton();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        TextAreaProjektBearbeitenBes = new javax.swing.JTextArea();
         ArbeitspaketBearbeiten = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         TextFieldANameBearbeiten = new javax.swing.JTextField();
@@ -823,7 +824,9 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         TextAreaProjektBearbeitenKommentarHinzufuegen.setColumns(20);
+        TextAreaProjektBearbeitenKommentarHinzufuegen.setLineWrap(true);
         TextAreaProjektBearbeitenKommentarHinzufuegen.setRows(5);
+        TextAreaProjektBearbeitenKommentarHinzufuegen.setWrapStyleWord(true);
         jScrollPane16.setViewportView(TextAreaProjektBearbeitenKommentarHinzufuegen);
 
         Hinzufügen.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -833,6 +836,12 @@ public class MainFrame extends javax.swing.JFrame {
                 HinzufügenActionPerformed(evt);
             }
         });
+
+        TextAreaProjektBearbeitenBes.setColumns(20);
+        TextAreaProjektBearbeitenBes.setLineWrap(true);
+        TextAreaProjektBearbeitenBes.setRows(5);
+        TextAreaProjektBearbeitenBes.setWrapStyleWord(true);
+        jScrollPane15.setViewportView(TextAreaProjektBearbeitenBes);
 
         javax.swing.GroupLayout ProjektBearbeitenLayout = new javax.swing.GroupLayout(ProjektBearbeiten);
         ProjektBearbeiten.setLayout(ProjektBearbeitenLayout);
@@ -874,8 +883,8 @@ public class MainFrame extends javax.swing.JFrame {
                             .addGroup(ProjektBearbeitenLayout.createSequentialGroup()
                                 .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(LabelProjektBeschreibung)
-                                    .addComponent(TextFieldProjektBeschreibung, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(LabelKommentar)
                                     .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -910,9 +919,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(LabelKommentar)
                     .addComponent(LabelProjektBeschreibung))
                 .addGap(18, 18, 18)
-                .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TextFieldProjektBeschreibung, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(ProjektBearbeitenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane15)
+                    .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Hinzufügen)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
@@ -1944,7 +1953,7 @@ public class MainFrame extends javax.swing.JFrame {
         ProjektBearbeiten.setVisible(true);
 
         TextFieldProjektName.setText(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getname());
-        TextFieldProjektBeschreibung.setText(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getbeschreibung());
+        TextAreaProjektBearbeitenBes.setText(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getbeschreibung());
         ComboBoxProjektBearbeitenTag.setSelectedIndex(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getDeadline().get(Calendar.DAY_OF_MONTH)-1);
         ComboBoxProjektBearbeitenMonat.setSelectedIndex(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getDeadline().get(Calendar.MONTH));
         ComboBoxProjektBearbeitenJahr.setSelectedIndex(projekte.get(ListProjekteAnsehen.getSelectedIndex()).getDeadline().get(Calendar.YEAR)-2016);
@@ -2059,7 +2068,7 @@ public class MainFrame extends javax.swing.JFrame {
         Projekt projekt = p.get(ListProjekteAnsehen.getSelectedIndex());
         
         projekt.setName(TextFieldProjektName.getText());
-        projekt.setBeschreibung(TextFieldProjektBeschreibung.getText());
+        projekt.setBeschreibung(TextAreaProjektBearbeitenBes.getText());
        
         
         int tag = Integer.parseInt((String)ComboBoxProjektBearbeitenTag.getSelectedItem());
@@ -2608,6 +2617,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextArea TextAreaBeschreibung;
     private javax.swing.JTextArea TextAreaNotiz;
     private javax.swing.JTextArea TextAreaNotizenAnsehen;
+    private javax.swing.JTextArea TextAreaProjektBearbeitenBes;
     private javax.swing.JTextArea TextAreaProjektBearbeitenKommentarHinzufuegen;
     private javax.swing.JTextArea TextAreaProjektBeschreibung;
     private javax.swing.JTextField TextFieldABeschreibung;
@@ -2623,7 +2633,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField TextFieldProfilBearbeitenNachname;
     private javax.swing.JTextField TextFieldProfilBearbeitenPasswort;
     private javax.swing.JTextField TextFieldProfilBearbeitenVorname;
-    private javax.swing.JTextField TextFieldProjektBeschreibung;
     private javax.swing.JTextField TextFieldProjektName;
     private javax.swing.JTextField TextFieldVorname;
     private javax.swing.JLabel TitelBenutzerAnlegen;
@@ -2676,6 +2685,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JScrollPane jScrollPane19;
