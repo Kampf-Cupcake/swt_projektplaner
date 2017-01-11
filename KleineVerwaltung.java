@@ -134,19 +134,7 @@ public class KleineVerwaltung {
             e.printStackTrace();
         }
         }
-        
-        public void speicherStatusbericht(int pz, int tag, int monat, int jahr, Projekt p){
-        GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag);
-        Statusbericht sb = new Statusbericht(pz, greg, p);
        
-        try{
-            datenbank.speicherStatusbericht(sb);
-        } catch (Exception e){
-            System.err.print("Fehler beim Einspeichern: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-        
         /**
          * ruft die Methode zum Auslesen aller Statusberichte eines Projektes aus der DB auf
          * @param p Projekt dessen Statusberichte aufgerufen werden sollen
