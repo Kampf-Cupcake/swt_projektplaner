@@ -93,7 +93,6 @@ public class Datenbank {
         int day = projekt.getDeadline().get(Calendar.DAY_OF_MONTH);
         String sql = "INSERT INTO Projekt (name,beschreibung,deadline) "
                 + "VALUES ('" + projekt.getname() + "','" + projekt.getbeschreibung() + "','" + year + "-" + month + "-" + day + "')";
-        System.out.println(sql);
         LinkedList <String> pN = new LinkedList <String>();
         for (Projekt p : vergleichePn){
             pN.add(p.getname());
@@ -139,6 +138,7 @@ public class Datenbank {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
         return projekte;
     }
 
@@ -310,7 +310,7 @@ public class Datenbank {
      * @throws Exception 
      */
     public void speicherArbeitspaket(Arbeitspaket arbeitspaket) throws Exception {
-        List <Arbeitspaket> vergleicheApN = this.selectAllArbeitspakete(arbeitspaket.getProjekt());
+        //List <Arbeitspaket> vergleicheApN = this.selectAllArbeitspakete(arbeitspaket.getProjekt());
         connect();
         int year = arbeitspaket.getDeadline().get(Calendar.YEAR);
         int month = arbeitspaket.getDeadline().get(Calendar.MONTH) + 1;
@@ -318,13 +318,12 @@ public class Datenbank {
         String sql = "INSERT INTO Arbeitspaket (name,fertig,beschreibung,deadline, gehört_zu) "
                 + "VALUES ('" + arbeitspaket.getName() + "'," + arbeitspaket.getFertig() + ",'"
                 + arbeitspaket.getBeschreibung() + "','" + year + "-" + month + "-" + day + "'," + arbeitspaket.getProjekt().getProjektNr() + ")";
-        System.out.println(sql);
-        LinkedList <String> apN = new LinkedList <String>();
+        /*LinkedList <String> apN = new LinkedList <String>();
         for(Arbeitspaket ap : vergleicheApN){
             apN.add(ap.getName());
         }
-        if(!apN.contains(arbeitspaket.getName())){
-        ResultSet r = executeSQL(sql);}
+        if(!apN.contains(arbeitspaket.getName())){*/
+        ResultSet r = executeSQL(sql);//}
         con.close();
     }
 
@@ -416,6 +415,8 @@ public class Datenbank {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        for(Arbeitspaket a: arbeitspakete){
+        System.out.println(a);}
         return arbeitspakete;
     }
 
@@ -509,7 +510,7 @@ public class Datenbank {
         connect();
         String sql = "INSERT INTO Mitarbeiter (name, vorname, rang, benutzername, passwort) "
                 + "VALUES ('" + mitarbeiter.getName() + "','" + mitarbeiter.getVorname() + "','" + mitarbeiter.getRang() + "','" + mitarbeiter.getBenutzername() + "','"+ mitarbeiter.getPasswort()+ "')";
-        System.out.println(sql);
+        
         
         LinkedList <String> bn = new LinkedList <String>();
         for(Mitarbeiter m : vergleicheBn){
@@ -594,28 +595,31 @@ public class Datenbank {
                     String sql3 = "SELECT * FROM Projekt WHERE ProjektNr="+ pNr;
                     ResultSet res3 = stmt.executeQuery(sql3);
                     while (res3.next()) {
-                String name = res3.getString(1);
-                String beschreibung = res3.getString(2);
-                Date deadline = res3.getDate(3);
-                int id = res3.getInt(4);
-                GregorianCalendar greg = dateZuGreg(deadline);
+                        String name = res3.getString(1);
+                        String beschreibung = res3.getString(2);
+                        Date deadline = res3.getDate(3);
+                        int id = res3.getInt(4);
+                        GregorianCalendar greg = dateZuGreg(deadline);
 
-                Projekt meinProjekt = new Projekt(name, beschreibung, greg);
-                meinProjekt.setName(name);
-                meinProjekt.setBeschreibung(beschreibung);
-                meinProjekt.setDeadline(greg);
-                meinProjekt.setProjektNr(id);
+                        Projekt meinProjekt = new Projekt(name, beschreibung, greg);
+                        meinProjekt.setName(name);
+                        meinProjekt.setBeschreibung(beschreibung);
+                        meinProjekt.setDeadline(greg);
+                        meinProjekt.setProjektNr(id);
                
-                myProjects.add(meinProjekt);
-            }
+                        myProjects.add(meinProjekt);
+                    }
                 }
             }
-            System.out.println(myProjects.toString() + myProjects.size());
+            //System.out.println(myProjects.toString() + myProjects.size());
             res.close();
             stmt.close();
             con.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+        for(Projekt p : myProjects){
+            System.out.println(p.getProjektNr());
         }
         return myProjects;
     }
@@ -687,7 +691,6 @@ public class Datenbank {
             }
             
             for(int i: apIDs){
-                System.out.println(i);
             String sql2 = "SELECT * FROM Arbeitspaket WHERE ArbeitspaketNr="+i;
             ResultSet res2 = stmt.executeQuery(sql2);
             
