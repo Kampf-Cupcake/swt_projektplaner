@@ -55,8 +55,8 @@ public class MainFrame extends javax.swing.JFrame {
         EinloggenPasswort = new javax.swing.JPasswordField();
         ButtonStartseiteEinloggen = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
         Menu = new javax.swing.JPanel();
         ButtonMenuProjektAnlegen = new javax.swing.JButton();
         ButtonMenuProfilBearbeiten = new javax.swing.JButton();
@@ -64,7 +64,7 @@ public class MainFrame extends javax.swing.JFrame {
         ButtonMenuArbeitspaketeAnsehen = new javax.swing.JButton();
         ButtonMenuBenutzerVerwalten = new javax.swing.JButton();
         ButtonMenuNotizen = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel40 = new javax.swing.JLabel();
         ProjektAnlegen = new javax.swing.JPanel();
         LabelName = new javax.swing.JLabel();
         LabelBeschreibung = new javax.swing.JLabel();
@@ -278,12 +278,12 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel35.setForeground(new java.awt.Color(255, 0, 0));
         jLabel35.setText("Falscher Benutzername oder falsches Passwort!");
 
-        jTextField2.setFont(new java.awt.Font("Century Gothic", 3, 24)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 102, 102));
-        jTextField2.setText("Blop,");
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 3, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel2.setText("Blop,");
 
-        jTextField3.setFont(new java.awt.Font("Century Gothic", 2, 14)); // NOI18N
-        jTextField3.setText("denn ohne Blop wird dein Projekt ein Flop!");
+        jLabel39.setFont(new java.awt.Font("Century Gothic", 2, 18)); // NOI18N
+        jLabel39.setText("denn ohne Blop wird dein Projekt ein Flop!");
 
         javax.swing.GroupLayout StartseiteEinloggenLayout = new javax.swing.GroupLayout(StartseiteEinloggen);
         StartseiteEinloggen.setLayout(StartseiteEinloggenLayout);
@@ -308,20 +308,20 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(jLabel35)))
                     .addGroup(StartseiteEinloggenLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel2))
                     .addGroup(StartseiteEinloggenLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel39)))
                 .addContainerGap(199, Short.MAX_VALUE))
         );
         StartseiteEinloggenLayout.setVerticalGroup(
             StartseiteEinloggenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(StartseiteEinloggenLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74)
+                .addComponent(jLabel39)
+                .addGap(97, 97, 97)
                 .addGroup(StartseiteEinloggenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(EinloggenBenutzername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -333,7 +333,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(ButtonStartseiteEinloggen)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel35)
-                .addContainerGap(427, Short.MAX_VALUE))
+                .addContainerGap(401, Short.MAX_VALUE))
         );
 
         getContentPane().add(StartseiteEinloggen, "card8");
@@ -389,14 +389,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 102, 102));
-        jTextField1.setText("Hauptmenü");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
+        jLabel40.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel40.setText("Hauptmenü");
 
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
@@ -406,7 +401,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(70, 70, 70)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuLayout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel40)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(MenuLayout.createSequentialGroup()
                         .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -423,9 +418,9 @@ public class MainFrame extends javax.swing.JFrame {
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(174, 174, 174)
+                .addComponent(jLabel40)
+                .addGap(27, 27, 27)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ButtonMenuProjektAnlegen)
                     .addComponent(ButtonMenuProfilBearbeiten))
@@ -437,7 +432,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonMenuBenutzerVerwalten)
                     .addComponent(ButtonMenuNotizen))
-                .addContainerGap(419, Short.MAX_VALUE))
+                .addContainerGap(410, Short.MAX_VALUE))
         );
 
         getContentPane().add(Menu, "card4");
@@ -514,7 +509,7 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(ComboBoxJahr, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(TextFieldName))))
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addContainerGap(283, Short.MAX_VALUE))
         );
         ProjektAnlegenLayout.setVerticalGroup(
             ProjektAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -537,7 +532,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(ProjektAnlegenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LabelBeschreibung)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(ButtonProjektAnlegen)
                 .addGap(65, 65, 65))
         );
@@ -2442,10 +2437,6 @@ public class MainFrame extends javax.swing.JFrame {
         kv.erstellePKommentar(TextAreaProjektBearbeitenKommentarHinzufuegen.getText(), tag, monat, jahr, bv.getAktuellerLogin(), projekt);
     }//GEN-LAST:event_HinzufügenActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
 
     /**
      * @param args the command line arguments
@@ -2627,6 +2618,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -2647,7 +2639,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2670,9 +2664,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
