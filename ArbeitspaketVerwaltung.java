@@ -37,7 +37,7 @@ public class ArbeitspaketVerwaltung {
         System.out.println(name);
         System.out.println(beschreibung);
         System.out.println("Status des Paketes "+ fertig);
-        GregorianCalendar greg = new GregorianCalendar(jahr, monat-1, tag);
+        GregorianCalendar greg = new GregorianCalendar(jahr, monat, tag +1);
         
         //Date datum =  new Date(greg.getGregorianChange().getTime());
         Arbeitspaket arbeitspaket = new Arbeitspaket(name, fertig, beschreibung, greg, projekt);
@@ -117,6 +117,7 @@ public class ArbeitspaketVerwaltung {
      * @param falseOrTrue Status auf false oder true setzen 
      */
     public void bearbeiteArbeitspaketStatus (Arbeitspaket ap, boolean falseOrTrue){
+        System.out.println(falseOrTrue);
         ap.setFertig(falseOrTrue);
         try {
             datenbank.bearbeiteAbeitspaketStatus(ap, falseOrTrue);
