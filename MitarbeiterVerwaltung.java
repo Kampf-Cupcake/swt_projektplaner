@@ -33,11 +33,11 @@ public class MitarbeiterVerwaltung {
      * @param passwort 
      */
     public void erstelleProfil(String name, String vorname, String Rang, String benutzername, String passwort){
-       System.out.println(vorname);
-        System.out.println(name);
+       //System.out.println(vorname);
+        //system.out.println(name);
        
         Mitarbeiter mitarbeiter = new Mitarbeiter(name, vorname, Rang, benutzername, passwort);
-        System.out.println(Rang);
+        //System.out.println(Rang);
        // Date datum =  new Date(greg.getGregorianChange().getTime());
         try{
             datenbank.speicherMitarbeiter(mitarbeiter);
