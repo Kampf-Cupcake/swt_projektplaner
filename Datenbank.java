@@ -99,6 +99,7 @@ public class Datenbank {
         }
         if(!pN.contains(projekt.getname())){
         ResultSet r = executeSQL(sql);}
+        else System.out.print("Projekt mit disem Namen bereits vorhanden!");
         con.close();
     }
 
@@ -307,7 +308,7 @@ public class Datenbank {
      * @throws Exception 
      */
     public void speicherArbeitspaket(Arbeitspaket arbeitspaket) throws Exception {
-        //List <Arbeitspaket> vergleicheApN = this.selectAllArbeitspakete(arbeitspaket.getProjekt());
+        List <Arbeitspaket> vergleicheApN = this.selectAllArbeitspakete(arbeitspaket.getProjekt());
         connect();
         int year = arbeitspaket.getDeadline().get(Calendar.YEAR);
         int month = arbeitspaket.getDeadline().get(Calendar.MONTH) + 1;
@@ -315,12 +316,13 @@ public class Datenbank {
         String sql = "INSERT INTO Arbeitspaket (name,fertig,beschreibung,deadline, gehört_zu) "
                 + "VALUES ('" + arbeitspaket.getName() + "'," + arbeitspaket.getFertig() + ",'"
                 + arbeitspaket.getBeschreibung() + "','" + year + "-" + month + "-" + day + "'," + arbeitspaket.getProjekt().getProjektNr() + ")";
-        /*LinkedList <String> apN = new LinkedList <String>();
+        LinkedList <String> apN = new LinkedList <String>();
         for(Arbeitspaket ap : vergleicheApN){
             apN.add(ap.getName());
         }
-        if(!apN.contains(arbeitspaket.getName())){*/
-        ResultSet r = executeSQL(sql);//}
+        if(!apN.contains(arbeitspaket.getName())){
+        ResultSet r = executeSQL(sql);}
+        else System.out.print("Arbeitspaket mit disem Namen bereits vorhanden!");
         con.close();
     }
 
@@ -515,6 +517,7 @@ public class Datenbank {
         }
         if(!bn.contains(mitarbeiter.getBenutzername())){
         ResultSet r = executeSQL(sql);}
+        else System.out.print("Mitarbeiter mit disem Benutzernamen bereits vorhanden!");
         con.close();
     }
     
@@ -871,6 +874,7 @@ public class Datenbank {
         }
         if(!agN.contains(a.getName())){
         ResultSet r = executeSQL(sql);}
+        else System.out.print("Auftraggeber mit disem Namen bereits vorhanden!");
         con.close();
     }
     
